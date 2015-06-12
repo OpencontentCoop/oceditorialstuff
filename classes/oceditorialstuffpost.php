@@ -156,7 +156,7 @@ class OCEditorialStuffPost
         $attributeIdentifiers = $this->factory->attributeIdentifiers();
         if ( isset( $attributeIdentifiers[$identifier] ) )
             return $attributeIdentifiers[$identifier];
-        throw new Exception( "Attribute $identifier not set" );
+        return false;
     }
     
     public function addImage( eZContentObject $object )

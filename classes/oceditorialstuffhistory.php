@@ -54,7 +54,7 @@ class OCEditorialStuffHistory extends eZPersistentObject
                                                                                'required' => false ),
                                             ),
 
-                      'keys'                 => array( 'handler', 'object_id', 'user_id' ),
+                      'keys'                 => array(),
                       'class_name'           => 'OCEditorialStuffHistory',
                       'name'                 => 'oceditorialstuffhistory',
                       'function_attributes'  => array( 'params' => 'getParams',

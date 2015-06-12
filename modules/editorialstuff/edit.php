@@ -42,7 +42,7 @@ if ( $tpl->variable( 'persistent_variable' ) !== false )
 $tpl->setVariable( 'persistent_variable', false );
 $Result['content_info'] = $contentInfoArray;
 $Result['content'] = $tpl->fetch( "design:editorialstuff/edit.tpl" );
-$Result['path'] = array( array( 'url' => 'editorialstuff/dashboard',
+$Result['path'] = array( array( 'url' => 'editorialstuff/dashboard/' . $factoryIdentifier,
                                 'text' => 'Dashboard' ),
                          array( 'url' => false,
                                 'text' => $object->attribute( 'name' ) ));

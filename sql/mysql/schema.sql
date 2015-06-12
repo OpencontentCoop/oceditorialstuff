@@ -7,6 +7,3 @@ CREATE TABLE `oceditorialstuffhistory` (
   `type` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `params_serialized` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
-ALTER TABLE `oceditorialstuffhistory`
- ADD KEY `handler` (`handler`,`object_id`,`user_id`);
