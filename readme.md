@@ -11,7 +11,8 @@ Di default l'estensione permette:
  * l'inserimento *smart and mobile* dei file media, 
  * l'invio di mail collaborative a uno o più utenti con il contentuto dell'oggetto
  * l'invio di tweet o feed Facebook (se NGPush è stata correttamente configurata)
- * la visualizzazione della cronologia delle modifiche 
+ * la visualizzazione della cronologia delle modifiche
+ * la visualizzazione di commenti interni
 
 ## Requisiti
  * eZPublish Legacy versione > 4.7
@@ -55,7 +56,7 @@ Di default l'estensione viene rilasciata con un dashboard **demo**, raggiungibil
  - in `ClassIdentifier`va definito l'identificatore della classe in cui oggetti saranno visualizzati e gestiti in dashboard
  - in `CreationRepositoryNode` va specificato il nodo parent ove vengono creati nuovi oggetti attraverso il bottone presente in dashbaord 
  - in `CreationButtonText`va definita l'etichetta del bottone di cui al punto precedente
- - in `RepositoryNodes` vanno definiti in nodi parent da cui fecciare gli oggetti in dashboard
+ - in `RepositoryNodes` vanno definiti i nodi parent da cui fecciare gli oggetti in dashboard
  - in `AttributeIdentifiers` vanno mappati gli attributi della classe: images, videos e audios devono essere attributi di tipo ***Relazioni Oggetti (eZObjectRelationList)***, tags di tipo ***eZTags***. Sono opzionali, se non vengono specificati alcune funzionalità non saranno disponibili
  - in `StateGroup`e in `States`vanno specificati il gruppo e gli stati (identificatore=>nome) che la dashboard prenderà in considerazione (se non sono presenti nel sistema, l'estensione provvederà a crearli)
 
@@ -87,5 +88,7 @@ Definire una classe custom serve a customizzare ciò che avviene al passaggio di
 		}
 	}
 Da notare che l'oggetto OCEditorialStuffPost $post incapsula un eZContentObject. 
-Nella classe di default il metodo onChangeState produce solamente un Notice di esempio. 
+Nella classe di default il metodo onChangeState produce solamente un Notice di esempio.
+
+Per attivare i commenti interni è necessario creare un attributo di tipo ***Commenti (ezcomComments)*** nella classe specificata: l'attributo ***deve*** avere come identificatore `internal_comment`
 
