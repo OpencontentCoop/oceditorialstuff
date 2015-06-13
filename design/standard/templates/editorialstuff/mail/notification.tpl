@@ -103,4 +103,4 @@
 
 {set-block scope=root variable=reply_to}{fetch(user,current_user).email}{/set-block}
 {set-block scope=root variable=message_id}{concat('<node.',$post.object.main_node_id,'.eznotification','@',ezini("SiteSettings","SiteURL"),'>')}{/set-block}
-{set-block scope=root variable=subject}PAT - {$post.object.name|wash()}{/set-block}
+{set-block scope=root variable=subject}{$post.object.name|wash()}{/set-block}
