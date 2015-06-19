@@ -27,9 +27,14 @@ class OCEditorialStuffPost
     protected $data;
 
     /**
-     * @var OCEditorialStuffPostFactory
+     * @var OCEditorialStuffPostFactoryInterface
      */
     protected $factory;
+
+    /**
+     * @var OCEditorialStuffActionHandler
+     */
+    protected $actionHandler;
 
     protected $attributeMapKeys = array(
         'images',
@@ -38,7 +43,7 @@ class OCEditorialStuffPost
         'tags'
     );
 
-    public function __construct( array $data = array(), OCEditorialStuffPostFactory $factory )
+    public function __construct( array $data = array(), OCEditorialStuffPostFactoryInterface $factory )
     {
         $this->data = $data;
         if ( isset( $data['object_id'] ) )
@@ -56,6 +61,7 @@ class OCEditorialStuffPost
         }
         $this->dataMap = $this->object->attribute( 'data_map' );
         $this->factory = $factory;
+        $this->actionHandler = OCEditorialStuffActionHandler::instance( $this->factory );
     }
 
     public function id()
@@ -137,7 +143,7 @@ class OCEditorialStuffPost
         {
             if ( $this->factory->onChangeState( $this, $beforeState, $afterState ) )
             {
-                $this->factory->postChangeStateActions( $this, $beforeState, $afterState );
+                $this->actionHandler->handleChangeState( $this, $beforeState, $afterState );
             }
         }
         else

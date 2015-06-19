@@ -108,12 +108,6 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         eZContentObjectState $afterState
     );
 
-    abstract public function postChangeStateActions(
-        OCEditorialStuffPost $post,
-        eZContentObjectState $beforeState,
-        eZContentObjectState $afterState
-    );
-
     public function getConfiguration()
     {
         return $this->configuration;

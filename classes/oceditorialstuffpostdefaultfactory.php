@@ -10,13 +10,4 @@ class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory
         OCEditorialStuffHistory::addHistoryToObjectId( $post->id(), 'dummy', array() );
         return true;
     }
-
-    public function postChangeStateActions(
-        OCEditorialStuffPost $post,
-        eZContentObjectState $beforeState,
-        eZContentObjectState $afterState
-    )
-    {
-        return false;
-    }
 }
