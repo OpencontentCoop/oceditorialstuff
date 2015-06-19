@@ -32,7 +32,23 @@ interface OCEditorialStuffPostFactoryInterface
      */
     public function fields();
 
+    /**
+     * @param OCEditorialStuffPost $post
+     * @param eZContentObjectState $beforeState
+     * @param eZContentObjectState $afterState
+     *
+     * @return bool
+     */
     public function onChangeState( OCEditorialStuffPost $post, eZContentObjectState $beforeState, eZContentObjectState $afterState );
+
+    /**
+     * @param OCEditorialStuffPost $post
+     * @param eZContentObjectState $beforeState
+     * @param eZContentObjectState $afterState
+     *
+     * @return bool
+     */
+    public function postChangeStateActions( OCEditorialStuffPost $post, eZContentObjectState $beforeState, eZContentObjectState $afterState );
 
     /**
      * @return eZContentObjectState[] with key group.identifier for each state

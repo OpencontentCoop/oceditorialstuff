@@ -135,7 +135,10 @@ class OCEditorialStuffPost
         }
         if ( $beforeState && $afterState )
         {
-            $this->factory->onChangeState( $this, $beforeState, $afterState );
+            if ( $this->factory->onChangeState( $this, $beforeState, $afterState ) )
+            {
+                $this->factory->postChangeStateActions( $this, $beforeState, $afterState );
+            }
         }
         else
         {

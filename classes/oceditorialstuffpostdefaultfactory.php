@@ -3,8 +3,20 @@
 
 class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory
 {
-    public function onChangeState( OCEditorialStuffPost $post, eZContentObjectState $beforeState, eZContentObjectState $afterState )
+    public function onChangeState( OCEditorialStuffPost $post,
+                                   eZContentObjectState $beforeState,
+                                   eZContentObjectState $afterState )
     {
-        eZDebug::writeNotice( '(dummy action) Change state for ' . $post->id() . ' from ' . $beforeState->attribute( 'identifier' ) . ' to ' . $afterState->attribute( 'identifier' ), __METHOD__ );
+        OCEditorialStuffHistory::addHistoryToObjectId( $post->id(), 'dummy', array() );
+        return true;
+    }
+
+    public function postChangeStateActions(
+        OCEditorialStuffPost $post,
+        eZContentObjectState $beforeState,
+        eZContentObjectState $afterState
+    )
+    {
+        return false;
     }
 }

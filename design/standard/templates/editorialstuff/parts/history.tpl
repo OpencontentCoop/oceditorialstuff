@@ -12,47 +12,49 @@
 		<tr>          
 		  <td>{$time|l10n( shortdatetime )}</td>
 		  <td>{fetch( content, object, hash( 'object_id', $item.user ) ).name|wash()}</td>
-		  {switch match=$item.action}
+		  <td>{switch match=$item.action}
 			
 			{case match='createversion'}
-			  <td>Creata versione <a href={concat( '/content/versionview/', $post.object.id, '/', $item.parameters.version )|ezurl}">{$item.parameters.version}</a> del contenuto</td>
+			  Creata versione <a href={concat( '/content/versionview/', $post.object.id, '/', $item.parameters.version )|ezurl}">{$item.parameters.version}</a> del contenuto
 			{/case}
 			
 			{case match='updateobjectstate'}
-			  <td>Modificato stato da {cond( and( is_set( $item.parameters.before_state_name ), $item.parameters.before_state_name|null|not() ), $item.parameters.before_state_name, $item.parameters.before_state_id )} a {cond( and( is_set($item.parameters.after_state_name), $item.parameters.after_state_name|null|not() ), $item.parameters.after_state_name, $item.parameters.after_state_id )}</td>
+			  Modificato stato da {cond( and( is_set( $item.parameters.before_state_name ), $item.parameters.before_state_name|null|not() ), $item.parameters.before_state_name, $item.parameters.before_state_id )} a {cond( and( is_set($item.parameters.after_state_name), $item.parameters.after_state_name|null|not() ), $item.parameters.after_state_name, $item.parameters.after_state_id )}
 			{/case}
 			
 			{case match='addimage'}
-			  <td>Aggiunta immagine {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}</td>
+			  Aggiunta immagine {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
 			{/case}
 			
 			{case match='removeimage'}
-			  <td>Rimossa immagine {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}</td>
+			  Rimossa immagine {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
 			{/case}
 			
 			{case match='addvideo'}
-			  <td>Aggiunto video {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}</td>
+			  Aggiunto video {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
 			{/case}
 			
 			{case match='removevideo'}
-			  <td>Rimosso video {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}</td>
+			  Rimosso video {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
 			{/case}
 			
 			{case match='addaudio'}
-			  <td>Aggiunto audio {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}</td>
+			  Aggiunto audio {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
 			{/case}
 
 			{case match='removeaudio'}
-			  <td>Rimosso audio {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}</td>
+			  Rimosso audio {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
 			{/case}
       
             {case match='defaultimage'}
-			  <td>Impostata immagine default {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}</td>
+			  Impostata immagine default {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
 			{/case}
 
-			{case}{/case}
+			{case}
+			{$item.action|wash()} {if $item.parameters|count()}{foreach $item.parameters as $name => $value}{$name|wash()}: {$value|wash()}{/foreach}{/if}
+			{/case}
 			
-		  {/switch}
+		  {/switch}</td>
 		</tr>    
 		{/foreach}
 	  {/foreach}

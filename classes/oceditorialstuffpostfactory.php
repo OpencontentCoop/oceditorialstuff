@@ -102,7 +102,17 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         return $fields;
     }
 
-    abstract public function onChangeState( OCEditorialStuffPost $post, eZContentObjectState $beforeState, eZContentObjectState $afterState );
+    abstract public function onChangeState(
+        OCEditorialStuffPost $post,
+        eZContentObjectState $beforeState,
+        eZContentObjectState $afterState
+    );
+
+    abstract public function postChangeStateActions(
+        OCEditorialStuffPost $post,
+        eZContentObjectState $beforeState,
+        eZContentObjectState $afterState
+    );
 
     public function getConfiguration()
     {

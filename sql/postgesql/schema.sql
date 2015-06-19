@@ -1,5 +1,5 @@
 CREATE TABLE oceditorialstuffhistory (
-  handler VARCHAR(50) DEFAULT NULL,  
+  handler VARCHAR(50) DEFAULT NULL,
   object_id INTEGER DEFAULT 0,
   user_id INTEGER DEFAULT 0,
   created_time INTEGER DEFAULT 0,    
