@@ -7,7 +7,6 @@ class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory
                                    eZContentObjectState $beforeState,
                                    eZContentObjectState $afterState )
     {
-        OCEditorialStuffHistory::addHistoryToObjectId( $post->id(), 'dummy', array() );
         return true;
     }
 }

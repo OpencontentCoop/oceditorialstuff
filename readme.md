@@ -30,6 +30,8 @@ Di default l'estensione permette:
  
 ## Utilizzo e customizzazione
 
+### Configurazione di una dashboard
+
 Ciascuna dashboard corrisponde a una configurazione presente nel file `editorialstuff.ini`.
 
 Le dashboard attive sono quelle presenti in `AvailableFactories/Identifiers` ciascuna raggiungibile dal percorso `http://<your_domain>/editorialstuff/dashboard/<identifier>`.
@@ -60,6 +62,63 @@ Di default l'estensione viene rilasciata con un dashboard **demo**, raggiungibil
  - in `AttributeIdentifiers` vanno mappati gli attributi della classe: images, videos e audios devono essere attributi di tipo ***Relazioni Oggetti (eZObjectRelationList)***, tags di tipo ***eZTags***. Sono opzionali, se non vengono specificati alcune funzionalità non saranno disponibili
  - in `StateGroup`e in `States`vanno specificati il gruppo e gli stati (identificatore=>nome) che la dashboard prenderà in considerazione (se non sono presenti nel sistema, l'estensione provvederà a crearli)
 
+### Utilizzare le Actions
+
+L'estensione fornisce di default due azioni `AddLocation` e `RemoveLocation`.
+
+    [AvailableActions]
+    Actions[]
+    Actions[]=AddLocation
+    Actions[]=RemoveLocation
+
+    [AddLocation]
+    ClassName=OCEditorialStuffActionHandler
+    MethodName=addLocation
+
+    [RemoveLocation]
+    ClassName=OCEditorialStuffActionHandler
+    MethodName=removeLocation
+
+Nel gruppo di configurazione della singola dashboard è possibile specificare che azione compiere al passaggio da uno stato all'altro.
+
+	[demo]
+	...
+	Actions[]
+    Actions[draft-published]=AddLocation;43;5
+    Actions[published-draft]=RemoveLocation;43;5
+
+Nell'esempio di configurazione appena descritto, l'estensione al passaggio di un oggetto da stato draft a stato published provvederà a eseguire la funzione `OCEditorialStuffActionHandler::addLocation` passandole come parametri gli id 43 3 5 oltre che il contenuto corrente (OCEditorialStuffPost)
+Viceversa al passaggio da stato published a stato draft utilizzerà la funzione opposta `OCEditorialStuffActionHandler::removeLocation`
+
+Per aggiungere azioni è sufficiente elencarne il titolo nella configurazione `AvailableActions` e specificarne in un blocco ad hoc la classe e il metodo da invocare.
+Il metodo invocato si aspetta come primo paramtero il contenuto corrente (OCEditorialStuffPost) e come secondo parametro l'array dei valori specificati nel file di configurazione.
+Nell'esempio su descritto il metodo php invocato è:
+
+
+    // $addLocationIds = array( 43, 5 );
+    public static function addLocation( OCEditorialStuffPost $post, $addLocationIds )
+    {
+        $object = $post->getObject();
+        if ( $object instanceof eZContentObject )
+        {
+            eZContentOperationCollection::addAssignment(
+                $object->attribute( 'main_node_id' ),
+                $object->attribute( 'id' ),
+                $addLocationIds
+            );
+        }
+        else
+        {
+            eZDebug::writeError( "Object not found", __METHOD__ );
+        }
+    }
+
+### Customizzazione dell'intera classe PHP responsabile dei cambiamenti
+
+	[demo]
+	...
+	ClassName=YourCustomPHPClass
+
 Infine nel parametro opzionale `ClassName` è possibile specificare la classe PHP che si occuperà di gestire ciascun singolo post. Se il parametro non è specificato verrà utilizzata la classe `OCEditorialStuffPostDefaultFactory`
 
 Definire una classe custom serve a customizzare ciò che avviene al passaggio di stato: la classe deve infatti estendere la classe astratta `OCEditorialStuffPostFactory` e perciò implemetare il metodo `onChangeState`, ad esempio:
@@ -79,16 +138,13 @@ Definire una classe custom serve a customizzare ciò che avviene al passaggio di
 			if ( $beforeState->attribute( 'identifier' ) == 'foo' 
 				 && $afterState->attribute( 'identifier' ) == 'bar' )
 			{
-				eZContentOperationCollection::addAssignment( 
-					$currentObject->attribute( 'main_node_id' ), 
-					$currentObject->attribute( 'id' ), 
-					array( eZINI::instance( 'content.ini' )->variable( 'NodeSettings', 'MediaRootNode' ) ) 
-				);
+				OCEditorialStuffHistory::addHistoryToObjectId( $post->id(), 'My custom history item', array( 'name' => 'My custom history item parameter' ) );
 			}	
 		}
 	}
-Da notare che l'oggetto OCEditorialStuffPost $post incapsula un eZContentObject. 
-Nella classe di default il metodo onChangeState produce solamente un Notice di esempio.
+(Da notare che l'oggetto OCEditorialStuffPost $post incapsula un eZContentObject.)
+
+### Attivazione della chat interna
 
 Per attivare i commenti interni è necessario creare un attributo di tipo ***Commenti (ezcomComments)*** nella classe specificata: l'attributo ***deve*** avere come identificatore `internal_comment`
 
