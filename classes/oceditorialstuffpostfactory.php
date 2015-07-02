@@ -27,11 +27,13 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
             {
                 return new $className( $factoryConfiguration );
             }
+            else
+                throw new Exception( "Factory class '$className' not found" );
         }
         throw new Exception( "Factory '$factoryIdentifier'' not properly configured" );
     }
 
-    protected function __construct( $configuration )
+    public function __construct( $configuration )
     {
         $this->configuration = $configuration;
     }
@@ -107,6 +109,8 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         eZContentObjectState $beforeState,
         eZContentObjectState $afterState
     );
+
+    abstract public function getTemplateDirectory();
 
     public function getConfiguration()
     {

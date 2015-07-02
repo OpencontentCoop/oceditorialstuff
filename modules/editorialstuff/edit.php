@@ -8,6 +8,7 @@ $factoryIdentifier = $Params['FactoryIdentifier'];
 $handler = OCEditorialStuffHandler::instance( $factoryIdentifier );
 $tpl->setVariable( 'factory_identifier', $factoryIdentifier );
 $tpl->setVariable( 'factory_configuration', $handler->getFactory()->getConfiguration() );
+$tpl->setVariable( 'template_directory', $handler->getFactory()->getTemplateDirectory() );
 
 $objectId = $Params['ObjectID'];
 $object = eZContentObject::fetch( $objectId );
@@ -41,7 +42,7 @@ if ( $tpl->variable( 'persistent_variable' ) !== false )
 }
 $tpl->setVariable( 'persistent_variable', false );
 $Result['content_info'] = $contentInfoArray;
-$Result['content'] = $tpl->fetch( "design:editorialstuff/edit.tpl" );
+$Result['content'] = $tpl->fetch( "design:{$handler->getFactory()->getTemplateDirectory()}/edit.tpl" );
 $Result['path'] = array( array( 'url' => 'editorialstuff/dashboard/' . $factoryIdentifier,
                                 'text' => 'Dashboard' ),
                          array( 'url' => false,

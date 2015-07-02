@@ -9,4 +9,9 @@ class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory
     {
         return true;
     }
+
+    public function getTemplateDirectory()
+    {
+        return 'editorialstuff/default';
+    }
 }

@@ -104,7 +104,7 @@
 <script type="text/javascript">
 {literal}  
   $(document).ready(function(){
-      var url = {/literal}{'/editorialstuff/find_user'|ezurl()}{literal};
+      var url = {/literal}{concat('editorialstuff/find_user')|ezurl()}{literal};
       $('#typeahead').typeahead({              
           remote: url+'?q=%QUERY',
           limit: 10,
