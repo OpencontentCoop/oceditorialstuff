@@ -171,6 +171,8 @@ class OCEditorialStuffHistory extends eZPersistentObject
     }
 
     /**
+     * @param $objectID
+     *
      * @return array
      */
     public static function getHistoryByObjectId( $objectID )

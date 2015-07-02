@@ -20,7 +20,7 @@ class OCEditorialStuffActionHandler
     protected function __construct( OCEditorialStuffPostFactoryInterface $factory )
     {
         $editorialIni = eZINI::instance( 'editorialstuff.ini' );
-        $availableActions = $editorialIni->variable( 'AvailableActions', 'Actions' );
+        $availableActions = (array)$editorialIni->variable( 'AvailableActions', 'Actions' );
         foreach( $availableActions as $actionName )
         {
             if ( $editorialIni->hasGroup( $actionName ) )

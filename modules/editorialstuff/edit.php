@@ -7,7 +7,7 @@ $tpl = eZTemplate::factory();
 $factoryIdentifier = $Params['FactoryIdentifier'];
 $handler = OCEditorialStuffHandler::instance( $factoryIdentifier );
 $tpl->setVariable( 'factory_identifier', $factoryIdentifier );
-$tpl->setVariable( 'factory_configuration', $handler->factory->getConfiguration() );
+$tpl->setVariable( 'factory_configuration', $handler->getFactory()->getConfiguration() );
 
 $objectId = $Params['ObjectID'];
 $object = eZContentObject::fetch( $objectId );

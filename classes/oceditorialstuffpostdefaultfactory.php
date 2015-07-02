@@ -3,7 +3,7 @@
 
 class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory
 {
-    public function onChangeState( OCEditorialStuffPost $post,
+    public function onChangeState( OCEditorialStuffPostInterface $post,
                                    eZContentObjectState $beforeState,
                                    eZContentObjectState $afterState )
     {

@@ -1,6 +1,6 @@
 <?php
 
-class OCEditorialStuffPost
+class OCEditorialStuffPost implements OCEditorialStuffPostInterface
 {
     
     const STATE_PUBLISHED = 'published';
