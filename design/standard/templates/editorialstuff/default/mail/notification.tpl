@@ -59,7 +59,7 @@
   <table align='center' bgcolor='#f4f7f9' border='0' cellpadding='20' cellspacing='0' style='background: #f4f7f9;' width='100%'>
     <tr>
       <td>
-        {include uri='design:editorialstuff/mail/notification_preview.tpl' post=$post}
+        {include uri=concat('design:', $template_directory, '/mail/notification_preview.tpl' post=$post}
       </td>
     </tr>
   </table>  

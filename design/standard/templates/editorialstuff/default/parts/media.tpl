@@ -6,7 +6,7 @@
               <span class="btn btn-info btn-lg fileinput-button">
                 <span>Nuovo</span>
                 <input id="upload-media" type="file" name="MediaFile[]"
-                       data-url="{concat( '/editorialstuff/media/', $factory_identifier, '/upload/', $post.object.id )|ezurl(no)}">
+                       data-url="{concat('editorialstuff/media/', $factory_identifier, '/upload/', $post.object.id )|ezurl(no)}">
               </span>
             </form>
             <div id="upload-loading" class="text-center" style="display: none">
@@ -15,14 +15,14 @@
         </div>
         <div class="col-xs-6 col-md-2">
             <a class="btn btn-info btn-lg"
-               href="{concat( '/editorialstuff/media/', $factory_identifier, '/browse/', $post.object.id )|ezurl(no)}">
+               href="{concat('editorialstuff/media/', $factory_identifier, '/browse/', $post.object.id )|ezurl(no)}">
                 Libreria
             </a>
         </div>
     </div>
 
     <div id="data">
-        {include uri='design:editorialstuff/parts/media/data.tpl' post=$post}
+        {include uri=concat('design:', $template_directory, '/parts/media/data.tpl') post=$post}
     </div>
 
 </div>

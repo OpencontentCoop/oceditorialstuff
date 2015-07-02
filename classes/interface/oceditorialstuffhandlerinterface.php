@@ -39,4 +39,5 @@ interface OCEditorialStuffHandlerInterface
      * @return string
      */
     public static function timezone();
+
 }

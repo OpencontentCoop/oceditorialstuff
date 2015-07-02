@@ -53,5 +53,6 @@ $ViewList['send_mail'] = array(
 
 $FunctionList = array();
 $FunctionList['dashboard'] = array();
+$FunctionList['full_dashboard'] = array();
 $FunctionList['media'] = array();
 $FunctionList['mail'] = array();

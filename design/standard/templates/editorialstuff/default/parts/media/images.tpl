@@ -24,8 +24,8 @@
     <div class="col-sm-12" style="margin-bottom: 10px;">
       <div class="well well-sm clearfix">
         <p class="pull-right">
-          <a class="btn btn-danger btn-lg" href="{concat( '/editorialstuff/media/', $factory_identifier, '/remove/', $post.object.id, '/image/', $main_image.contentobject_id )|ezurl(no)}"><i class="fa fa-trash-o"></i></a>
-          <a class="btn btn-warning btn-lg" href="{concat( '/editorialstuff/media/', $factory_identifier, '/edit/', $post.object.id, '/image/', $main_image.contentobject_id )|ezurl(no)}"><i class="fa fa-pencil"></i></a>
+          <a class="btn btn-danger btn-lg" href="{concat('editorialstuff/media/', $factory_identifier, '/remove/', $post.object.id, '/image/', $main_image.contentobject_id )|ezurl(no)}"><i class="fa fa-trash-o"></i></a>
+          <a class="btn btn-warning btn-lg" href="{concat('editorialstuff/media/', $factory_identifier, '/edit/', $post.object.id, '/image/', $main_image.contentobject_id )|ezurl(no)}"><i class="fa fa-pencil"></i></a>
         </p> 
         <a class="gallery-strip-thumbnail" href={$main_image|attribute('image').content['imagefullwide'].url|ezroot} title="{$main_image.name|wash()}" data-gallery>		
         {attribute_view_gui attribute=$main_image|attribute('image') image_class=large fluid=false()}
@@ -47,10 +47,10 @@
       </div>
       <div class="col-xs-6">
         <p>
-          <a class="btn btn-danger btn-lg" href="{concat( '/editorialstuff/media/', $factory_identifier, '/remove/', $post.object.id, '/image/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-trash-o"></i></a>
-          <a class="btn btn-warning btn-lg" href="{concat( '/editorialstuff/media/', $factory_identifier, '/edit/', $post.object.id, '/image/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-pencil"></i></a>
+          <a class="btn btn-danger btn-lg" href="{concat('editorialstuff/media/', $factory_identifier, '/remove/', $post.object.id, '/image/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-trash-o"></i></a>
+          <a class="btn btn-warning btn-lg" href="{concat('editorialstuff/media/', $factory_identifier, '/edit/', $post.object.id, '/image/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-pencil"></i></a>
         </p>
-        <p><a class="btn btn-info btn-xs" href="{concat( '/editorialstuff/media/', $factory_identifier, '/updatepriority/', $post.object.id, '/image/', $item.contentobject_id )|ezurl(no)}">Usa come principale</a></p>
+        <p><a class="btn btn-info btn-xs" href="{concat('editorialstuff/media/', $factory_identifier, '/updatepriority/', $post.object.id, '/image/', $item.contentobject_id )|ezurl(no)}">Usa come principale</a></p>
         
       </div>
       </div>

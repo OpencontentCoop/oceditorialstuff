@@ -40,7 +40,7 @@ class OCEditorialStuffActionHandler
         $this->factory = $factory;
         $factoryConfiguration = $this->factory->getConfiguration();
         $statesConfigurations = $factoryConfiguration['States'];
-        $actionsConfiguration = $factoryConfiguration['Actions'];
+        $actionsConfiguration = isset( $factoryConfiguration['Actions'] ) ? $factoryConfiguration['Actions'] : array();
         foreach( $actionsConfiguration as $changeStates => $actionAndSettings )
         {
             $configurationItem = array();

@@ -1,6 +1,6 @@
 <?php
 
-class OCEditorialStuffPost implements OCEditorialStuffPostInterface
+class OCEditorialStuffPost implements OCEditorialStuffPostInterface, OCEditorialStuffPostMediaInterface
 {
     
     const STATE_PUBLISHED = 'published';
@@ -315,6 +315,49 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         return null;
     }
 
+    public function tabs()
+    {
+        $currentUser = eZUser::currentUser();
+        $templatePath = $this->getFactory()->getTemplateDirectory();
+        $tabs = array(
+            array(
+                'identifier' => 'content',
+                'name' => 'Contenuto',
+                'template_uri' => "design:{$templatePath}/parts/content.tpl"
+            )
+        );
+        if ( $currentUser->hasAccessTo( 'editorialstuff', 'media' ) )
+        {
+            $tabs[] = array(
+                'identifier' => 'media',
+                'name' => 'Media',
+                'template_uri' => "design:{$templatePath}/parts/media.tpl"
+            );
+        }
+        if ( $currentUser->hasAccessTo( 'editorialstuff', 'mail' ) )
+        {
+            $tabs[] = array(
+                'identifier' => 'mail',
+                'name' => 'Mail',
+                'template_uri' => "design:{$templatePath}/parts/mail.tpl"
+            );
+        }
+        if ( eZINI::instance( 'ngpush.ini' )->hasVariable( 'PushNodeSettings', 'Blocks' ) && $currentUser->hasAccessTo( 'push', '*' ) )
+        {
+            $tabs[] = array(
+                'identifier' => 'social',
+                'name' => 'Social Network',
+                'template_uri' => "design:{$templatePath}/parts/social.tpl"
+            );
+        }
+        $tabs[] = array(
+            'identifier' => 'history',
+            'name' => 'Cronologia',
+            'template_uri' => "design:{$templatePath}/parts/history.tpl"
+        );
+        return $tabs;
+    }
+
 
     final public function attribute( $property )
     {
@@ -344,6 +387,9 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
             case 'hashtags':
                 //@todo
                 return false;
+
+            case 'tabs':
+                return $this->tabs();
 
             default:
                 if ( in_array( $property, $this->attributeMapKeys )
@@ -378,6 +424,7 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 'history',
                 'notification_history',
                 'social_history',
+                'tabs',
                 'hashtags'
             ),
             array_keys( $this->data ),

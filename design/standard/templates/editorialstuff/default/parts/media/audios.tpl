@@ -18,8 +18,8 @@
 		  </p>
 		</div>		
 		<div class="col-xs-6">
-		  <a class="btn btn-danger btn-lg" href="{concat( '/editorialstuff/media/', $factory_identifier, '/remove/', $post.object.id, '/audio/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-trash-o"></i></a>
-		  <a class="btn btn-warning btn-lg" href="{concat( '/editorialstuff/media/', $factory_identifier, '/edit/', $post.object.id, '/audio/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-pencil"></i></a>
+		  <a class="btn btn-danger btn-lg" href="{concat('editorialstuff/media/', $factory_identifier, '/remove/', $post.object.id, '/audio/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-trash-o"></i></a>
+		  <a class="btn btn-warning btn-lg" href="{concat('editorialstuff/media/', $factory_identifier, '/edit/', $post.object.id, '/audio/', $item.contentobject_id )|ezurl(no)}"><i class="fa fa-pencil"></i></a>
 		</div>
 	  </div>
 	</div>

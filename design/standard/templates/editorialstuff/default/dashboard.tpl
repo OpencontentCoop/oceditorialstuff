@@ -99,7 +99,7 @@
           
           {*Stato*}
           <td>
-            {include uri='design:editorialstuff/parts/state.tpl'}
+            {include uri=concat('design:', $template_directory, '/parts/state.tpl')}
           </td>
           
           <td>

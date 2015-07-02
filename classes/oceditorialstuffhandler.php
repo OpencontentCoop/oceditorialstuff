@@ -241,6 +241,12 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         {
             $fieldsToReturn[] = $field['solr_identifier'];
         }
+
+        $fullAccess = eZUser::currentUser()->hasAccessTo( 'editorialstuff', 'full_dashboard' );
+        if ( $fullAccess['accessWord'] != 'yes' )
+        {
+            $this->filters[] = 'meta_owner_id_si:' . eZUser::currentUserID();
+        }
         
         $solrFetchParams = array(
             'SearchOffset' => $offset,

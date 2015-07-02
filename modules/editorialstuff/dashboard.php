@@ -8,6 +8,7 @@ $factoryIdentifier = $Params['FactoryIdentifier'];
 $handler = OCEditorialStuffHandler::instance( $factoryIdentifier );
 $tpl->setVariable( 'factory_identifier', $factoryIdentifier );
 $tpl->setVariable( 'factory_configuration', $handler->getFactory()->getConfiguration() );
+$tpl->setVariable( 'template_directory', $handler->getFactory()->getTemplateDirectory() );
 
 $offset = $Params['Offset'];
 $query = $http->getVariable( 'query', $Params['Query'] );
@@ -47,5 +48,5 @@ if ( $tpl->variable( 'persistent_variable' ) !== false )
     $contentInfoArray['persistent_variable'] = $tpl->variable( 'persistent_variable' );
 }
 $Result['content_info'] = $contentInfoArray;
-$Result['content'] = $tpl->fetch( "design:editorialstuff/dashboard.tpl" );
+$Result['content'] = $tpl->fetch( "design:{$handler->getFactory()->getTemplateDirectory()}/dashboard.tpl" );
 $Result['path'] = array( array( 'url' => false, 'text' => 'Dashboard' ) );

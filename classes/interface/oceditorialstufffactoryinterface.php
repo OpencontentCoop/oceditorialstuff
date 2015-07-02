@@ -3,6 +3,11 @@
 interface OCEditorialStuffPostFactoryInterface
 {
     /**
+     * @param array $configuration
+     */
+    public function __construct( $configuration );
+
+    /**
      * @return int[] of node ids
      */
     public function repositoryRootNodes();
@@ -58,4 +63,6 @@ interface OCEditorialStuffPostFactoryInterface
      * @return array
      */
     public function getConfiguration();
+
+    public function getTemplateDirectory();
 }
