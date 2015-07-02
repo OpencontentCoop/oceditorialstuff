@@ -1,6 +1,6 @@
 <?php
 
-class OCEditorialStuffHandler
+class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
 {
     const INTERVAL_MONTH = 'P1M';
     const PICKER_DATE_FORMAT = 'd-m-Y';
@@ -24,11 +24,22 @@ class OCEditorialStuffHandler
     /**
      * @var OCEditorialStuffPostFactory
      */
-    public $factory;
-    
-    public static function instance( $factoryIdentifier )
+    protected $factory;
+
+    /**
+     * @param $factoryIdentifier
+     *
+     * @return OCEditorialStuffHandlerInterface
+     */
+    final public static function instance( $factoryIdentifier )
     {
-        return new OCEditorialStuffHandler( $factoryIdentifier );
+        $handlerClassName = 'OCEditorialStuffHandler';
+        $factoryConfiguration = OCEditorialStuffPostFactory::instance( $factoryIdentifier )->getConfiguration();
+        if ( isset( $factoryConfiguration['HandlerClassName'] ) )
+        {
+            $handlerClassName = $factoryConfiguration['HandlerClassName'];
+        }
+        return new $handlerClassName( $factoryIdentifier );
     }
 
     protected function __construct( $factoryIdentifier )
@@ -37,7 +48,20 @@ class OCEditorialStuffHandler
         $this->factory = OCEditorialStuffPostFactory::instance( $factoryIdentifier );
         $this->setStartDate( date( self::YEAR_IDENTIFIER_FORMAT ), date( self::MONTH_IDENTIFIER_FORMAT ), date( self::DAY_IDENTIFIER_FORMAT ) );
     }
-    
+
+    /**
+     * @return OCEditorialStuffPostFactoryInterface
+     */
+    public function getFactory()
+    {
+        return $this->factory;
+    }
+
+    /**
+     * @param $id
+     * @return OCEditorialStuffPost
+     * @throws Exception
+     */
     public function fetchByObjectId( $id )
     {
         $this->setFilters( array( 'meta_id_si:' . $id ) );
@@ -197,7 +221,7 @@ class OCEditorialStuffHandler
         {
             foreach( $solrResult['SearchResult'] as $item )
             {
-                $result[] = $this->factory->instanceFromEzfindResultArray( $item );
+                $result[] = $this->getFactory()->instanceFromEzfindResultArray( $item );
             }
         }
         
@@ -213,7 +237,7 @@ class OCEditorialStuffHandler
     protected function fetch( $limit = 10, $offset = 0 )
     {        
         $fieldsToReturn = array();
-        foreach( $this->factory->fields() as $field )
+        foreach( $this->getFactory()->fields() as $field )
         {
             $fieldsToReturn[] = $field['solr_identifier'];
         }
@@ -230,9 +254,9 @@ class OCEditorialStuffHandler
             'Facet' => $this->facets,
             'SortBy' => array( 'published' => 'desc' ),
             'Filter' => $this->filters,
-            'SearchContentClassID' => array( $this->factory->classIdentifier() ),
+            'SearchContentClassID' => array( $this->getFactory()->classIdentifier() ),
             'SearchSectionID' => null,
-            'SearchSubTreeArray' => $this->factory->repositoryRootNodes(),
+            'SearchSubTreeArray' => $this->getFactory()->repositoryRootNodes(),
             'AsObjects' => false,
             'SpellCheck' => null,
             'IgnoreVisibility' => null,

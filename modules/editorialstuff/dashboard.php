@@ -7,7 +7,7 @@ $tpl = eZTemplate::factory();
 $factoryIdentifier = $Params['FactoryIdentifier'];
 $handler = OCEditorialStuffHandler::instance( $factoryIdentifier );
 $tpl->setVariable( 'factory_identifier', $factoryIdentifier );
-$tpl->setVariable( 'factory_configuration', $handler->factory->getConfiguration() );
+$tpl->setVariable( 'factory_configuration', $handler->getFactory()->getConfiguration() );
 
 $offset = $Params['Offset'];
 $query = $http->getVariable( 'query', $Params['Query'] );
@@ -31,14 +31,17 @@ $tpl->setVariable( 'post_count', $postCount );
 $posts = $handler->fetchItems( $viewParameters );
 $tpl->setVariable( 'posts', $posts );
 
-$tpl->setVariable( 'states', $handler->factory->states() );
+$tpl->setVariable( 'states', $handler->getFactory()->states() );
 
 $Result = array();
 $contentInfoArray = array(
     'node_id' => null,
     'class_identifier' => null
 );
-$contentInfoArray['persistent_variable'] = array( 'show_path' => true, 'site_title' => 'Dashboard Ufficio Stampa' );
+$contentInfoArray['persistent_variable'] = array(
+    'show_path' => true,
+    'site_title' => 'Dashboard Ufficio Stampa'
+);
 if ( $tpl->variable( 'persistent_variable' ) !== false )
 {
     $contentInfoArray['persistent_variable'] = $tpl->variable( 'persistent_variable' );

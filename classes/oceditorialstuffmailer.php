@@ -3,12 +3,12 @@
 class OCEditorialStuffMailer
 {
     /**
-     * @param OCEditorialStuffPost $post
+     * @param OCEditorialStuffPostInterface $post
      * @param array $addressArray
      * @param null $message
      * @param null $mailActions
      */
-    public static function sendMail( OCEditorialStuffPost $post, array $addressArray, $message = null, $mailActions = null )
+    public static function sendMail( OCEditorialStuffPostInterface $post, array $addressArray, $message = null, $mailActions = null )
     {
         $recipients = array();
         $errors = array();

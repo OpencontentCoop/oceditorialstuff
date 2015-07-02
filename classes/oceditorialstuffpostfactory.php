@@ -103,7 +103,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
     }
 
     abstract public function onChangeState(
-        OCEditorialStuffPost $post,
+        OCEditorialStuffPostInterface $post,
         eZContentObjectState $beforeState,
         eZContentObjectState $afterState
     );
@@ -201,7 +201,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
     /**
      * @param array $result
      *
-     * @return OCEditorialStuffPost
+     * @return OCEditorialStuffPostInterface
      */
     final public function instanceFromEzfindResultArray( array $result )
     {
