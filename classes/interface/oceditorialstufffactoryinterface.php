@@ -8,6 +8,16 @@ interface OCEditorialStuffPostFactoryInterface
     public function __construct( $configuration );
 
     /**
+     * @return string
+     */
+    public function identifier();
+
+    /**
+     * @return int
+     */
+    public function creationRepositoryNode();
+
+    /**
      * @return int[] of node ids
      */
     public function repositoryRootNodes();
@@ -60,9 +70,20 @@ interface OCEditorialStuffPostFactoryInterface
     public function instanceFromEzfindResultArray( array $result );
 
     /**
+     * @param array $data
+     *
+     * @return OCEditorialStuffPostInterface
+     */
+    public function instancePost( $data );
+
+    /**
      * @return array
      */
     public function getConfiguration();
 
     public function getTemplateDirectory();
+
+    public function dashboardModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module );
+
+    public function editModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module );
 }

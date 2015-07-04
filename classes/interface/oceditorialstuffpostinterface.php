@@ -19,6 +19,12 @@ interface OCEditorialStuffPostInterface
 
     public function setState( $stateIdentifier );
 
+    public function onCreate();
+
+    public function onUpdate();
+
+    public function onRemove();
+
     public function onChangeState( $beforeStateId, $afterStateId );
 
     public function currentState();
@@ -30,5 +36,7 @@ interface OCEditorialStuffPostInterface
     public function attributes();
 
     public function hasAttribute( $property );
+
+    public function jsonSerialize();
 
 }

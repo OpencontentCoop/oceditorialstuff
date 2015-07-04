@@ -6,7 +6,7 @@ $stateID = $Params['StateID'];
 $objectID = $Params['ObjectID'];
 
 $factoryIdentifier = $Params['FactoryIdentifier'];
-$handler = OCEditorialStuffHandler::instance( $factoryIdentifier );
+$handler = OCEditorialStuffHandler::instance( $factoryIdentifier, $_GET );
 
 try
 {

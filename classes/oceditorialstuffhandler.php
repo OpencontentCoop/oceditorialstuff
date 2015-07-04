@@ -16,36 +16,74 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
     protected $facets = null;
     
     protected $filters = array();
+
+    protected $sortArray = array( 'published' => 'desc' );
     
     protected $query = '';
 
     protected $factoryIdentifier;
 
     /**
-     * @var OCEditorialStuffPostFactory
+     * @var OCEditorialStuffPostFactoryInterface
      */
     protected $factory;
 
+    private static $instances = array();
+
     /**
-     * @param $factoryIdentifier
+     * @return OCEditorialStuffHandlerInterface[]
+     */
+    final public static function instances()
+    {
+        $data = array();
+        $ini = eZINI::instance( 'editorialstuff.ini' );
+        $availableFactories = $ini->variable( 'AvailableFactories', 'Identifiers' );
+        foreach( $availableFactories as $identifier )
+        {
+            $data[$identifier] = self::instance( $identifier );
+        }
+        return $data;
+    }
+
+    /**
+     * @param string $factoryIdentifier
+     * @param array $factoryParameters
      *
      * @return OCEditorialStuffHandlerInterface
      */
-    final public static function instance( $factoryIdentifier )
+    final public static function instance( $factoryIdentifier, $factoryParameters = array() )
     {
-        $handlerClassName = 'OCEditorialStuffHandler';
-        $factoryConfiguration = OCEditorialStuffPostFactory::instance( $factoryIdentifier )->getConfiguration();
-        if ( isset( $factoryConfiguration['HandlerClassName'] ) )
+        ksort( $factoryParameters );
+        $key = md5( $factoryIdentifier . json_encode( $factoryParameters ) );
+        if ( !isset( self::$instances[$key] ) )
         {
-            $handlerClassName = $factoryConfiguration['HandlerClassName'];
+            $handlerClassName = 'OCEditorialStuffHandler';
+            $factory = OCEditorialStuffPostFactory::instance(
+                $factoryIdentifier,
+                $factoryParameters
+            );
+            $factoryConfiguration = $factory->getConfiguration();
+            if ( isset( $factoryConfiguration['HandlerClassName'] ) )
+            {
+                $handlerClassName = $factoryConfiguration['HandlerClassName'];
+            }
+
+            self::$instances[$key] = new $handlerClassName( $factoryIdentifier, $factory );
         }
-        return new $handlerClassName( $factoryIdentifier );
+        return self::$instances[$key];
     }
 
-    protected function __construct( $factoryIdentifier )
+    final public static function instanceFromFactory( OCEditorialStuffPostFactoryInterface $factory )
+    {
+        $factoryConfiguration = $factory->getConfiguration();
+        return self::instance( $factoryConfiguration['identifier'], $factoryConfiguration['RuntimeParameters'] );
+
+    }
+
+    protected function __construct( $factoryIdentifier, $factory )
     {
         $this->factoryIdentifier = $factoryIdentifier;
-        $this->factory = OCEditorialStuffPostFactory::instance( $factoryIdentifier );
+        $this->factory = $factory;
         $this->setStartDate( date( self::YEAR_IDENTIFIER_FORMAT ), date( self::MONTH_IDENTIFIER_FORMAT ), date( self::DAY_IDENTIFIER_FORMAT ) );
     }
 
@@ -84,46 +122,44 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         throw new Exception( "Post node $id not found" );
     }
 
-    public function fetchItems( $parameters )
+    protected function parseParameters( $parameters )
     {
-        if ( $parameters['interval'] )
+        if ( isset( $parameters['interval'] ) && $parameters['interval'] )
         {
             $this->setInterval( $parameters['interval'] );
         }
-        if ( $parameters['state'] )
+        if ( isset( $parameters['state'] ) && $parameters['state']  )
         {
             $this->setState( $parameters['state'] );
         }
-        if ( $parameters['query'] )
+        if ( isset( $parameters['query'] ) && $parameters['query']  )
         {
             $this->setQuery( $parameters['query'] );
         }
-        if ( $parameters['tag'] )
+        if ( isset( $parameters['tag'] ) && $parameters['tag']  )
         {
             $this->setTag( $parameters['tag'] );
         }
+        if ( isset( $parameters['sort'] ) && $parameters['sort']  )
+        {
+            $this->setSortArray( $parameters['sort'] );
+        }
+        if ( isset( $parameters['filters'] ) && $parameters['filters']  )
+        {
+            $this->setFilters( $parameters['filters'] );
+        }
+    }
+
+    public function fetchItems( $parameters )
+    {
+        $this->parseParameters( $parameters );
         $result = (array) $this->fetchResult( $parameters['limit'], $parameters['offset'] );
         return $result;
     }
 
     public function fetchItemsCount( $parameters )
     {
-        if ( $parameters['interval'] )
-        {
-            $this->setInterval( $parameters['interval'] );
-        }
-        if ( $parameters['state'] )
-        {
-            $this->setState( $parameters['state'] );
-        }
-        if ( $parameters['query'] )
-        {
-            $this->setQuery( $parameters['query'] );
-        }
-        if ( $parameters['tag'] )
-        {
-            $this->setTag( $parameters['tag'] );
-        }
+        $this->parseParameters( $parameters );
         $result = intval( $this->fetchCount() );
         return $result;
     }
@@ -131,6 +167,11 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
     protected function setFilters( $array )
     {
         $this->filters = $array;
+    }
+
+    protected function setSortArray( $array )
+    {
+        $this->sortArray = $array;
     }
 
     protected function setQuery( $query )
@@ -252,7 +293,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'SearchOffset' => $offset,
             'SearchLimit' => $limit,
             'Facet' => $this->facets,
-            'SortBy' => array( 'published' => 'desc' ),
+            'SortBy' => $this->sortArray,
             'Filter' => $this->filters,
             'SearchContentClassID' => array( $this->getFactory()->classIdentifier() ),
             'SearchSectionID' => null,
@@ -323,4 +364,5 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         //@todo
         return new DateTimeZone( 'Europe/Rome' );
     }
+
 }

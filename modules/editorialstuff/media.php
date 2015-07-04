@@ -3,7 +3,7 @@
 $module = $Params['Module'];
 
 $factoryIdentifier = $Params['FactoryIdentifier'];
-$handler = OCEditorialStuffHandler::instance( $factoryIdentifier );
+$handler = OCEditorialStuffHandler::instance( $factoryIdentifier, $_GET );
 
 $objectID = $Params['ObjectID'];
 $action = $Params['Action'];
