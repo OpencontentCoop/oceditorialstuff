@@ -76,14 +76,6 @@
     {foreach $posts as $post}
       <tr>
 
-          {*se non è stato scelto uno stato, i comunicati con stato nascosto non li mostro*}
-          {if $view_parameters.state|not()}
-
-              {if eq($post.current_state.id, 17)}
-                  {continue}
-              {/if}
-          {/if}
-
           <td class="text-center">            
             <a href="{concat( 'editorialstuff/edit/', $factory_identifier, '/', $post.object.id )|ezurl('no')}" title="Dettaglio" class="btn btn-info">
                 Dettaglio
@@ -106,8 +98,7 @@
             <a data-toggle="modal" data-load-remote="{concat( 'layout/set/modal/content/view/full/', $post.object.main_node_id )|ezurl('no')}" data-remote-target="#preview .modal-content" href="#{*$post.url*}" data-target="#preview">{$post.object.name}</a>
           </td>
       
-        </td>
-      </tr>  
+      </tr>
     {/foreach}
     </table>
     </div>

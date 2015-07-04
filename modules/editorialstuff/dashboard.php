@@ -1,14 +1,8 @@
 <?php
+
 /** @var eZModule $module */
 $module = $Params['Module'];
 $http = eZHTTPTool::instance();
-$tpl = eZTemplate::factory();
-
-$factoryIdentifier = $Params['FactoryIdentifier'];
-$handler = OCEditorialStuffHandler::instance( $factoryIdentifier );
-$tpl->setVariable( 'factory_identifier', $factoryIdentifier );
-$tpl->setVariable( 'factory_configuration', $handler->getFactory()->getConfiguration() );
-$tpl->setVariable( 'template_directory', $handler->getFactory()->getTemplateDirectory() );
 
 $offset = $Params['Offset'];
 $query = $http->getVariable( 'query', $Params['Query'] );
@@ -24,29 +18,7 @@ $viewParameters = array(
     'interval'  => ( isset( $interval ) and is_string( $interval ) ) ? $interval : false,
     'tag'  => ( isset( $tag ) and is_string( $tag ) ) ? $tag : false
 );
-$tpl->setVariable( 'view_parameters', $viewParameters );
 
-$postCount = $handler->fetchItemsCount( $viewParameters );
-$tpl->setVariable( 'post_count', $postCount );
-
-$posts = $handler->fetchItems( $viewParameters );
-$tpl->setVariable( 'posts', $posts );
-
-$tpl->setVariable( 'states', $handler->getFactory()->states() );
-
-$Result = array();
-$contentInfoArray = array(
-    'node_id' => null,
-    'class_identifier' => null
-);
-$contentInfoArray['persistent_variable'] = array(
-    'show_path' => true,
-    'site_title' => 'Dashboard Ufficio Stampa'
-);
-if ( $tpl->variable( 'persistent_variable' ) !== false )
-{
-    $contentInfoArray['persistent_variable'] = $tpl->variable( 'persistent_variable' );
-}
-$Result['content_info'] = $contentInfoArray;
-$Result['content'] = $tpl->fetch( "design:{$handler->getFactory()->getTemplateDirectory()}/dashboard.tpl" );
-$Result['path'] = array( array( 'url' => false, 'text' => 'Dashboard' ) );
+$factoryIdentifier = $Params['FactoryIdentifier'];
+$handler = OCEditorialStuffHandler::instance( $factoryIdentifier, $_GET );
+return $handler->getFactory()->dashboardModuleResult( $viewParameters, $handler, $module );

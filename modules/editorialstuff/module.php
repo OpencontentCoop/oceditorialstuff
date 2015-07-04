@@ -51,8 +51,16 @@ $ViewList['send_mail'] = array(
     'unordered_params' => array()
 );
 
+$ViewList['file'] = array(
+    'functions' => array( 'file' ),
+    'script' => 'file.php',
+    'params' => array( 'FactoryIdentifier', 'Action', 'ObjectID', 'AttributeIdentifier', 'FileID' ),
+    'unordered_params' => array()
+);
+
 $FunctionList = array();
 $FunctionList['dashboard'] = array();
 $FunctionList['full_dashboard'] = array();
 $FunctionList['media'] = array();
 $FunctionList['mail'] = array();
+$FunctionList['file'] = array();

@@ -10,8 +10,8 @@ class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory
         return true;
     }
 
-    public function getTemplateDirectory()
+    public function instancePost( $data )
     {
-        return 'editorialstuff/default';
+        return new OCEditorialStuffPostDefault( $data, $this );
     }
 }
