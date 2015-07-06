@@ -58,6 +58,14 @@ $ViewList['file'] = array(
     'unordered_params' => array()
 );
 
+$ViewList['action'] = array(
+    'functions' => array( 'dashboard' ),
+    'script' => 'action.php',
+    'params' => array( 'FactoryIdentifier', 'ID' ),
+    'unordered_params' => array()
+);
+
+
 $FunctionList = array();
 $FunctionList['dashboard'] = array();
 $FunctionList['full_dashboard'] = array();

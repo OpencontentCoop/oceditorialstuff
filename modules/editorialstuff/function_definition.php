@@ -5,11 +5,23 @@ $FunctionList['posts'] = array(
     'name' => 'posts',
     'operation_types' => array( 'read' ),
     'call_method' => array(
-        'include_file' => 'extension/pat_stampa/classes/oceditorialstufffunctioncollection.php',
+        'include_file' => 'extension/oceditorialstuff/classes/oceditorialstufffunctioncollection.php',
         'class' => 'OCEditorialStuffFunctionCollection',
         'method' => 'fetchPosts' ),
     'parameter_type' => 'standard',
     'parameters' => array(
+        array(
+            'name' => 'factory_identifier',
+            'type' =>'string',
+            'required' => true,
+            'default' => false
+        ),
+        array(
+            'name' => 'factory_parameters',
+            'type' =>'array',
+            'required' => false,
+            'default' => array()
+        ),
         array(
             'name' => 'interval',
             'type' =>'string',
@@ -53,11 +65,23 @@ $FunctionList['post_count'] = array(
     'name' => 'post_count',
     'operation_types' => array( 'read' ),
     'call_method' => array(
-        'include_file' => 'extension/pat_stampa/classes/oceditorialstufffunctioncollection.php',
+        'include_file' => 'extension/oceditorialstuff/classes/oceditorialstufffunctioncollection.php',
         'class' => 'OCEditorialStuffFunctionCollection',
         'method' => 'fetchPostCount' ),
     'parameter_type' => 'standard',
     'parameters' => array(
+        array(
+            'name' => 'factory_identifier',
+            'type' =>'string',
+            'required' => true,
+            'default' => false
+        ),
+        array(
+            'name' => 'factory_parameters',
+            'type' =>'array',
+            'required' => false,
+            'default' => array()
+        ),
         array(
             'name' => 'interval',
             'type' =>'string',
@@ -89,20 +113,22 @@ $FunctionList['post_states'] = array(
     'name' => 'post_states',
     'operation_types' => array( 'read' ),
     'call_method' => array(
-        'include_file' => 'extension/pat_stampa/classes/oceditorialstufffunctioncollection.php',
+        'include_file' => 'extension/oceditorialstuff/classes/oceditorialstufffunctioncollection.php',
         'class' => 'OCEditorialStuffFunctionCollection',
         'method' => 'fetchPostStates' ),
     'parameter_type' => 'standard',
-    'parameters' => array()
-);
-
-$FunctionList['post_tags'] = array(
-    'name' => 'post_tags',
-    'operation_types' => array( 'read' ),
-    'call_method' => array(
-        'include_file' => 'extension/pat_stampa/classes/oceditorialstufffunctioncollection.php',
-        'class' => 'OCEditorialStuffFunctionCollection',
-        'method' => 'fetchPostTags' ),
-    'parameter_type' => 'standard',
-    'parameters' => array()
+    'parameters' => array(
+        array(
+            'name' => 'factory_identifier',
+            'type' =>'string',
+            'required' => true,
+            'default' => false
+        ),
+        array(
+            'name' => 'factory_parameters',
+            'type' =>'array',
+            'required' => false,
+            'default' => array()
+        )
+    )
 );

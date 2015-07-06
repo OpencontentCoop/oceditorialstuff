@@ -46,6 +46,11 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         return $this->configuration['identifier'];
     }
 
+    public function getRuntimeParameters()
+    {
+        return $this->configuration['RuntimeParameters'];
+    }
+
     public function creationRepositoryNode()
     {
         return $this->configuration['CreationRepositoryNode'];
@@ -72,7 +77,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
      */
     public function attributeIdentifiers()
     {
-        return $this->configuration['AttributeIdentifiers'];
+        return isset( $this->configuration['AttributeIdentifiers'] ) ? $this->configuration['AttributeIdentifiers'] : array();
     }
 
     /**
@@ -80,7 +85,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
      */
     public function stateGroupIdentifier()
     {
-        return $this->configuration['StateGroup'];
+        return isset( $this->configuration['StateGroup'] ) ? $this->configuration['StateGroup'] : null;
     }
 
     /**
@@ -88,7 +93,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
      */
     public function stateIdentifiers()
     {
-        return $this->configuration['States'];
+        return isset( $this->configuration['States'] ) ? $this->configuration['States'] : array();
     }
 
     /**

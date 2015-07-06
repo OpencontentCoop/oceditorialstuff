@@ -10,6 +10,7 @@
                        value="{$view_parameters.query|wash()}"/>
             </div>
 
+            {if $states|count()}
             <div class="form-group">
                 <select class="form-control" name="state" id="dashboard-state-select">
                     <option value="">Tutti</option>
@@ -18,12 +19,13 @@
                     {/foreach}
                 </select>
             </div>
+            {/if}
 
             {def $intervals = array(
-            hash( 'value', '-P1D', 'name', 'Ultimo giorno' ),
-            hash( 'value', '-P1W', 'name', 'Ultimi 7 giorni' ),
-            hash( 'value', '-P1M', 'name', 'Ultimi 30 giorni' ),
-            hash( 'value', '-P2M', 'name', 'Ultimi 2 mesi' )
+                hash( 'value', '-P1D', 'name', 'Ultimo giorno' ),
+                hash( 'value', '-P1W', 'name', 'Ultimi 7 giorni' ),
+                hash( 'value', '-P1M', 'name', 'Ultimi 30 giorni' ),
+                hash( 'value', '-P2M', 'name', 'Ultimi 2 mesi' )
             )}
 
             <div class="form-group">
@@ -69,7 +71,7 @@
         <th><small></small></th>
         <th><small>Autore</small></th>
         <th><small>Data</small></th>
-        <th><small>Stato</small></th>        
+          {if $states|count()}<th><small>Stato</small></th>{/if}
         <th><small>Titolo</small></th>
         {*<th><small></small></th>*}
       </tr>
@@ -88,11 +90,13 @@
 
           {*Data*}
           <td>{$post.object.published|l10n('shortdate')}</td>
-          
+
+          {if $states|count()}
           {*Stato*}
           <td>
             {include uri=concat('design:', $template_directory, '/parts/state.tpl')}
           </td>
+          {/if}
           
           <td>
             <a data-toggle="modal" data-load-remote="{concat( 'layout/set/modal/content/view/full/', $post.object.main_node_id )|ezurl('no')}" data-remote-target="#preview .modal-content" href="#{*$post.url*}" data-target="#preview">{$post.object.name}</a>
