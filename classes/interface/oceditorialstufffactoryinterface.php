@@ -86,6 +86,14 @@ interface OCEditorialStuffPostFactoryInterface
      */
     public function getConfiguration();
 
+    /**
+     * @param $key
+     * @param $value
+     *
+     * @return OCEditorialStuffPostFactoryInterface
+     */
+    public function setConfiguration( $key, $value );
+
     public function getTemplateDirectory();
 
     public function dashboardModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module );
