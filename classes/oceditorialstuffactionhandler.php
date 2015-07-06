@@ -41,22 +41,31 @@ class OCEditorialStuffActionHandler
         $factoryConfiguration = $this->factory->getConfiguration();
         $statesConfigurations = isset( $factoryConfiguration['States'] ) ? $factoryConfiguration['States'] : array();
         $actionsConfiguration = isset( $factoryConfiguration['Actions'] ) ? $factoryConfiguration['Actions'] : array();
-        foreach( $actionsConfiguration as $changeStates => $actionAndSettings )
+        foreach( $actionsConfiguration as $changeStates => $actionsString )
         {
-            $configurationItem = array();
-            $changeStatesParts = explode( '-', $changeStates );
-            $actionParameters = explode( ';', $actionAndSettings );
-            $actionName = array_shift( $actionParameters );
-            if ( count( $changeStatesParts ) == 2
-                 && isset( $statesConfigurations[$changeStatesParts[0]] )
-                 && isset( $statesConfigurations[$changeStatesParts[1]] )
-                 && isset( $this->availableActions[$actionName] ) )
+            $actions = explode( '|', $actionsString );
+            foreach( $actions as $actionAndSettings )
             {
-                $configurationItem['before_state'] = $changeStatesParts[0];
-                $configurationItem['after_state'] = $changeStatesParts[1];
-                $configurationItem['call_function'] = $this->availableActions[$actionName];
-                $configurationItem['call_function_parameters'] = $actionParameters;
-                $this->factoryActionConfiguration[$changeStates] = $configurationItem;
+                $configurationItem = array();
+                $changeStatesParts = explode( '-', $changeStates );
+                $actionParameters = explode( ';', $actionAndSettings );
+                $actionName = array_shift( $actionParameters );
+                if ( count( $changeStatesParts ) == 2
+                     && isset( $statesConfigurations[$changeStatesParts[0]] )
+                     && isset( $statesConfigurations[$changeStatesParts[1]] )
+                     && isset( $this->availableActions[$actionName] )
+                )
+                {
+                    $configurationItem['before_state'] = $changeStatesParts[0];
+                    $configurationItem['after_state'] = $changeStatesParts[1];
+                    $configurationItem['call_function'] = $this->availableActions[$actionName];
+                    $configurationItem['call_function_parameters'] = $actionParameters;
+                    if ( !isset( $this->factoryActionConfiguration[$changeStates] ) )
+                    {
+                        $this->factoryActionConfiguration[$changeStates] = array();
+                    }
+                    $this->factoryActionConfiguration[$changeStates][] = $configurationItem;
+                }
             }
         }
     }
@@ -78,8 +87,11 @@ class OCEditorialStuffActionHandler
         $changeStateString = $beforeState->attribute( 'identifier' ) . '-' . $afterState->attribute( 'identifier' );
         if ( isset( $this->factoryActionConfiguration[$changeStateString] ) )
         {
-            $parameters = array_merge( array( $post ), array( $this->factoryActionConfiguration[$changeStateString]['call_function_parameters'] ) );
-            call_user_func_array( $this->factoryActionConfiguration[$changeStateString]['call_function'], $parameters );
+            foreach( $this->factoryActionConfiguration[$changeStateString] as $action )
+            {
+                $parameters = array_merge( array( $post ), array( $action['call_function_parameters'] ) );
+                call_user_func_array( $action['call_function'], $parameters );
+            }
         }
     }
 
