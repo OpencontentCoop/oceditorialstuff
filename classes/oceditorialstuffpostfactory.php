@@ -133,6 +133,12 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         return $this->configuration;
     }
 
+    public function setConfiguration( $key, $value )
+    {
+        $this->configuration[$key] = $value;
+        return $this;
+    }
+
     /**
      * @return eZContentObjectState[]
      * @throws Exception
