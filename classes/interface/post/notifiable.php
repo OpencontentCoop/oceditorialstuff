@@ -84,7 +84,8 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
                     $exists = OCEditorialStuffNotificationRule::fetchUserIdList( $type, $this->id() );
                     if ( count( $exists ) == 0 )
                     {
-                        OCEditorialStuffNotificationRule::create( $type, $this->id(), $userId );
+                        $rule = OCEditorialStuffNotificationRule::create( $type, $this->id(), $userId );
+                        $rule->store();
                         OCEditorialStuffHistory::addHistoryToObjectId( $this->id(), 'add_notification_rule', array( 'type' => $type, 'user_id' => $userId ) );
                     }
                 }
