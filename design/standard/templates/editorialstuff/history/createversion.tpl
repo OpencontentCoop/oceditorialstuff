@@ -1,0 +1,1 @@
+Creata versione <a href={concat( '/content/versionview/', $post.object.id, '/', $item.parameters.version )|ezurl}">{$item.parameters.version}</a> del contenuto
