@@ -61,7 +61,14 @@ $ViewList['file'] = array(
 $ViewList['action'] = array(
     'functions' => array( 'dashboard' ),
     'script' => 'action.php',
-    'params' => array( 'FactoryIdentifier', 'ID' ),
+    'params' => array( 'FactoryIdentifier', 'ObjectID' ),
+    'unordered_params' => array()
+);
+
+$ViewList['download'] = array(
+    'functions' => array( 'download' ),
+    'script' => 'download.php',
+    'params' => array( 'FactoryIdentifier', 'ObjectID' ),
     'unordered_params' => array()
 );
 
@@ -72,3 +79,4 @@ $FunctionList['full_dashboard'] = array();
 $FunctionList['media'] = array();
 $FunctionList['mail'] = array();
 $FunctionList['file'] = array();
+$FunctionList['download'] = array();
