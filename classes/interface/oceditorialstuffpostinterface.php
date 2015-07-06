@@ -19,8 +19,12 @@ interface OCEditorialStuffPostInterface
 
     public function setState( $stateIdentifier );
 
+    public function onBeforeCreate();
+    
     public function onCreate();
 
+    public function onBeforeUpdate();
+    
     public function onUpdate();
 
     public function onRemove();

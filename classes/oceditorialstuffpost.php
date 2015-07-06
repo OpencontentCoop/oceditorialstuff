@@ -49,10 +49,11 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
             throw new Exception( 'Object not found' );
         }
         $this->mainNode = $this->object->attribute( 'main_node' );
-        if ( !$this->mainNode instanceof eZContentObjectTreeNode )
-        {
-            throw new Exception( 'Node not found' );
-        }
+        // commentata perché altrimenti non funziona in execute workflow pre publish
+        //if ( !$this->mainNode instanceof eZContentObjectTreeNode )
+        //{
+        //    throw new Exception( 'Node not found' );
+        //}
         $this->dataMap = $this->object->attribute( 'data_map' );
         $this->factory = $factory;
         $this->actionHandler = OCEditorialStuffActionHandler::instance( $this->factory );
@@ -119,9 +120,13 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         }
     }
 
+    public function onBeforeCreate(){}
+    
     public function onCreate(){}
 
     public function onUpdate(){}
+
+    public function onBeforeUpdate(){}
 
     public function onRemove(){}
 

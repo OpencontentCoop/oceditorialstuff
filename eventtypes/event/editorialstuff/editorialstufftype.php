@@ -18,7 +18,9 @@ class EditorialStuffType extends eZWorkflowEventType
     public function execute( $process, $event )
     {
         $parameters = $process->attribute( 'parameter_list' );
-        if ( $parameters['trigger_name'] == 'post_publish' || $parameters['trigger_name'] == 'pre_delete' )
+        if ( $parameters['trigger_name'] == 'post_publish'
+             || $parameters['trigger_name'] == 'pre_publish'
+             || $parameters['trigger_name'] == 'pre_delete' )
         {
             if ( isset( $parameters['object_id'] ) )
             {
@@ -27,32 +29,46 @@ class EditorialStuffType extends eZWorkflowEventType
                 {
                     foreach ( OCEditorialStuffHandler::instances() as $instance )
                     {
-                        if ( $object->attribute( 'class_identifier' ) == $instance->getFactory(
-                            )->classIdentifier()
-                        )
+                        if ( $object->attribute( 'class_identifier' ) == $instance->getFactory()->classIdentifier() )
                         {
                             try
                             {
-                                $post = $instance->fetchByObjectId( $object->attribute( 'id' ) );
-                                if ( $parameters['trigger_name'] == 'post_publish' )
+                                $post = $instance->getFactory()->instancePost( array( 'object_id' => $object->attribute( 'id' ) ) );
+                                if ( $parameters['trigger_name'] == 'pre_delete' )
+                                {
+                                    eZDebug::writeNotice( 'Call onRemove for object ' . get_class( $post ), __METHOD__  );
+                                    $post->onRemove();
+                                }
+                                elseif ( $parameters['trigger_name'] == 'pre_publish' )
                                 {
                                     if ( $object->attribute( 'current_version' ) == 1 )
                                     {
+                                        eZDebug::writeNotice( 'Call onBeforeCreate for object ' . get_class( $post ), __METHOD__  );
+                                        $post->onBeforeCreate();
+                                    }
+                                    else
+                                    {
+                                        eZDebug::writeNotice( 'Call onBeforeUpdate for object ' . get_class( $post ), __METHOD__  );
+                                        $post->onBeforeUpdate();
+                                    }
+                                }
+                                elseif ( $parameters['trigger_name'] == 'post_publish' )
+                                {
+                                    if ( $object->attribute( 'current_version' ) == 1 )
+                                    {
+                                        eZDebug::writeNotice( 'Call onCreate for object ' . get_class( $post ), __METHOD__  );
                                         $post->onCreate();
                                     }
                                     else
                                     {
+                                        eZDebug::writeNotice( 'Call onUpdate for object ' . get_class( $post ), __METHOD__  );
                                         $post->onUpdate();
                                     }
-                                }
-                                elseif( $parameters['trigger_name'] == 'pre_delete' )
-                                {
-                                    $post->onRemove();
                                 }
                             }
                             catch ( Exception $e )
                             {
-
+                                eZDebug::writeError( $e->getMessage(), __METHOD__  );
                             }
                         }
                     }
