@@ -22,7 +22,11 @@ class OCEditorialStuffHistory extends eZPersistentObject
     
     public static function definition()
     {
-        return array( 'fields'       => array( 'handler'             => array( 'name'     => 'handler',
+        return array( 'fields'       => array( 'id'                 => array( 'name' => 'ID',
+                                                                              'datatype' => 'integer',
+                                                                              'default' => 0,
+                                                                              'required' => true ),
+                                               'handler'             => array( 'name'     => 'handler',
                                                                                'datatype' => 'string',
                                                                                'default'  => null,
                                                                                'required' => true ),
