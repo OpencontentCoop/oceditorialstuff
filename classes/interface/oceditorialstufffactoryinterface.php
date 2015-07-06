@@ -13,6 +13,11 @@ interface OCEditorialStuffPostFactoryInterface
     public function identifier();
 
     /**
+     * @return array
+     */
+    public function getRuntimeParameters();
+
+    /**
      * @return int
      */
     public function creationRepositoryNode();

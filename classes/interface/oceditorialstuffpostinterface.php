@@ -29,6 +29,8 @@ interface OCEditorialStuffPostInterface
 
     public function currentState();
 
+    public function is( $stateIdentifier );
+
     public function tabs();
 
     public function attribute( $property );

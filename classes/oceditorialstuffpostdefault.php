@@ -20,7 +20,7 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPost implements OCEdit
                 'template_uri' => "design:{$templatePath}/parts/content.tpl"
             )
         );
-        if ( $currentUser->hasAccessTo( 'editorialstuff', 'media' ) )
+        if ( $currentUser->hasAccessTo( 'editorialstuff', 'media' ) && in_array( 'image', $this->factory->attributeIdentifiers() ) )
         {
             $tabs[] = array(
                 'identifier' => 'media',

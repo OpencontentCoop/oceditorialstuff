@@ -177,6 +177,16 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         return null;
     }
 
+    public function is( $stateIdentifier )
+    {
+        $currentState = $this->currentState();
+        if ( $currentState instanceof eZContentObjectState )
+        {
+            return $currentState->attribute( 'identifier' ) == $stateIdentifier;
+        }
+        return false;
+    }
+
     public function tabs()
     {
         $currentUser = eZUser::currentUser();
@@ -269,8 +279,12 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
      * @return mixed data which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return $this->data;
+    }
+
+    public function executeAction( $actionIdentifier, $actionParameters )
+    {
     }
 }

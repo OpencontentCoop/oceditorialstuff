@@ -64,11 +64,13 @@
         <p class="help-block">Opzionale: compare all'inizio del messaggio.</p>
         <textarea id="message" class="form-control" rows="3" name="Message"></textarea>
       </div>
+      {if count($post.states)}
       <div class="checkbox">
         <label>
           <input type="checkbox" name="AddApproveButton"> Includi funzioni di approvazione          
         </label>
       </div>
+      {/if}
       <div class="clearfix">
         <button type="submit" class="btn btn-warning btn-lg pull-right">Invia mail</button>
       </div>
