@@ -1,0 +1,1 @@
+Modificato stato da {cond( and( is_set( $item.parameters.before_state_name ), $item.parameters.before_state_name|null|not() ), $item.parameters.before_state_name, $item.parameters.before_state_id )} a {cond( and( is_set($item.parameters.after_state_name), $item.parameters.after_state_name|null|not() ), $item.parameters.after_state_name, $item.parameters.after_state_id )}
