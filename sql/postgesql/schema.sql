@@ -29,6 +29,7 @@ CREATE SEQUENCE oceditorialstuffnotificationrule_s
 
 CREATE TABLE oceditorialstuffnotificationrule (
     id integer DEFAULT nextval('oceditorialstuffnotificationrule_s'::text) NOT NULL,
+    type VARCHAR(50) DEFAULT NULL,
     post_id integer DEFAULT 0 NOT NULL,
     use_digest integer DEFAULT 0,
     user_id integer DEFAULT 0 NOT NULL
