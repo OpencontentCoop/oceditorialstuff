@@ -3,7 +3,7 @@
 $module = $Params['Module'];
 $http = eZHTTPTool::instance();
 $factoryIdentifier = $Params['FactoryIdentifier'];
-$id = $Params['ID'];
+$id = $Params['ObjectID'];
 
 try
 {

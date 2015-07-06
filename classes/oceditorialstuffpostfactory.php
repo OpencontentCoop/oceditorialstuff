@@ -300,7 +300,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         return $tpl;
     }
 
-    public function getEditCurrentPost( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module )
+    protected function getModuleCurrentPost( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module )
     {
         $object = eZContentObject::fetch( $parameters );
         if ( !$object instanceof eZContentObject )
@@ -323,7 +323,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
 
     public function editModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module )
     {
-        $currentPost = $this->getEditCurrentPost( $parameters, $handler, $module );
+        $currentPost = $this->getModuleCurrentPost( $parameters, $handler, $module );
         $tpl = $this->editModuleResultTemplate( $currentPost, $parameters, $handler, $module );
 
         $Result = array();
