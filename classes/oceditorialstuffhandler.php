@@ -23,6 +23,8 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
 
     protected $factoryIdentifier;
 
+    private static $lastFetchData;
+
     /**
      * @var OCEditorialStuffPostFactoryInterface
      */
@@ -162,6 +164,11 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         $this->parseParameters( $parameters );
         $result = intval( $this->fetchCount() );
         return $result;
+    }
+
+    public static function getLastFetchData()
+    {
+        return self::$lastFetchData;
     }
 
     protected function setFilters( $array )
@@ -320,6 +327,11 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         );        
         $solrSearch = new OCSolr();
         $solrResult = $solrSearch->search( $this->query, $solrFetchParams );
+        self::$lastFetchData = array(
+            'query' => $this->query,
+            'parameters' => $solrFetchParams,
+            'result_extra' => $solrResult['SearchExtras']
+        );
         return $solrResult;
     }
         

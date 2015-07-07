@@ -40,4 +40,6 @@ interface OCEditorialStuffHandlerInterface
      */
     public static function timezone();
 
+    public static function getLastFetchData();
+
 }
