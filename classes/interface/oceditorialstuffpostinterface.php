@@ -29,7 +29,13 @@ interface OCEditorialStuffPostInterface
 
     public function onRemove();
 
-    public function onChangeState( $beforeStateId, $afterStateId );
+    /**
+     * @param eZContentObjectState $beforeState
+     * @param eZContentObjectState $afterState
+     *
+     * @return bool
+     */
+    public function onChangeState( eZContentObjectState $beforeState, eZContentObjectState $afterState );
 
     public function currentState();
 

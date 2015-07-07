@@ -1,7 +1,7 @@
 <?php
 
 
-class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory
+class OCEditorialStuffPostDefaultFactory extends OCEditorialStuffPostFactory implements OCEditorialStuffPostChangeStateHandlerFactoryInterface
 {
     public function onChangeState( OCEditorialStuffPostInterface $post,
                                    eZContentObjectState $beforeState,

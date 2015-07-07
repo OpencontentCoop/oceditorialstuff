@@ -1,6 +1,6 @@
 <?php
 
-class OCEditorialStuffPostDefault extends OCEditorialStuffPost implements OCEditorialStuffPostMediaInterface
+class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferred implements OCEditorialStuffPostMediaInterface
 {
     protected $attributeMapKeys = array(
         'images',

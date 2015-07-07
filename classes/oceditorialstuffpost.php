@@ -1,6 +1,6 @@
 <?php
 
-class OCEditorialStuffPost implements OCEditorialStuffPostInterface
+abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
 {
     
     const STATE_PUBLISHED = 'published';
@@ -116,7 +116,29 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 )
             );
 
-            $this->onChangeState( $beforeStateId, $afterStateId );
+            $beforeState = $afterState = false;
+            foreach ( $this->states() as $state )
+            {
+                if ( $state->attribute( 'id' ) == $beforeStateId )
+                {
+                    $beforeState = $state;
+                }
+                if ( $state->attribute( 'id' ) == $afterStateId )
+                {
+                    $afterState = $state;
+                }
+            }
+            if ( $beforeState && $afterState )
+            {
+                if ( $this->onChangeState( $beforeState, $afterState ) )
+                {
+                    $this->actionHandler->handleChangeState( $this, $beforeState, $afterState );
+                }
+            }
+            else
+            {
+                eZDebug::writeError( "State id $beforeStateId and $afterStateId not found" );
+            }
         }
     }
 
@@ -130,32 +152,7 @@ class OCEditorialStuffPost implements OCEditorialStuffPostInterface
 
     public function onRemove(){}
 
-    public function onChangeState( $beforeStateId, $afterStateId )
-    {
-        $beforeState = $afterState = false;
-        foreach ( $this->states() as $state )
-        {
-            if ( $state->attribute( 'id' ) == $beforeStateId )
-            {
-                $beforeState = $state;
-            }
-            if ( $state->attribute( 'id' ) == $afterStateId )
-            {
-                $afterState = $state;
-            }
-        }
-        if ( $beforeState && $afterState )
-        {
-            if ( $this->factory->onChangeState( $this, $beforeState, $afterState ) )
-            {
-                $this->actionHandler->handleChangeState( $this, $beforeState, $afterState );
-            }
-        }
-        else
-        {
-            eZDebug::writeError( "State id $beforeStateId and $afterStateId not found" );
-        }
-    }
+    abstract public function onChangeState( eZContentObjectState $beforeState, eZContentObjectState $afterState );
 
     /**
      * @return eZContentObjectState[]

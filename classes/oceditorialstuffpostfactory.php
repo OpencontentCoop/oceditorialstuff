@@ -122,12 +122,6 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         return $fields;
     }
 
-    abstract public function onChangeState(
-        OCEditorialStuffPostInterface $post,
-        eZContentObjectState $beforeState,
-        eZContentObjectState $afterState
-    );
-
     public function getConfiguration()
     {
         return $this->configuration;
@@ -250,10 +244,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         return $this->instancePost( $data );
     }
 
-    public function instancePost( $data )
-    {
-        return new OCEditorialStuffPost( $data, $this );
-    }
+    abstract public function instancePost( $data );
 
     public function dashboardModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module )
     {
