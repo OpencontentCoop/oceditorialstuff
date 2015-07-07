@@ -53,15 +53,6 @@ interface OCEditorialStuffPostFactoryInterface
     public function fields();
 
     /**
-     * @param OCEditorialStuffPostInterface $post
-     * @param eZContentObjectState $beforeState
-     * @param eZContentObjectState $afterState
-     *
-     * @return bool
-     */
-    public function onChangeState( OCEditorialStuffPostInterface $post, eZContentObjectState $beforeState, eZContentObjectState $afterState );
-
-    /**
      * @return eZContentObjectState[] with key group.identifier for each state
      * @throws Exception
      */
