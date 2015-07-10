@@ -39,7 +39,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
     {
         $data = array();
         $ini = eZINI::instance( 'editorialstuff.ini' );
-        $availableFactories = $ini->variable( 'AvailableFactories', 'Identifiers' );
+        $availableFactories = (array)$ini->variable( 'AvailableFactories', 'Identifiers' );
         foreach( $availableFactories as $identifier )
         {
             $data[$identifier] = self::instance( $identifier );

@@ -61,7 +61,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
 
     public function id()
     {
-        return $this->object->attribute( 'id' );
+        return (int) $this->object->attribute( 'id' );
     }
 
     public function getObject()
