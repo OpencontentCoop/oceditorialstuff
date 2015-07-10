@@ -43,7 +43,7 @@
       <form method="post" action={'/comment/add'|ezurl} name="CommentAdd" class="add-comment">
         <input type="hidden" name="ContentObjectID" value="{$contentobject.id}" />
         <input type="hidden" name="CommentLanguageCode" value="{$language_code}" />
-        <input type="hidden" name="RedirectURI" value={concat('editorialstuff/edit/',$post.object.id)|ezurl( , 'full' )} />
+        <input type="hidden" name="RedirectURI" value={concat('editorialstuff/edit/',$factory_identifier, '/',$post.object.id)|ezurl( , 'full' )} />
     
         <div class="panel panel-default">
           <div class="panel-body">
