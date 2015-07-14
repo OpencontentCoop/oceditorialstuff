@@ -51,4 +51,9 @@ interface OCEditorialStuffPostInterface
 
     public function jsonSerialize();
 
+    /**
+     * @return eZContentObjectAttribute[]
+     */
+    public function contentAttributes();
+
 }

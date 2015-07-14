@@ -77,15 +77,13 @@
         </div>
     </div>
 
-    {foreach $post.object.data_map as $identifier => $attribute}
-        {if $factory_configuration.AttributeIdentifiers|contains( $identifier )|not()}
+    {foreach $post.content_attributes as $identifier => $attribute}
         <div class="row edit-row">
             <div class="col-md-3"><strong>{$attribute.contentclass_attribute_name}</strong></div>
             <div class="col-md-9">
                 {attribute_view_gui attribute=$attribute image_class=medium}
             </div>
         </div>
-        {/if}
     {/foreach}
 
 

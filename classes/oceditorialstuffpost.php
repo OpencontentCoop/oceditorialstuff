@@ -241,6 +241,9 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
             case 'tabs':
                 return $this->tabs();
 
+            case 'content_attributes':
+                return $this->contentAttributes();
+
             default:
                 if ( array_key_exists( $property, $this->data ) )
                 {
@@ -261,11 +264,26 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 'history',
                 'notification_history',
                 'social_history',
+                'content_attributes',
                 'tabs',
                 'hashtags'
             ),
             array_keys( $this->data )
         );
+    }
+
+    public function contentAttributes()
+    {
+        $data = array();
+        foreach( $this->dataMap as $identifier => $attribute )
+        {
+            $category = $attribute->attribute( 'contentclass_attribute' )->attribute( 'category' );
+            if ( $category == 'content' || empty( $category ) )
+            {
+                $data[$identifier] = $attribute;
+            }
+        }
+        return $data;
     }
 
     public function hasAttribute( $property )

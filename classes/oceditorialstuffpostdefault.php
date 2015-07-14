@@ -52,6 +52,27 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
         return $tabs;
     }
 
+    public function contentAttributes()
+    {
+        $data = array();
+        $configuration = $this->getFactory()->getConfiguration();
+        if ( isset( $configuration['AttributeIdentifiers'] ) )
+        {
+            foreach( $this->dataMap as $identifier => $attribute )
+            {
+                if ( !in_array( $identifier, $configuration['AttributeIdentifiers'] ) )
+                {
+                    $data[$identifier] = $attribute;
+                }
+            }
+        }
+        else
+        {
+            $data = $this->dataMap;
+        }
+        return $data;
+    }
+
     public function attributes()
     {
         return array_merge( parent::attributes(), $this->attributeMapKeys );
