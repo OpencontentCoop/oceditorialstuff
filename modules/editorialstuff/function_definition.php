@@ -57,6 +57,12 @@ $FunctionList['posts'] = array(
             'type' =>'integer',
             'required' => false,
             'default' => 0
+        ),
+        array(
+            'name' => 'sort',
+            'type' =>'array',
+            'required' => false,
+            'default' => null
         )
     )
 );
@@ -129,6 +135,66 @@ $FunctionList['post_states'] = array(
             'type' =>'array',
             'required' => false,
             'default' => array()
+        )
+    )
+);
+
+$FunctionList['notification_rules'] = array(
+    'name' => 'notification_rules',
+    'operation_types' => array( 'read' ),
+    'call_method' => array(
+        'include_file' => 'extension/oceditorialstuff/classes/oceditorialstufffunctioncollection.php',
+        'class' => 'OCEditorialStuffFunctionCollection',
+        'method' => 'fetchNotificationRules' ),
+    'parameter_type' => 'standard',
+    'parameters' => array(
+        array(
+            'name' => 'type',
+            'type' =>'string',
+            'required' => false,
+            'default' => false
+        ),
+        array(
+            'name' => 'user_id',
+            'type' =>'integer',
+            'required' => false,
+            'default' => array()
+        ),
+        array(
+            'name' => 'post_id',
+            'type' =>'integer',
+            'required' => false,
+            'default' => false
+        )
+    )
+);
+
+$FunctionList['notification_rules_post_ids'] = array(
+    'name' => 'notification_rules_post_ids',
+    'operation_types' => array( 'read' ),
+    'call_method' => array(
+        'include_file' => 'extension/oceditorialstuff/classes/oceditorialstufffunctioncollection.php',
+        'class' => 'OCEditorialStuffFunctionCollection',
+        'method' => 'fetchNotificationRulesPostIds' ),
+    'parameter_type' => 'standard',
+    'parameters' => array(
+        array(
+            'name' => 'type',
+            'type' =>'string',
+            'required' => false,
+            'default' => false
+        ),
+        array(
+            'name' => 'user_id',
+            'type' =>'integer',
+            'required' => false,
+            'default' => array()
+        ),
+        array(
+            'name' => 'post_id',
+            'type' =>'integer',
+            'required' => false,
+            'default' => false
         )
     )
 );

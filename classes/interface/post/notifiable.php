@@ -82,8 +82,8 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
                 $db->begin();
                 foreach ( $userIds as $userId )
                 {
-                    $exists = OCEditorialStuffNotificationRule::fetchUserIdList( $type, $this->id() );
-                    if ( count( $exists ) == 0 )
+                    $exists = OCEditorialStuffNotificationRule::fetchPostsForUserID( $type, $userId );
+                    if ( !in_array( $this->id(), $exists ) )
                     {
                         $rule = OCEditorialStuffNotificationRule::create( $type, $this->id(), $userId );
                         $rule->store();

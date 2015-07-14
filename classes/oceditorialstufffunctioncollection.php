@@ -2,7 +2,7 @@
 
 class OCEditorialStuffFunctionCollection
 {
-    public static function fetchPosts( $factoryIdentifier, $factoryParameters, $interval, $state, $query, $tag, $limit, $offset )
+    public static function fetchPosts( $factoryIdentifier, $factoryParameters, $interval, $state, $query, $tag, $limit, $offset, $sort )
     {
         try
         {
@@ -13,7 +13,8 @@ class OCEditorialStuffFunctionCollection
                     'query' => $query,
                     'tag' => $tag,
                     'limit' => $limit,
-                    'offset' => $offset
+                    'offset' => $offset,
+                    'sort' => $sort
                 )
             );
             return array( 'result' => $result );
@@ -55,5 +56,21 @@ class OCEditorialStuffFunctionCollection
         {
             return array( 'error' => $e->getMessage() );
         }
+    }
+
+    public static function fetchNotificationRules( $type, $userId, $postId )
+    {
+        return array( 'result' => OCEditorialStuffNotificationRule::fetchList( $type, $userId, $postId ) );
+    }
+
+    public static function fetchNotificationRulesPostIds( $type, $userId, $postId )
+    {
+        $items = OCEditorialStuffNotificationRule::fetchList( $type, $userId, $postId );
+        $data = array();
+        foreach( $items as $item )
+        {
+            $data[] = $item->attribute( 'post_id' );
+        }
+        return array( 'result' => $data );
     }
 }

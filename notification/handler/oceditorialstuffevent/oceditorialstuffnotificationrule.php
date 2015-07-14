@@ -78,15 +78,23 @@ class OCEditorialStuffNotificationRule extends eZPersistentObject
         return $ids;
     }
 
-    static function fetchList( $type, $userID, $asObject = true, $offset = false, $limit = false )
+    static function fetchList( $type = null, $userID = null, $postID = null, $asObject = true, $offset = false, $limit = false )
     {
+        $conds = array();
+
+        if ( $type )
+            $conds['type'] = $type;
+
+        if ( $userID )
+            $conds['user_id'] = $userID;
+
+        if ( $postID )
+            $conds['post_id'] = $postID;
+
         return eZPersistentObject::fetchObjectList(
             OCEditorialStuffNotificationRule::definition(),
             null,
-            array(
-                'user_id' => $userID,
-                'type' => $type
-            ),
+            $conds,
             null,
             array(
                 'offset' => $offset,
@@ -95,15 +103,23 @@ class OCEditorialStuffNotificationRule extends eZPersistentObject
         );
     }
 
-    static function fetchListCount( $type, $userID )
+    static function fetchListCount( $type = null, $userID = null, $postID = null )
     {
+        $conds = array();
+
+        if ( $type )
+            $conds['type'] = $type;
+
+        if ( $userID )
+            $conds['user_id'] = $userID;
+
+        if ( $postID )
+            $conds['post_id'] = $postID;
+
         $countRes = eZPersistentObject::fetchObjectList(
             OCEditorialStuffNotificationRule::definition(),
             array(),
-            array(
-                'user_id' => $userID,
-                'type' => $type
-            ),
+            $conds,
             false,
             null,
             false,
