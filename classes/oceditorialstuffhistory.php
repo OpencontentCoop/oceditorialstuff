@@ -13,7 +13,7 @@ class OCEditorialStuffHistory extends eZPersistentObject
      */
     protected $params;
 
-    function OCUfficioStampaHistory( $row = array() )
+    function OCEditorialStuffHistory( $row = array() )
     {
         $this->PersistentDataDirty = false;
         if ( !empty( $row ) )
