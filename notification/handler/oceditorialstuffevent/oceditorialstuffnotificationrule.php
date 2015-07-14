@@ -14,7 +14,7 @@ class OCEditorialStuffNotificationRule extends eZPersistentObject
     {
         return array( "fields" => array( "id" => array( 'name' => 'ID',
                                                         'datatype' => 'integer',
-                                                        'default' => 0,
+                                                        'default' => null,
                                                         'required' => true ),
                                          'type' => array( 'name' => 'type',
                                                           'datatype' => 'string',

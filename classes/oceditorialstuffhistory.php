@@ -24,7 +24,7 @@ class OCEditorialStuffHistory extends eZPersistentObject
     {
         return array( 'fields'       => array( 'id'                 => array( 'name' => 'ID',
                                                                               'datatype' => 'integer',
-                                                                              'default' => 0,
+                                                                              'default' => null,
                                                                               'required' => true ),
                                                'handler'             => array( 'name'     => 'handler',
                                                                                'datatype' => 'string',
