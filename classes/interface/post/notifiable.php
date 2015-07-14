@@ -77,6 +77,7 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
         {
             if ( in_array( $type, $factory->availableNotificationEventTypes() ) )
             {
+                $type = $factory->identifier() . '/' . $type;
                 $db = eZDB::instance();
                 $db->begin();
                 foreach ( $userIds as $userId )

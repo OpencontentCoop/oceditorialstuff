@@ -118,6 +118,7 @@ class OCEditorialStuffNotificationRule extends eZPersistentObject
         return $countRes[0]['count'];
     }
 
+    /** @todo ricavare id utenti validi */
     static function fetchUserIdList( $type, $postID, $offset = false, $limit = false )
     {
         $rows = eZPersistentObject::fetchObjectList(
