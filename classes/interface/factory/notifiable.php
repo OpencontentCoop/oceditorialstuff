@@ -48,7 +48,7 @@ abstract class OCEditorialStuffPostNotifiableFactory extends OCEditorialStuffPos
             }
             catch( Exception $e )
             {
-
+                eZDebug::writeError( $this->identifier() . ': ' . $e->getMessage() );
             }
         }
         return false;

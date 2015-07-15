@@ -78,6 +78,16 @@ class OCEditorialStuffNotificationRule extends eZPersistentObject
         return $ids;
     }
 
+    /**
+     * @param null $type
+     * @param null $userID
+     * @param null $postID
+     * @param bool $asObject
+     * @param bool $offset
+     * @param bool $limit
+     *
+     * @return OCEditorialStuffNotificationRule[]|array
+     */
     static function fetchList( $type = null, $userID = null, $postID = null, $asObject = true, $offset = false, $limit = false )
     {
         $conds = array();
