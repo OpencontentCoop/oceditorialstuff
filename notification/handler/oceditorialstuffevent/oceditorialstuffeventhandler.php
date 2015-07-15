@@ -11,6 +11,7 @@ class OCEditorialStuffEventHandler extends eZNotificationEventHandler
      */
     function handle( $event )
     {
+
         if ( $event->attribute( 'event_type_string' ) == OCEditorialStuffEventType::NOTIFICATION_TYPE_STRING )
         {
             try

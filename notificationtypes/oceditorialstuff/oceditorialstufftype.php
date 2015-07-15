@@ -50,8 +50,9 @@ class OCEditorialStuffEventType extends eZNotificationEventType
         {
             $factory = OCEditorialStuffHandler::instance(
                 $event->attribute( self::FIELD_FACTORY_IDENTIFIER ),
-                unserialize( $event->attribute( self::FIELD_FACTORY_IDENTIFIER ) )
-            );
+                unserialize( $event->attribute( self::FIELD_FACTORY_PARAMS ) )
+            )->getFactory();
+
             if ( $factory instanceof OCEditorialStuffPostNotifiableFactory )
             {
                 $content->factory = $factory;
