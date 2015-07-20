@@ -3,5 +3,5 @@
 
 interface OCEditorialStuffPostDownloadableFactoryInterface extends OCEditorialStuffPostFactoryInterface
 {
-    public function downloadModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module );
+    public function downloadModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module, $version = false );
 }

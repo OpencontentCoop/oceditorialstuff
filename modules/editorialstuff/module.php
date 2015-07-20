@@ -68,7 +68,7 @@ $ViewList['action'] = array(
 $ViewList['download'] = array(
     'functions' => array( 'download' ),
     'script' => 'download.php',
-    'params' => array( 'FactoryIdentifier', 'ObjectID' ),
+    'params' => array( 'FactoryIdentifier', 'ObjectID', 'ObjectVersion' ),
     'unordered_params' => array()
 );
 

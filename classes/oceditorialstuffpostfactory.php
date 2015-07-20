@@ -306,7 +306,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         return $tpl;
     }
 
-    protected function getModuleCurrentPost( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module )
+    protected function getModuleCurrentPost( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module, $version = false )
     {
         $object = eZContentObject::fetch( $parameters );
         if ( !$object instanceof eZContentObject )
