@@ -27,7 +27,10 @@ CREATE INDEX oceditorialstuffhistory_user_id ON oceditorialstuffhistory USING bt
 
 DROP INDEX IF EXISTS oceditorialstuffhistory_object_id;
 CREATE INDEX oceditorialstuffhistory_object_id ON oceditorialstuffhistory USING btree (object_id);
- 
+
+ALTER TABLE ONLY oceditorialstuffhistory
+    ADD CONSTRAINT oceditorialstuffhistory_pkey PRIMARY KEY (id);
+
 DROP SEQUENCE IF EXISTS oceditorialstuffnotificationrule_s;
 CREATE SEQUENCE oceditorialstuffnotificationrule_s
     START 1

@@ -247,6 +247,9 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
             case 'editorial_url':
                 return 'editorialstuff/edit/' . $this->getFactory()->identifier() . '/' . $this->id();
 
+            case 'factory_identifier':
+                return $this->getFactory()->identifier();
+
             default:
                 if ( array_key_exists( $property, $this->data ) )
                 {
@@ -263,6 +266,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
             array(
                 'object',
                 'node',
+                'states',
                 'current_state',
                 'history',
                 'notification_history',
@@ -270,7 +274,8 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 'content_attributes',
                 'tabs',
                 'hashtags',
-                'editorial_url'
+                'editorial_url',
+                'factory_identifier'
             ),
             array_keys( $this->data )
         );

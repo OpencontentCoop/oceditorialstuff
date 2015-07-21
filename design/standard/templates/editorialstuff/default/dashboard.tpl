@@ -139,7 +139,7 @@
             touch = Modernizr.touch;
         }
         if (!touch) {
-            $("body").on("mouseenter", ".has-tooltip", function() {
+            $(document).on("mouseenter", ".has-tooltip", function() {
                 var el;
                 el = $(this);
                 if (el.data("tooltip") === undefined) {
@@ -149,13 +149,12 @@
                     });
                 }
                 return el.tooltip("show");
-            });
-            $("body").on("mouseleave", ".has-tooltip", function() {
+            }).on("mouseleave", ".has-tooltip", function() {
                 return $(this).tooltip("hide");
             });
         }
     });
-    $('#dashboard-filters-container select').change( function() {
+    $('#dashboard-filters-container').find('select').change( function() {
         $('#dashboard-search-button').click();
     });
     $('[data-load-remote]').on('click',function(e) {

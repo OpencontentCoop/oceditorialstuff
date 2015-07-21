@@ -19,7 +19,7 @@ $(document).ready(function () {
             return $(this).tooltip("hide");
         });
     }
-    if(jQuery.fn.tabdrop !== undefined) {
+    if (jQuery.fn.tabdrop !== undefined) {
         $('.nav-pills, .nav-tabs').tabdrop();
     }
 
@@ -41,5 +41,12 @@ $(document).ready(function () {
         if (remote) {
             $($this.data('remote-target')).load(remote);
         }
+    });
+    $(document).on('change', 'select.inline_edit_state', function () {
+        var selected = $(this).find('option:selected');
+        $.ajax({
+            url: selected.data('href'),
+            method: 'GET'
+        });
     });
 });
