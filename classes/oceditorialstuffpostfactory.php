@@ -262,7 +262,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         );
         $contentInfoArray['persistent_variable'] = array(
             'show_path' => true,
-            'site_title' => 'Dashboard Ufficio Stampa'
+            'site_title' => 'Dashboard ' . $this->classIdentifier()
         );
         if ( is_array( $tpl->variable( 'persistent_variable' ) ) )
         {
