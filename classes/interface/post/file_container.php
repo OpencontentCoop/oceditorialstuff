@@ -7,7 +7,9 @@ interface OCEditorialStuffPostFileContainerInterface
     public function removeFile( eZContentObject $object, $attributeIdentifier );
 
     /**
+     * @param string $attributeIdentifier
+     *
      * @return OCEditorialStuffPostFileFactoryInterface
      */
-    public function fileFactory();
+    public function fileFactory( $attributeIdentifier );
 }

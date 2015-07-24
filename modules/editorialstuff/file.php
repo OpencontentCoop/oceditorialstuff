@@ -35,7 +35,7 @@ if ( $object instanceof eZContentObject )
             foreach( $data[$options['param_name']] as $file )
             {
                 $filePath = $options['upload_dir'] . $file->name;
-                $response = $post->fileFactory()->handleFile( $filePath, $http->postVariable( 'FileProperties', array() ), $http->postVariable( 'FileAttributes', array() ) );
+                $response = $post->fileFactory( $attributeIdentifier )->handleFile( $filePath, $http->postVariable( 'FileProperties', array() ), $http->postVariable( 'FileAttributes', array() ) );
                 $file = eZClusterFileHandler::instance( $filePath );
                 if ( $file->exists() )
                 {
@@ -67,7 +67,7 @@ if ( $object instanceof eZContentObject )
             $tpl = eZTemplate::factory();
             $tpl->setVariable( 'post', $post );
             $tpl->setVariable( 'factory_identifier', $factoryIdentifier );
-            $response['content'] = $tpl->fetch( "design:{$handler->getFactory()->getTemplateDirectory()}/parts/{$post->fileFactory()->identifier()}/data.tpl" );
+            $response['content'] = $tpl->fetch( "design:{$handler->getFactory()->getTemplateDirectory()}/parts/{$post->fileFactory( $attributeIdentifier )->identifier()}/data.tpl" );
 
             if ( count( $response['errors'] ) )
             {

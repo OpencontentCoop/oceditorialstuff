@@ -38,7 +38,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
             else
                 throw new Exception( "Factory class '$className' not found" );
         }
-        throw new Exception( "Factory '$factoryIdentifier'' not properly configured" );
+        throw new Exception( "Factory '$factoryIdentifier' configuration not found" );
     }
 
     public function __construct( $configuration )
@@ -330,6 +330,10 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
     public function editModuleResult( $parameters, OCEditorialStuffHandlerInterface $handler, eZModule $module )
     {
         $currentPost = $this->getModuleCurrentPost( $parameters, $handler, $module );
+        if ( !$currentPost instanceof OCEditorialStuffPostInterface )
+        {
+            return $currentPost;
+        }
         $tpl = $this->editModuleResultTemplate( $currentPost, $parameters, $handler, $module );
 
         $Result = array();
