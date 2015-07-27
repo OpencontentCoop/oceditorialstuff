@@ -15,16 +15,17 @@ try
         {
             $post->executeAction(
                 $http->postVariable( 'ActionIdentifier' ),
-                $http->postVariable( 'ActionParameters', array() )
+                $http->postVariable( 'ActionParameters', array() ),
+                $module
             );
         }
     }
 }
 catch ( Exception $e )
 {
-
+    eZDebug::writeNotice( $e->getMessage(), __FILE__ );
 }
 if ( $http->hasPostVariable( 'AjaxMode' ) )
     eZExecution::cleanExit();
-else
+elseif ( $module->exitStatus() != eZModule::STATUS_REDIRECT  )
     $module->redirectTo( $http->postVariable( 'RedirectUrl', "editorialstuff/edit/{$factoryIdentifier}/{$id}" ) );
