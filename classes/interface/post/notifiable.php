@@ -31,7 +31,7 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
                 );
                 $event->store();
             }
-            eZDebug::writeError( "$type not defined in " . get_called_class() . "::availableNotificationEventTypes()", __METHOD__ );
+            eZDebug::writeError( "$type not defined in " . get_class( $factory ) . "::availableNotificationEventTypes()", __METHOD__ );
         }
         else
         {
