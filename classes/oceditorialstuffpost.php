@@ -313,7 +313,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         return $this->data;
     }
 
-    public function executeAction( $actionIdentifier, $actionParameters )
+    public function executeAction( $actionIdentifier, $actionParameters, eZModule $module = null )
     {
     }
 }

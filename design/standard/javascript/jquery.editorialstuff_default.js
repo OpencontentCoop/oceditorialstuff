@@ -23,6 +23,9 @@ $(document).ready(function () {
         $('.nav-pills, .nav-tabs').tabdrop();
     }
 
+    $('#dashboard-filters-container').find('select').change( function() {
+        $('#dashboard-search-button').click();
+    });
 
     var hash = document.location.hash;
     var prefix = "tab_";
