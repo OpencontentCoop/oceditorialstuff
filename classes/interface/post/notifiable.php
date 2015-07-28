@@ -49,9 +49,10 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
 
     /**
      * @param $type
-     * @param eZNotificationEventType $event
+     * @param $event
+     * @param OCEditorialStuffPostInterface $refer
      *
-     * @return mixed
+     * @return bool
      */
     public function handleNotificationEventByType( $type, $event, OCEditorialStuffPostInterface $refer = null )
     {

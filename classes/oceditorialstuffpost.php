@@ -152,6 +152,8 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
 
     public function onRemove(){}
 
+    public function onBeforeRemove(){}
+
     abstract public function onChangeState( eZContentObjectState $beforeState, eZContentObjectState $afterState );
 
     /**

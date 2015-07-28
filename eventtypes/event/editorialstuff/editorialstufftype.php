@@ -20,6 +20,7 @@ class EditorialStuffType extends eZWorkflowEventType
         $parameters = $process->attribute( 'parameter_list' );
         if ( $parameters['trigger_name'] == 'post_publish'
              || $parameters['trigger_name'] == 'pre_publish'
+             || $parameters['trigger_name'] == 'post_delete'
              || $parameters['trigger_name'] == 'pre_delete' )
         {
             if ( isset( $parameters['object_id'] ) )
@@ -35,6 +36,11 @@ class EditorialStuffType extends eZWorkflowEventType
                             {
                                 $post = $instance->getFactory()->instancePost( array( 'object_id' => $object->attribute( 'id' ) ) );
                                 if ( $parameters['trigger_name'] == 'pre_delete' )
+                                {
+                                    eZDebug::writeNotice( 'Call onBeforeRemove for object ' . get_class( $post ), __METHOD__  );
+                                    $post->onBeforeRemove();
+                                }
+                                elseif ( $parameters['trigger_name'] == 'post_delete' )
                                 {
                                     eZDebug::writeNotice( 'Call onRemove for object ' . get_class( $post ), __METHOD__  );
                                     $post->onRemove();

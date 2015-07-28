@@ -27,6 +27,8 @@ interface OCEditorialStuffPostInterface
     
     public function onUpdate();
 
+    public function onBeforeRemove();
+
     public function onRemove();
 
     /**
