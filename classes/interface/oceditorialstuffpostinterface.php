@@ -41,6 +41,10 @@ interface OCEditorialStuffPostInterface
 
     public function is( $stateIdentifier );
 
+    public function isAfter( $stateIdentifier, $orEqual = false );
+
+    public function isBefore( $stateIdentifier, $orEqual = false );
+
     public function tabs();
 
     public function attribute( $property );

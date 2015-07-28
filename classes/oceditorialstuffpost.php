@@ -189,6 +189,53 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         return false;
     }
 
+    public function isAfter( $stateIdentifier, $orEqual = false )
+    {
+        $currentPosition = $this->stateOffset();
+        $findPosition = $this->stateOffset( $stateIdentifier );
+        if ( $orEqual )
+        {
+            return $findPosition >= $currentPosition;
+        }
+        else
+        {
+            return $findPosition > $currentPosition;
+        }
+    }
+
+    public function isBefore( $stateIdentifier, $orEqual = false )
+    {
+        $currentPosition = $this->stateOffset();
+        $findPosition = $this->stateOffset( $stateIdentifier );
+        if ( $orEqual )
+        {
+            return $findPosition <= $currentPosition;
+        }
+        else
+        {
+            return $findPosition < $currentPosition;
+        }
+    }
+
+    protected function stateOffset( $stateIdentifier = null )
+    {
+        if ( $stateIdentifier === null )
+        {
+            $stateIdentifier = $this->currentState()->attribute( 'identifier' );
+        }
+        $index = 0;
+        foreach ( $this->states() as $state )
+        {
+            $index++;
+
+            if ( $state->attribute( 'identifier' ) == $stateIdentifier )
+            {
+                return $index;
+            }
+        }
+        return -1;
+    }
+
     public function tabs()
     {
         $currentUser = eZUser::currentUser();
