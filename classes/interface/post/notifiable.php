@@ -8,7 +8,8 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
         $factory = $this->getFactory();
         if ( $factory instanceof OCEditorialStuffPostNotifiableFactory )
         {
-            if ( in_array( $type, $factory->availableNotificationEventTypes() ) )
+            $availableNotificationEventTypes = $factory->availableNotificationEventTypes();
+            if ( in_array( $type, $availableNotificationEventTypes ) )
             {
                 $params = array(
                     'type' => $type,
@@ -31,7 +32,13 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
                 );
                 $event->store();
             }
-            eZDebug::writeError( "$type not defined in " . get_class( $factory ) . "::availableNotificationEventTypes()", __METHOD__ );
+            else
+            {
+                eZDebug::writeError(
+                    "'$type' not defined in " . get_class( $factory ) . "::availableNotificationEventTypes()",
+                    __METHOD__
+                );
+            }
         }
         else
         {
