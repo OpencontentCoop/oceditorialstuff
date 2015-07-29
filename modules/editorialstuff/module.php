@@ -16,6 +16,13 @@ $ViewList['dashboard'] = array(
     )
 );
 
+$ViewList['add'] = array(
+    'functions' => array( 'dashboard' ),
+    'script' => 'add.php',
+    'params' => array( 'FactoryIdentifier' ),
+    'unordered_params' => array()
+);
+
 $ViewList['edit'] = array(
     'functions' => array( 'dashboard' ),
     'script' => 'edit.php',
