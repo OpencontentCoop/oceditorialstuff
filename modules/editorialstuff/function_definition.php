@@ -30,7 +30,7 @@ $FunctionList['posts'] = array(
         ),
         array(
             'name' => 'state',
-            'type' =>'integer',
+            'type' =>'mixed',
             'required' => false,
             'default' => false
         ),

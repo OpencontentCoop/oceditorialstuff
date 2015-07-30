@@ -131,7 +131,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             $this->setInterval( $parameters['interval'] );
         }
         if ( isset( $parameters['state'] ) && $parameters['state']  )
-        {
+        {            
             $this->setState( $parameters['state'] );
         }
         if ( isset( $parameters['query'] ) && $parameters['query']  )
@@ -186,21 +186,36 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         $this->query = $query;
         return $this;
     }
+    
+    private function parseState( $state )
+    {        
+        if ( !is_numeric( $state ) )
+        {
+            foreach( $this->getFactory()->states() as $stateObject )
+            {
+                if ( $stateObject->attribute( 'identifier' ) == $state  )
+                {
+                    $state = $stateObject->attribute( 'id' );
+                }
+            }
+        }
+        return $state;
+    }
 
     protected function setState( $state )
     {
         if ( is_array( $state ) )
         {
-            $stateFilter = array();
+            $stateFilter = array( 'or' );
             foreach( $state as $s )
             {
-                $stateFilter[] = 'meta_object_states_si:' . $s;
+                $stateFilter[] = 'meta_object_states_si:' . $this->parseState( $s );
             }
             $this->filters[] = $stateFilter;
         }
         else
         {
-            $this->filters[] = 'meta_object_states_si:' . $state;
+            $this->filters[] = 'meta_object_states_si:' . $this->parseState( $state );
         }
         return $this;
     }
@@ -328,7 +343,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'query' => $this->query,
             'parameters' => $solrFetchParams,
             'result_extra' => $solrResult['SearchExtras']
-        );
+        );        
         return $solrResult;
     }
         
