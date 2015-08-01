@@ -22,7 +22,7 @@ class EditorialStuffIndexPlugin implements ezfIndexPlugin
                     {
                         try
                         {
-                            $post = $instance->fetchByObjectId( $object->attribute( 'id' ) );
+                            $post = $instance->getFactory()->instancePost( array( 'object_id' => $object->attribute( 'id' ) ) );
                             if ( method_exists( $post, $field['index_plugin_call_function'] ) )
                             {
                                 $value = $post->{$field['index_plugin_call_function']}();
@@ -31,7 +31,7 @@ class EditorialStuffIndexPlugin implements ezfIndexPlugin
                         }
                         catch ( Exception $e )
                         {
-
+                            eZCLI::instance()->error( $e->getMessage() );
                         }
                     }
                 }
