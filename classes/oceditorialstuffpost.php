@@ -2,7 +2,7 @@
 
 abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
 {
-    
+
     const STATE_PUBLISHED = 'published';
     const STATE_SENT = 'sent';
 
@@ -15,12 +15,12 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
      * @var eZContentObjectAttribute[]
      */
     protected $dataMap;
-    
+
     /**
      * @var eZContentObjectTreeNode
      */
     protected $mainNode;
-    
+
     /**
      * @var array
      */
@@ -143,7 +143,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
     }
 
     public function onBeforeCreate(){}
-    
+
     public function onCreate(){}
 
     public function onUpdate(){}
@@ -264,22 +264,22 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         {
             case 'object':
                 return $this->object;
-        
+
             case 'node':
                 return $this->mainNode;
-        
+
             case 'states':
                 return $this->states();
-            
+
             case 'current_state':
                 return $this->currentState();
-            
+
             case 'history':
                 return OCEditorialStuffHistory::getHistoryByObjectId( $this->object->attribute( 'id' ) );
-            
+
             case 'notification_history':
                 return OCEditorialStuffHistory::getNotificationHistoryByObjectId( $this->object->attribute( 'id' ) );
-            
+
             case 'social_history':
                 return OCEditorialStuffHistory::getSocialHistoryByObjectId( $this->object->attribute( 'id' ) );
 
@@ -306,7 +306,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 }
                 eZDebug::writeError( "Attribute '$property' not found" );
                 return false;
-        }     
+        }
     }
 
     public function attributes()

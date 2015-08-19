@@ -11,7 +11,7 @@ $interval = $http->getVariable( 'interval', $Params['Interval'] );
 $tag = $http->getVariable( 'tag', $Params['Tag'] );
 
 $viewParameters = array(
-    'limit' => 20,
+    'limit' => 30,
     'offset' => ( isset( $offset ) and is_numeric( $offset ) ) ? $offset : 0,
     'query'  => ( isset( $query ) and is_string( $query ) ) ? $query : false,
     'state' => ( isset( $state ) and is_numeric( $state ) ) ? $state : false,
