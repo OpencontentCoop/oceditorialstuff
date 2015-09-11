@@ -100,6 +100,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 );
             }
         }
+        $this->object = eZContentObject::fetch( $this->data['object_id'] );
         $afterStateId = $this->currentState() instanceof eZContentObjectState ? $this->currentState()->attribute( 'id' ) : '?';
         $afterStateName = $this->currentState() instanceof eZContentObjectState ? $this->currentState()->attribute( 'current_translation' )->attribute( 'name' ) : '?';
 
