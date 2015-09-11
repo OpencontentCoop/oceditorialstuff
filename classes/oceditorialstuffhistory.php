@@ -174,6 +174,25 @@ class OCEditorialStuffHistory extends eZPersistentObject
         eZPersistentObject::removeObject( OCEditorialStuffHistory::definition(), array( 'object_id' => $objectId, 'handler' => 'history' ) );
     }
 
+    public static function getLastHistoryByObjectIdAndType( $objectID, $type )
+    {
+        $histories = eZPersistentObject::fetchObjectList(
+            self::definition(),
+            null,
+            array(
+                'object_id' => $objectID,
+                'type' => $type,
+            ),
+            array( 'created_time' => 'desc' ),
+            array( 'limit' => 1, 'offset' => 0 )
+        );
+        if ( isset( $histories[0] ) && $histories[0] instanceof OCEditorialStuffHistory )
+        {
+            return $histories[0];
+        }
+        return false;
+    }
+
     /**
      * @param $objectID
      *
