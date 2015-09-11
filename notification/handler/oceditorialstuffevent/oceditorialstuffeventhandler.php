@@ -64,7 +64,7 @@ class OCEditorialStuffEventHandler extends eZNotificationEventHandler
     function attributes()
     {
         $attributes = parent::attributes();
-        $attributes['available_factories'];
+        $attributes[] = 'available_factories';
         return $attributes;
     }
 
