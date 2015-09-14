@@ -31,6 +31,7 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
                     $params
                 );
                 $event->store();
+                eZDebug::writeWarning( "Created event $type", __METHOD__ );
             }
             else
             {
@@ -64,7 +65,7 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
             if ( isset( $configuration[$type]['handler_method'] )
                  && method_exists( $this, $configuration[$type]['handler_method'] ) )
             {
-                $result = $this->{$configuration[$type]['handler_method']}( $event, $refer );
+                $result = $this->{$configuration[$type]['handler_method']}( $event, $refer, $configuration[$type] );
             }
             else
             {

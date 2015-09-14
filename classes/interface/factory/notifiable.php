@@ -32,8 +32,7 @@ abstract class OCEditorialStuffPostNotifiableFactory extends OCEditorialStuffPos
         {
             try
             {
-                $post = OCEditorialStuffHandler::instanceFromFactory( $this )
-                    ->fetchByObjectId( $event->attribute( OCEditorialStuffEventType::FIELD_OBJECT_ID ) );
+                $post = $this->instancePost( array( 'object_id' => $event->attribute( OCEditorialStuffEventType::FIELD_OBJECT_ID ) ) );
                 if ( $post instanceof OCEditorialStuffPostNotifiable )
                 {
                     return $post->handleNotificationEventByType( $type, $event, $refer );

@@ -60,7 +60,28 @@ class OCEditorialStuffEventType extends eZNotificationEventType
         }
         catch( Exception $e )
         {
+            eZDebug::writeError( $e->getMessage() );
+        }
 
+        if ( $event->hasAttribute( self::FIELD_REFER_FACTORY_IDENTIFIER ) )
+        {
+            try
+            {
+                $factory = OCEditorialStuffHandler::instance(
+                    $event->attribute( self::FIELD_REFER_FACTORY_IDENTIFIER )
+                )->getFactory();
+
+                if ( $factory instanceof OCEditorialStuffPostFactoryInterface )
+                {
+                    $content->referPost = $factory->instancePost(
+                        array( 'object_id' => $event->attribute( self::FIELD_REFER_OBJECT_ID ) )
+                    );
+                }
+            }
+            catch ( Exception $e )
+            {
+                eZDebug::writeError( $e->getMessage() );
+            }
         }
         return $content;
     }
