@@ -2,7 +2,7 @@
 
 abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
 {
-    final public function createNotificationEvent( $type, OCEditorialStuffPostInterface $refer = null )
+    public function createNotificationEvent( $type, OCEditorialStuffPostInterface $refer = null )
     {
         $event = null;
         $factory = $this->getFactory();
@@ -79,7 +79,7 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
      * @param string $type
      * @param int[] $userIds eZUser::id() array
      */
-    final public function createNotificationTypeRule( $type, $userIds )
+    public function createNotificationTypeRule( $type, $userIds )
     {
         $factory = $this->getFactory();
         if ( $factory instanceof OCEditorialStuffPostNotifiableFactory )
