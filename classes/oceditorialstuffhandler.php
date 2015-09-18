@@ -104,6 +104,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
      */
     public function fetchByObjectId( $id )
     {
+        $this->filters = array();
         $this->setFilters( array( 'meta_id_si:' . $id ) );
         $results = $this->fetchResult( 1, 0 );
         if( count( $results ) > 0 )
@@ -115,6 +116,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
 
     public function fetchByNodeId( $id )
     {
+        $this->filters = array();
         $this->setFilters( array( 'meta_node_id_si:' . $id ) );
         $results = $this->fetchResult( 1, 0 );
         if( count( $results ) > 0 )
@@ -154,6 +156,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
 
     public function fetchItems( $parameters )
     {
+        $this->filters = array();
         $this->parseParameters( $parameters );
         $result = (array) $this->fetchResult( $parameters['limit'], $parameters['offset'] );
         return $result;
@@ -161,6 +164,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
 
     public function fetchItemsCount( $parameters )
     {
+        $this->filters = array();
         $this->parseParameters( $parameters );
         $result = intval( $this->fetchCount() );
         return $result;
@@ -171,9 +175,12 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         return self::$lastFetchData;
     }
 
-    protected function setFilters( $array )
+    protected function setFilters( $filters )
     {
-        $this->filters = $array;
+        if ( empty( $this->filters ) )
+            $this->filters = $filters;
+        else
+            $this->filters[] = $filters;
     }
 
     protected function setSortArray( $array )
