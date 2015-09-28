@@ -4,6 +4,7 @@
     {set $allowed = $allowed|append( hash( 'identifier', $key, 'state',  $state ) )}
     {/if}
 {/foreach}
+<form>
 <select class="inline_edit_state">
     {if $allowed|count()}
     {foreach $allowed as $state}
@@ -11,3 +12,4 @@
     {/foreach}
     {/if}
 <select>
+</form>
