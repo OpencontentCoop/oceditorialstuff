@@ -154,11 +154,11 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         }
     }
 
-    public function fetchItems( $parameters )
+    public function fetchItems( $parameters, $limitation = null )
     {
         $this->filters = array();
         $this->parseParameters( $parameters );
-        $result = (array) $this->fetchResult( $parameters['limit'], $parameters['offset'] );
+        $result = (array) $this->fetchResult( $parameters['limit'], $parameters['offset'], $limitation );
         return $result;
     }
 
@@ -283,9 +283,9 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
      *
      * @return OCEditorialStuffPost[]
      */
-    protected function fetchResult( $limit = 10, $offset = 0 )
+    protected function fetchResult( $limit = 10, $offset = 0, $limitation = null )
     {
-        $solrResult = $this->fetch( $limit, $offset );
+        $solrResult = $this->fetch( $limit, $offset, $limitation );
         $result = array();
         if ( $solrResult['SearchCount'] > 0 )
         {
@@ -304,7 +304,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         return $solrResult['SearchCount'];   
     }
 
-    protected function fetch( $limit = 10, $offset = 0 )
+    protected function fetch( $limit = 10, $offset = 0, $limitation = null )
     {        
         $fieldsToReturn = array();
         foreach( $this->getFactory()->fields() as $field )
@@ -333,7 +333,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'AsObjects' => false,
             'SpellCheck' => null,
             'IgnoreVisibility' => null,
-            'Limitation' => null,
+            'Limitation' => $limitation,
             'BoostFunctions' => null,
             'QueryHandler' => 'ezpublish',
             'EnableElevation' => true,
@@ -350,7 +350,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'query' => $this->query,
             'parameters' => $solrFetchParams,
             'result_extra' => $solrResult['SearchExtras']
-        );        
+        );
         return $solrResult;
     }
         

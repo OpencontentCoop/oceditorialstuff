@@ -23,10 +23,11 @@ interface OCEditorialStuffHandlerInterface
 
     /**
      * @param $parameters
+     * @param $limitation
      *
      * @return OCEditorialStuffPostInterface[]
      */
-    public function fetchItems( $parameters );
+    public function fetchItems( $parameters, $limitation = null );
 
     /**
      * @param $parameters

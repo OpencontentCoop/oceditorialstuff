@@ -69,6 +69,19 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         return $this->object;
     }
 
+    public function flushObject()
+    {
+        eZContentObject::clearCache( array( $this->data['object_id'] ) );
+        $this->object = eZContentObject::fetch( $this->data['object_id'] );
+    }
+
+    public function setObjectLastModified()
+    {
+        $this->getObject()->setAttribute( 'modified', time() );
+        $this->getObject()->store();
+        eZSearch::addObject( $this->object, true );
+    }
+
     public function getFactory()
     {
         return $this->factory;
@@ -100,7 +113,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 );
             }
         }
-        $this->object = eZContentObject::fetch( $this->data['object_id'] );
+        $this->flushObject();
         $afterStateId = $this->currentState() instanceof eZContentObjectState ? $this->currentState()->attribute( 'id' ) : '?';
         $afterStateName = $this->currentState() instanceof eZContentObjectState ? $this->currentState()->attribute( 'current_translation' )->attribute( 'name' ) : '?';
 
