@@ -222,10 +222,11 @@ class OCEditorialStuffActionHandler
                             'Limitation' => array(),
                             'AsObject' => false
                         )
-                    );
+                    );                    
                     foreach ( $children as $child )
                     {
-                        $user = eZUser::fetch( $child['contentobject_id'] );
+                        $id = isset( $child['contentobject_id'] ) ? $child['contentobject_id'] : $child['id'];
+                        $user = eZUser::fetch( $id );
                         if ( $user instanceof eZUser )
                         {
                             $users[] = $user;
@@ -233,7 +234,7 @@ class OCEditorialStuffActionHandler
                         else
                         {
                             eZDebug::writeError(
-                                "User {$child['contentobject_id']} not found",
+                                "User {$id} not found",
                                 __METHOD__
                             );
                         }
