@@ -65,7 +65,7 @@ class OCEditorialStuffMailer
                 }
 
                 $subject = $post->getObject()->attribute( 'name' );
-                $body = $tpl->fetch( 'design:editorialstuff/' . $post->getFactory()->getTemplateDirectory() . '/mail/notification.tpl' );
+                $body = $tpl->fetch( 'design:' . $post->getFactory()->getTemplateDirectory() . '/mail/notification.tpl' );
 
                 if ( $tpl->hasVariable( 'subject' ) )
                 {
