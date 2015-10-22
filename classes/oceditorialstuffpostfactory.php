@@ -19,7 +19,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
     final public static function instance( $factoryIdentifier, $factoryParameters = array() )
     {
         $ini = eZINI::instance( 'editorialstuff.ini' );
-        $availableFactories = $ini->variable( 'AvailableFactories', 'Identifiers' );
+        $availableFactories = (array) $ini->variable( 'AvailableFactories', 'Identifiers' );
         $defaultFactoryClassName = 'OCEditorialStuffPostDefaultFactory';
         if ( $ini->hasVariable( 'Settings', 'DefaultFactoryClassName' ) )
         {
