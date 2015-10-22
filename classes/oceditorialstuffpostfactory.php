@@ -341,7 +341,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         $contentInfoArray = array( 'url_alias' => 'editorialstuff/dashboard' );
         $contentInfoArray['persistent_variable'] = array(
             'show_path' => true,
-            'site_title' => 'Dashboard'
+            'site_title' => 'Edit ' . $currentPost->getObject()->attribute( 'name' )
         );
         if ( is_array( $tpl->variable( 'persistent_variable' ) ) )
         {
