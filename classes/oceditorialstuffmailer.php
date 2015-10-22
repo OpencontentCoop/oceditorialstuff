@@ -50,6 +50,7 @@ class OCEditorialStuffMailer
                 $tpl->setVariable( 'post', $post );
                 $tpl->setVariable( 'message', empty( $message ) ? false : $message );
                 $tpl->setVariable( 'factory_configuration', $post->getFactory()->getConfiguration() );
+                $tpl->setVariable( 'template_directory', $post->getFactory()->getTemplateDirectory() );
 
                 if ( $recipient['user'] )
                 {
