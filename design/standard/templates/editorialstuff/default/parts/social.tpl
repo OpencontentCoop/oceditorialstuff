@@ -34,7 +34,7 @@
         {ezcss_require(array('ngpush.css'))}
         {ezscript_require(array('json2.js','oceditorialstuffpush.js'))}
         <script type="text/javascript">
-            var ngpush_factory_identifier = {$factory_identifier};
+            var ngpush_factory_identifier = "{$factory_identifier}";
             var ngpush_node_id = {$node.node_id};
             var ngpush_node_url_full = "{$NodeURL}";
             var ngpush_node_url_short = "{$NodeURL}";
