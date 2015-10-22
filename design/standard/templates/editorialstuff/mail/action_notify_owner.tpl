@@ -3,5 +3,5 @@
 {set-block scope=root variable=subject}Notifica su {$post.object.name|wash()}{/set-block}
 {set-block scope=root variable=content_type}text/html{/set-block}
 
-La presente per comunicare che il contenuto <a href="{$post.object.main_node.url_alias|ezurl()}">{$post.object.name|wash()}</a> è stato cambiato di stato.
+La presente per comunicare che il contenuto <a href="{$post.editorial_url|ezurl(no,full)}">{$post.object.name|wash()}</a> è stato cambiato di stato.
 Lo stato corrente è {$post.current_state.current_translation.name|wash}

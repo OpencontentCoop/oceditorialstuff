@@ -344,6 +344,9 @@ class OCEditorialStuffPost
             case 'hashtags':
                 //@todo
                 return false;
+            
+            case 'editorial_url':
+                return 'editorialstuff/edit/' . $this->getFactory()->identifier() . '/' . $this->id();
 
             default:
                 if ( in_array( $property, $this->attributeMapKeys )
@@ -378,7 +381,8 @@ class OCEditorialStuffPost
                 'history',
                 'notification_history',
                 'social_history',
-                'hashtags'
+                'hashtags',
+                'editorial_url'
             ),
             array_keys( $this->data ),
             $this->attributeMapKeys

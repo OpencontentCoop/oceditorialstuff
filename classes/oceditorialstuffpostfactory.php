@@ -22,6 +22,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         if ( in_array( $factoryIdentifier, $availableFactories ) && $ini->hasGroup( $factoryIdentifier ) )
         {
             $factoryConfiguration = $ini->group( $factoryIdentifier );
+            $factoryConfiguration['identifier'] = $factoryIdentifier;
             $className = isset( $factoryConfiguration['ClassName'] ) ? $factoryConfiguration['ClassName'] : 'OCEditorialStuffPostDefaultFactory';
             if ( class_exists( $className ) )
             {
@@ -42,6 +43,11 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
     public function repositoryRootNodes()
     {
         return $this->configuration['RepositoryNodes'];
+    }
+    
+    public function identifier()
+    {
+        return $this->configuration['identifier'];
     }
 
     /**
