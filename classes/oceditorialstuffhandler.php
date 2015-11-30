@@ -327,7 +327,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'Facet' => $this->facets,
             'SortBy' => $this->sortArray,
             'Filter' => $this->filters,
-            'SearchContentClassID' => array( $this->getFactory()->classIdentifier() ),
+            'SearchContentClassID' => array( eZContentClass::classIDByIdentifier( $this->getFactory()->classIdentifier() ) ),
             'SearchSectionID' => null,
             'SearchSubTreeArray' => $this->getFactory()->repositoryRootNodes(),
             'AsObjects' => false,
@@ -343,7 +343,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'FieldsToReturn' => $fieldsToReturn,
             'SearchResultClustering' => null,
             'ExtendedAttributeFilter' => array()
-        );        
+        );
         $solrSearch = new OCSolr();
         $solrResult = $solrSearch->search( $this->query, $solrFetchParams );
         self::$lastFetchData = array(

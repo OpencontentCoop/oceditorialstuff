@@ -48,15 +48,19 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
         {
             throw new Exception( 'Object not found' );
         }
-        $this->mainNode = $this->object->attribute( 'main_node' );
-        // commentata perché altrimenti non funziona in execute workflow pre publish
-        //if ( !$this->mainNode instanceof eZContentObjectTreeNode )
-        //{
-        //    throw new Exception( 'Node not found' );
-        //}
+
         $this->dataMap = $this->object->attribute( 'data_map' );
         $this->factory = $factory;
         $this->actionHandler = OCEditorialStuffActionHandler::instance( $this->factory );
+    }
+
+    public function getMainNode()
+    {
+        if ( $this->mainNode == null )
+        {
+            $this->mainNode = $this->object->attribute( 'main_node' );
+        }
+        return $this->mainNode;
     }
 
     public function id()
@@ -280,7 +284,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 return $this->object;
 
             case 'node':
-                return $this->mainNode;
+                return $this->getMainNode();
 
             case 'states':
                 return $this->states();
