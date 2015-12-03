@@ -317,6 +317,9 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
             case 'factory_identifier':
                 return $this->getFactory()->identifier();
 
+            case 'template_directory':
+                return $this->getFactory()->getTemplateDirectory();
+
             default:
                 if ( array_key_exists( $property, $this->data ) )
                 {
@@ -342,7 +345,8 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 'tabs',
                 'hashtags',
                 'editorial_url',
-                'factory_identifier'
+                'factory_identifier',
+                'template_directory'
             ),
             array_keys( $this->data )
         );
