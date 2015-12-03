@@ -298,6 +298,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         if ( isset( $this->configuration['UiContext'] ) && is_string( $this->configuration['UiContext'] ) )
             $module->setUIContextName( $this->configuration['UiContext'] );
         $tpl = eZTemplate::factory();
+        $tpl->setVariable( 'persistent_variable', false );
         $tpl->setVariable( 'factory_identifier', $this->configuration['identifier'] );
         $tpl->setVariable( 'factory_configuration', $this->getConfiguration() );
         $tpl->setVariable( 'template_directory', $this->getTemplateDirectory() );
@@ -351,7 +352,6 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
         {
             $contentInfoArray['persistent_variable'] = array_merge( $contentInfoArray['persistent_variable'], $this->configuration['PersistentVariable'] );
         }
-        $tpl->setVariable( 'persistent_variable', false );
         $Result['content_info'] = $contentInfoArray;
         $Result['path'] = array(
             array( 'url' => 'editorialstuff/dashboard/' . $this->configuration['identifier'],
