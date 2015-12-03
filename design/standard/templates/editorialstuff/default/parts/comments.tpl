@@ -142,7 +142,7 @@
                           can_self_edit=$self_policy.edit
                           can_self_delete=$self_policy.delete
                           node=$attribute_node
-                          uri="design:editorialstuff/parts/comments/comment_item.tpl"}
+                          uri=concat('design:',$template_directory, '/parts/comments/comment_item.tpl')}
           {/for}                
       </div>
     {/if}
