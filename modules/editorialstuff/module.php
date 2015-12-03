@@ -79,6 +79,13 @@ $ViewList['download'] = array(
     'unordered_params' => array()
 );
 
+$ViewList['data'] = array(
+    'functions' => array( 'dashboard' ),
+    'script' => 'data.php',
+    'params' => array( 'FactoryIdentifier', 'ID', 'TemplatePath' ),
+    'unordered_params' => array()
+);
+
 
 $FunctionList = array();
 $FunctionList['dashboard'] = array();
