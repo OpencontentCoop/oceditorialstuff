@@ -22,6 +22,11 @@ try
         {
             $templatePath = ltrim( $templatePath, '/' );
         }
+        if ( class_exists( 'ezxFormToken' ) &&  method_exists( 'ezxFormToken', 'getToken' ) )
+        {
+            $tpl->setVariable( 'token_value', ezxFormToken::getToken() );            
+            $tpl->setVariable( 'token_field', ezxFormToken::FORM_FIELD );            
+        }
         $data = $tpl->fetch( 'design:' . $templatePath . '.tpl' );
     }
 }
