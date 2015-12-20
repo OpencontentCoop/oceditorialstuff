@@ -21,6 +21,8 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
     
     protected $query = '';
 
+    protected $heuristicQuery = false;
+
     protected $factoryIdentifier;
 
     private static $lastFetchData;
@@ -151,6 +153,10 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         if ( isset( $parameters['filters'] ) && $parameters['filters']  )
         {
             $this->setFilters( $parameters['filters'] );
+        }
+        if ( isset( $parameters['heuristic'] ) && $parameters['heuristic']  )
+        {
+            $this->heuristicQuery = true;
         }
     }
 
@@ -335,7 +341,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'IgnoreVisibility' => null,
             'Limitation' => $limitation,
             'BoostFunctions' => null,
-            //'QueryHandler' => 'ezpublish',
+            'QueryHandler' => 'ezpublish',
             'EnableElevation' => true,
             'ForceElevation' => true,
             'SearchDate' => null,
@@ -345,7 +351,13 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'ExtendedAttributeFilter' => array()
         );
         $solrSearch = new OCSolr();
-        $query = $this->query ? '(*' . strtolower( $this->query ) . '*) OR ' . strtolower( $this->query ) : $this->query;
+        if ( $this->heuristicQuery )
+        {
+            $query = $this->query ? '(*' . strtolower( $this->query ) . '*) OR ' . strtolower($this->query) : $this->query;
+            unset( $solrFetchParams['QueryHandler'] );
+        }
+        else
+            $query = $this->query;
         $solrResult = $solrSearch->search( $query, $solrFetchParams );
         self::$lastFetchData = array(
             'query' => $this->query,
