@@ -315,7 +315,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
         if ( !eZUser::currentUser()->isAnonymous() ) // anonimo fa girare i cron...
         {
             $fullAccess = eZUser::currentUser()->hasAccessTo( 'editorialstuff', 'full_dashboard' );
-            if ( $fullAccess['accessWord'] != 'yes' )
+            if ( $fullAccess['accessWord'] == 'no' )
             {
                 $this->filters[] = 'meta_owner_id_si:' . eZUser::currentUserID();
             }
