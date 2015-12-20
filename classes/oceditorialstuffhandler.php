@@ -335,7 +335,7 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'IgnoreVisibility' => null,
             'Limitation' => $limitation,
             'BoostFunctions' => null,
-            'QueryHandler' => 'ezpublish',
+            //'QueryHandler' => 'ezpublish',
             'EnableElevation' => true,
             'ForceElevation' => true,
             'SearchDate' => null,
@@ -345,7 +345,8 @@ class OCEditorialStuffHandler implements OCEditorialStuffHandlerInterface
             'ExtendedAttributeFilter' => array()
         );
         $solrSearch = new OCSolr();
-        $solrResult = $solrSearch->search( $this->query, $solrFetchParams );
+        $query = $this->query ? '(*' . strtolower( $this->query ) . '*) OR ' . strtolower( $this->query ) : $this->query;
+        $solrResult = $solrSearch->search( $query, $solrFetchParams );
         self::$lastFetchData = array(
             'query' => $this->query,
             'parameters' => $solrFetchParams,
