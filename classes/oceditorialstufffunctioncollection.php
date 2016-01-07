@@ -73,4 +73,43 @@ class OCEditorialStuffFunctionCollection
         }
         return array( 'result' => $data );
     }
+
+    public static function fetchPostUrl( $node, $checkPermissions )
+    {
+        if ( $node instanceof eZContentObjectTreeNode )
+        {
+            $url = $node->attribute( 'url_alias' );
+            $object = $node->object();
+            try
+            {
+                $findStuff = true;
+                if ( $checkPermissions )
+                {
+                    $result = eZUser::currentUser()->hasAccessTo( 'editorialstuff', 'dashboard' );
+                    $findStuff = $result['accessWord'] == 'yes';
+                }
+                if ( $findStuff )
+                {
+                    foreach ( OCEditorialStuffHandler::instances() as $instance )
+                    {
+                        if ( $object->attribute( 'class_identifier' )
+                             == $instance->getFactory()->classIdentifier() )
+                        {
+                            $post = $instance->getFactory()->instancePost(
+                                array( 'object_id' => $object->attribute( 'id' ) )
+                            );
+                            $url = $post->attribute( 'editorial_url' );
+                        }
+                    }
+                }
+                return array( 'result' => $url );
+            }
+            catch( Exception $e )
+            {
+                return array( 'error' => $e->getMessage() );
+            }
+        }
+        return array( 'error' => "Parameter node must be a eZContentObjectTreeNode object" );
+    }
+
 }

@@ -198,3 +198,27 @@ $FunctionList['notification_rules_post_ids'] = array(
         )
     )
 );
+
+$FunctionList['url'] = array(
+    'name' => 'url',
+    'operation_types' => array( 'read' ),
+    'call_method' => array(
+        'include_file' => 'extension/oceditorialstuff/classes/oceditorialstufffunctioncollection.php',
+        'class' => 'OCEditorialStuffFunctionCollection',
+        'method' => 'fetchPostUrl' ),
+    'parameter_type' => 'standard',
+    'parameters' => array(
+        array(
+            'name' => 'node',
+            'type' =>'object',
+            'required' => true,
+            'default' => false
+        ),
+        array(
+            'name' => 'check_permissions',
+            'type' =>'boolean',
+            'required' => false,
+            'default' => true
+        )
+    )
+);
