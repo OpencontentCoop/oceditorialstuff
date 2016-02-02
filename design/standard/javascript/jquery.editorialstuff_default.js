@@ -46,10 +46,21 @@ $(document).ready(function () {
         }
     });
     $(document).on('change', 'select.inline_edit_state', function () {
+        var that = $(this);
         var selected = $(this).find('option:selected');
+        that.hide();
+        that.parent().append( '<i id="inline-loading-'+selected.val()+'" class="fa fa-gear fa-spin"></i>' );
         $.ajax({
             url: selected.data('href'),
-            method: 'GET'
+            data: {'Ajax': true},
+            method: 'GET',
+            success: function(data){
+                $('#inline-loading-' + selected.val()).remove();
+                if ( data.result == 'error' ) {
+                    that.parent().append( '<p>'+data.error_message+'</p>' );
+                }
+                that.show();
+            }
         });
     });
 });
