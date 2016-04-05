@@ -87,12 +87,8 @@ class OCEditorialStuffMailer
                 $mail = new eZMail();
                 $ini = eZINI::instance();
 
-                $emailSender = eZUser::currentUser()->attribute('email');
-
-                if ( !$emailSender )
-                    $emailSender = $ini->variable( 'MailSettings', 'EmailSender' );
-
-                if ( !$emailSender )
+                $emailSender = $ini->variable( 'MailSettings', 'EmailSender' );
+                if ( !eZMail::validate( $emailSender ) )                
                     $emailSender = $ini->variable( "MailSettings", "AdminEmail" );
 
                 $mail->setSender( $emailSender );
