@@ -6,7 +6,7 @@
 	<title>{$post.object.name|wash()}</title>
 	<style type="text/css">
   {literal}  
-    @import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
     body{font-family: 'Open Sans', 'Arial', 'Helvetica', sans-serif;}
 		#outlook a {padding:0;}
 		body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}		
@@ -49,14 +49,14 @@
 <body>		
   
   {if $message}
-  <table align='center' border='0' cellpadding='0' cellspacing='0' style='font-size:1.2em;' width='100%'>
+  <table border='0' cellpadding='0' cellspacing='0' style='font-size:1.2em;' width='100%'>
     <tr>
       <td><p>{$message}</p></td>
     </tr>
   </table>  
   {/if}
   
-  <table align='center' bgcolor='#f4f7f9' border='0' cellpadding='20' cellspacing='0' style='background: #f4f7f9;' width='100%'>
+  <table bgcolor='#f4f7f9' border='0' cellpadding='5' cellspacing='0' style='background: #f4f7f9;' width='100%'>
     <tr>
       <td>
         {include uri=concat('design:', $template_directory, '/mail/notification_preview.tpl') post=$post}
@@ -73,7 +73,7 @@
       {/if}
     {/foreach}
     {if $show}
-    <table align='center' bgcolor='#f4f7f9' border='0' cellpadding='20' cellspacing='0' style='background: #f4f7f9;' width='100%'>
+    <table bgcolor='#f4f7f9' border='0' cellpadding='20' cellspacing='0' style='background: #f4f7f9;' width='100%'>
       <tr>
         <td>
         <table border='0' cellpadding='30' cellspacing='0' style='margin-left: auto;margin-right: auto;width:600px;text-align:center;' width='600'>
