@@ -125,6 +125,45 @@ class OCEditorialStuffActionHandler
             eZDebug::writeError( "Object not found", __METHOD__ );
         }
     }
+    
+    public static function addMainLocation(
+        OCEditorialStuffPost $post,
+        $addLocationIds
+    )
+    {
+        $object = $post->getObject();
+        if ( $object instanceof eZContentObject )
+        {
+            eZContentOperationCollection::addAssignment(
+                $object->attribute( 'main_node_id' ),
+                $object->attribute( 'id' ),
+                $addLocationIds
+            );
+            
+            $newMainParentNodeId = array_shift( $addLocationIds );
+            $newMainNode = null;
+            $assignedNodes = $object->assignedNodes();
+            foreach ( $assignedNodes as $assignedNode )
+            {                
+                if ( $newMainParentNodeId == $assignedNode->attribute( 'parent_node_id' ) )
+                {
+                    $newMainNode = $assignedNode;
+                    break;
+                }
+            }
+            
+            if ( $newMainNode ){
+                eZContentObjectTreeNode::updateMainNodeID( $newMainNode->attribute( 'node_id' ), $newMainNode->attribute( 'contentobject_id' ), false, $newMainParentNodeId );
+                eZContentCacheManager::clearContentCacheIfNeeded( $object->attribute( 'id' ) );
+                eZContentOperationCollection::registerSearchObject( $object->attribute( 'id' ) );
+            }
+            
+        }
+        else
+        {
+            eZDebug::writeError( "Object not found", __METHOD__ );
+        }
+    }
 
     public static function removeLocation(
         OCEditorialStuffPost $post,
