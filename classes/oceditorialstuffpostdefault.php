@@ -20,7 +20,8 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
                 'template_uri' => "design:{$templatePath}/parts/content.tpl"
             )
         );
-        if ( $currentUser->hasAccessTo( 'editorialstuff', 'media' ) && in_array( 'image', $this->factory->attributeIdentifiers() ) )
+        $access = $currentUser->hasAccessTo( 'editorialstuff', 'media' );
+        if ( $access['accessWord'] = 'yes' && in_array( 'image', $this->factory->attributeIdentifiers() ) )
         {
             $tabs[] = array(
                 'identifier' => 'media',
@@ -28,7 +29,9 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
                 'template_uri' => "design:{$templatePath}/parts/media.tpl"
             );
         }
-        if ( $currentUser->hasAccessTo( 'editorialstuff', 'mail' ) )
+
+        $access = $currentUser->hasAccessTo( 'editorialstuff', 'mail' );
+        if ( $access['accessWord'] = 'yes' )
         {
             $tabs[] = array(
                 'identifier' => 'mail',
@@ -36,7 +39,8 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
                 'template_uri' => "design:{$templatePath}/parts/mail.tpl"
             );
         }
-        if ( eZINI::instance( 'ngpush.ini' )->hasVariable( 'PushNodeSettings', 'Blocks' ) && $currentUser->hasAccessTo( 'push', '*' ) )
+        $access = $currentUser->hasAccessTo( 'push', '*' );
+        if ( eZINI::instance( 'ngpush.ini' )->hasVariable( 'PushNodeSettings', 'Blocks' ) && $access['accessWord'] = 'yes' )
         {
             $tabs[] = array(
                 'identifier' => 'social',
