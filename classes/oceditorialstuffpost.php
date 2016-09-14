@@ -311,6 +311,9 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
             case 'content_attributes':
                 return $this->contentAttributes();
 
+            case 'content_attributes_grouped_data_map':
+                return eZContentObject::createGroupedDataMap( $this->dataMap );
+
             case 'editorial_url':
                 return 'editorialstuff/edit/' . $this->getFactory()->identifier() . '/' . $this->id();
 
@@ -342,6 +345,7 @@ abstract class OCEditorialStuffPost implements OCEditorialStuffPostInterface
                 'notification_history',
                 'social_history',
                 'content_attributes',
+                'content_attributes_grouped_data_map',
                 'tabs',
                 'hashtags',
                 'editorial_url',
