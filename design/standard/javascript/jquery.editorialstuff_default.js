@@ -42,7 +42,14 @@ $(document).ready(function () {
         $($this.data('remote-target')).html('<em>Loading...</em>');
         var remote = $this.data('load-remote');
         if (remote) {
-            $($this.data('remote-target')).load(remote);
+            $($this.data('remote-target')).load(remote, null, function(responseTxt, statusTxt, xhr) {
+                if (statusTxt == "success") {
+                    var links = $($this.data('remote-target')).find('.modal-body').find('a');
+                    links.each(function (i, v) {
+                        $(v).attr('href', '#').attr('style', 'color:#ccc;');
+                    });
+                }
+            });
         }
     });
     $(document).on('change', 'select.inline_edit_state', function () {
