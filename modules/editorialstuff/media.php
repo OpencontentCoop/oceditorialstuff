@@ -51,6 +51,7 @@ if ( $object instanceof eZContentObject )
             {
                 $newObject = eZContentObject::fetch( $response['contentobject_id'] );
             }
+            unset($response['contentobject']);
             if ( $newObject instanceof eZContentObject )
             {
                 $mimeData = eZMimeType::findByFileContents( $filePath );
