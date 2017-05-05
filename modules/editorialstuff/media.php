@@ -150,11 +150,11 @@ if ( $object instanceof eZContentObject )
             }
             elseif ( $param1 == 'audio' )
             {
-                $post->removeImage( $param2 );
+                $post->removeAudio( $param2 );
             }
             elseif ( $param1 == 'video' )
             {
-                $post->removeImage( $param2 );
+                $post->removeVideo( $param2 );
             }
         }
         elseif ( $action == 'edit' && is_numeric( $param2 ) )
