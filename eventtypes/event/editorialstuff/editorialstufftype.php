@@ -6,7 +6,7 @@ class EditorialStuffType extends eZWorkflowEventType
 
     public function __construct()
     {
-        parent::eZWorkflowEventType( EditorialStuffType ::WORKFLOW_TYPE_STRING, 'Workflow Editorialstuff' );
+        parent::__construct( EditorialStuffType ::WORKFLOW_TYPE_STRING, 'Workflow Editorialstuff' );
     }
 
     /**

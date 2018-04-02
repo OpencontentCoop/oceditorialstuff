@@ -14,9 +14,9 @@ class OCEditorialStuffEventType extends eZNotificationEventType
     const FIELD_REFER_OBJECT_ID = 'data_int3';
     const FIELD_REFER_VERSION = 'data_int4';
 
-    function OCEditorialStuffEventType()
+    function __construct()
     {
-        $this->eZNotificationEventType( self::NOTIFICATION_TYPE_STRING );
+        parent::__construct( self::NOTIFICATION_TYPE_STRING );
     }
 
     /**
