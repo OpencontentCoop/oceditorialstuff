@@ -2,9 +2,9 @@
     <div class="table-responsive">
         <table class="table table-striped">
             <tr>
-                <th>Data</th>
-                <th>Autore</th>
-                <th>Azione</th>
+                <th>{'Date'|i18n('editorialstuff/dashboard')}</th>
+                <th>{'Author'|i18n('editorialstuff/dashboard')}</th>
+                <th>{'Action'|i18n('editorialstuff/dashboard')}</th>
             </tr>
 
             {foreach $post.history as $time => $history_items}

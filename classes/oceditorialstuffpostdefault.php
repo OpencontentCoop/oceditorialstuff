@@ -16,7 +16,7 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
         $tabs = array(
             array(
                 'identifier' => 'content',
-                'name' => 'Contenuto',
+                'name' => ezpI18n::tr('editorialstuff/dashboard', 'Content'),
                 'template_uri' => "design:{$templatePath}/parts/content.tpl"
             )
         );
@@ -25,7 +25,7 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
         {
             $tabs[] = array(
                 'identifier' => 'media',
-                'name' => 'Media',
+                'name' => ezpI18n::tr('editorialstuff/dashboard', 'Media'),
                 'template_uri' => "design:{$templatePath}/parts/media.tpl"
             );
         }
@@ -35,7 +35,7 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
         {
             $tabs[] = array(
                 'identifier' => 'mail',
-                'name' => 'Mail',
+                'name' => ezpI18n::tr('editorialstuff/dashboard', 'Mail'),
                 'template_uri' => "design:{$templatePath}/parts/mail.tpl"
             );
         }
@@ -44,13 +44,13 @@ class OCEditorialStuffPostDefault extends OCEditorialStuffPostChangeStateDeferre
         {
             $tabs[] = array(
                 'identifier' => 'social',
-                'name' => 'Social Network',
+                'name' => ezpI18n::tr('editorialstuff/dashboard', 'Social Network'),
                 'template_uri' => "design:{$templatePath}/parts/social.tpl"
             );
         }
         $tabs[] = array(
             'identifier' => 'history',
-            'name' => 'Cronologia',
+            'name' => ezpI18n::tr('editorialstuff/dashboard', 'History'),
             'template_uri' => "design:{$templatePath}/parts/history.tpl"
         );
         return $tabs;

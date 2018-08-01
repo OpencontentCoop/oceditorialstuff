@@ -54,25 +54,25 @@
   <div class="well">
     <form action="{concat('editorialstuff/send_mail/', $factory_identifier, '/',$post.object.id)|ezurl(no)}" method="post">
       <div class="form-group">
-        <label for="extra_recipients" style="display: block">Destinatari</label>        
-        <input type="text" class="form-control" id="typeahead" placeholder="Cerca utente">
-        <p class="help-block">Inserisci un indirizzo email per riga.</p>
+        <label for="extra_recipients" style="display: block">{'Receivers'|i18n('editorialstuff/dashboard')}</label>
+        <input type="text" class="form-control" id="typeahead" placeholder="{'Search user'|i18n('editorialstuff/dashboard')}">
+        <p class="help-block">{'Enter an email address per line'|i18n('editorialstuff/dashboard')}</p>
         <textarea id="extra_recipients" class="form-control" rows="3" name="ExtraRecipients"></textarea>
       </div>
       <div class="form-group">
-        <label for="message" class="control-label">Messaggio</label>
-        <p class="help-block">Opzionale: compare all'inizio del messaggio.</p>
+        <label for="message" class="control-label">{'Message'|i18n('editorialstuff/dashboard')}</label>
+        <p class="help-block">{'Optional: appears at the beginning of the message.'|i18n('editorialstuff/dashboard')}</p>
         <textarea id="message" class="form-control" rows="3" name="Message"></textarea>
       </div>
       {if count($post.states)}
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="AddApproveButton"> Includi funzioni di approvazione          
+          <input type="checkbox" name="AddApproveButton"> {'Include approval features'|i18n('editorialstuff/dashboard')}
         </label>
       </div>
       {/if}
       <div class="clearfix">
-        <button type="submit" class="btn btn-warning btn-lg pull-right">Invia mail</button>
+        <button type="submit" class="btn btn-warning btn-lg pull-right">{'Send email'|i18n('editorialstuff/dashboard')}</button>
       </div>
     </form>
   </div>
@@ -81,11 +81,11 @@
   <div class="table-responsive">
     <table class="table table-striped">
       <tr>    
-          <th>Data</th>
-		  <th>Mittente</th>
-          <th>Destinatari</th>
-          <th>Messaggio</th>        
-          <th>Errori</th>        
+          <th>{'Date'|i18n('editorialstuff/dashboard')}</th>
+		  <th>{'Sender'|i18n('editorialstuff/dashboard')}</th>
+          <th>{'Receivers'|i18n('editorialstuff/dashboard')}</th>
+          <th>{'Message'|i18n('editorialstuff/dashboard')}</th>
+          <th>{'Errors'|i18n('editorialstuff/dashboard')}</th>
       </tr>
       {foreach $post.notification_history as $item}
 	  <tr{if count($item.params.errors)|gt(0)} class="danger"{/if}>

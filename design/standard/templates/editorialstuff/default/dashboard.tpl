@@ -8,14 +8,14 @@
             {/if}
 
             <div class="form-group">
-                <input type="text" class="form-control" name="query" placeholder="Ricerca libera"
+                <input type="text" class="form-control" name="query" placeholder="{'Search'|i18n('editorialstuff/dashboard')}"
                        value="{$view_parameters.query|wash()}"/>
             </div>
 
             {if $states|count()}
             <div class="form-group">
                 <select class="form-control" name="state" id="dashboard-state-select">
-                    <option value="">Tutti</option>
+                    <option value="">{'All'|i18n('editorialstuff/dashboard')}</option>
                     {foreach $states as $state}
                         <option value="{$state.id}" {if $view_parameters.state|eq($state.id)} selected="selected"{/if} >{$state.current_translation.name|wash}</option>
                     {/foreach}
@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 <select class="form-control" name="interval" id="dashboard-interval-select">
-                    <option value="">Periodo</option>
+                    <option value="">{'Period'|i18n('editorialstuff/dashboard')}</option>
                     {foreach $intervals as $interval}
                         <option value="{$interval.value}" {if $view_parameters.interval|eq($interval.value)} selected="selected"{/if}>{$interval.name|wash()}</option>
                     {/foreach}
@@ -48,7 +48,7 @@
               </select>
             </div> *}
 
-            <button type="submit" class="btn btn-info" id="dashboard-search-button">Cerca</button>
+            <button type="submit" class="btn btn-info" id="dashboard-search-button">{'Search'|i18n('editorialstuff/dashboard')}</button>
         </form>
     </div>
 </div>
@@ -71,18 +71,18 @@
     <table class="table table-striped" cellpadding="0" cellspacing="0" border="0">
       <tr>
         <th><small></small></th>
-        <th><small>Autore</small></th>
-        <th><small>Data</small></th>
-          {if $states|count()}<th><small>Stato</small></th>{/if}
-        <th><small>Titolo</small></th>
+        <th><small>{'Author'|i18n('editorialstuff/dashboard')}</small></th>
+        <th><small>{'Date'|i18n('editorialstuff/dashboard')}</small></th>
+          {if $states|count()}<th><small>{'State'|i18n('editorialstuff/dashboard')}</small></th>{/if}
+        <th><small>{'Title'|i18n('editorialstuff/dashboard')}</small></th>
         {*<th><small></small></th>*}
       </tr>
     {foreach $posts as $post}
       <tr>
 
           <td class="text-center">            
-            <a href="{concat( 'editorialstuff/edit/', $factory_identifier, '/', $post.object.id )|ezurl('no')}" title="Dettaglio" class="btn btn-info">
-                Dettaglio
+            <a href="{concat( 'editorialstuff/edit/', $factory_identifier, '/', $post.object.id )|ezurl('no')}" title="{'Detail'|i18n('editorialstuff/dashboard')}" class="btn btn-info">
+                {'Detail'|i18n('editorialstuff/dashboard')}
             </a>            
           </td>
           
