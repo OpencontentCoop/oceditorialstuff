@@ -20,7 +20,7 @@ $(document).ready(function () {
         });
     }
     if (jQuery.fn.tabdrop !== undefined) {
-        $('.nav-pills, .nav-tabs').tabdrop();
+        $('.nav-tabs').tabdrop();
     }
 
     $('#dashboard-filters-container').find('select').change( function() {
