@@ -2,13 +2,6 @@
 
 class OCEditorialStuffNotificationRule extends eZPersistentObject
 {
-    /*!
-     Constructor
-    */
-    function OCEditorialStuffNotificationRule( $row )
-    {
-        $this->eZPersistentObject( $row );
-    }
 
     static function definition()
     {
