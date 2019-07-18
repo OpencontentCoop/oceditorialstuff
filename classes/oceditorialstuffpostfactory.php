@@ -144,7 +144,7 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
      */
     final public function states()
     {
-        if ( !isset( self::$states[get_called_class()] ) )
+        if ( !isset( self::$states[$this->identifier()] ) )
         {
             $groupIdentifier = $this->stateGroupIdentifier();
             $stateIdentifiers = $this->stateIdentifiers();
@@ -221,9 +221,9 @@ abstract class OCEditorialStuffPostFactory implements OCEditorialStuffPostFactor
                 }
             }
 
-            self::$states[get_called_class()] = $states;
+            self::$states[$this->identifier()] = $states;
         }
-        return self::$states[get_called_class()];
+        return self::$states[$this->identifier()];
     }
 
     /**
