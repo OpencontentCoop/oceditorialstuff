@@ -1,1 +1,1 @@
-Rimosso video {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
+{'Remove video'|i18n('editorialstuff/mail')}  {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}

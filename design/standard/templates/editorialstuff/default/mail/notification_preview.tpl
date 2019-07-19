@@ -1,22 +1,22 @@
 <tr>
-    <th style="text-align;left">Link alla dashboard</th>
+    <th style="text-align;left">{'Dashboard'|i18n('editorialstuff/mail')}</th>
     <td>
         <a href="{$post.editorial_url|ezurl(no,full)}">{$post.object.name|wash()}</a>
     </td>
 </tr>
 
 <tr>
-    <th style="text-align;left">Autore</th>
+    <th style="text-align;left">{'Author'|i18n('editorialstuff/mail')}</th>
     <td>
         {if $post.object.owner}{$post.object.owner.name|wash()}{else}?{/if}
     </td>
 </tr>
 <tr>
-    <th style="text-align;left">Data di pubblicazione</th>
+    <th style="text-align;left">{'Publication date'|i18n('editorialstuff/mail')}</th>
     <td>
         <p>{$post.object.published|l10n(shortdatetime)}</p>
         {if $post.object.current_version|gt(1)}
-            <small>Ultima modifica di {$post.object.main_node.creator.name} il {$post.object.modified|l10n(shortdatetime)}</small>
+            <small>{'Last editor'|i18n('editorialstuff/dashboard')} {$post.object.main_node.creator.name} {$post.object.modified|l10n(shortdatetime)}</small>
         {/if}
     </td>
 </tr>

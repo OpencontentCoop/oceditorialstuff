@@ -79,13 +79,13 @@
         <table border='0' cellpadding='30' cellspacing='0' style='margin-left: auto;margin-right: auto;width:600px;text-align:center;' width='600'>
           <tr>
             <td>
-              <h2>Vuoi cambiare lo stato del contenuto?</h2>
-              <p>Lo stato corrente è <strong>{$post.current_state.current_translation.name|wash}</strong></p>
+              <h2>{'Do you want to change the content state?'|i18n('editorialstuff/mail')}</h2>
+              <p>{'The current state is'|i18n('editorialstuff/mail')} <strong>{$post.current_state.current_translation.name|wash}</strong></p>
               {foreach $post.states as $key => $state}                                                                                    
                 {if $state.id|eq( $post.current_state.id )}              
                 {elseif $current_user_allowed_assign_state_id_list|contains($state.id)}
-                  <p><a title="Clicca per impostare lo stato a {$state.current_translation.name|wash}" href="{concat( '/ufficiostampa/state_assign/', $key, "/", $post.object.id )|ezurl(no,full)}">
-                    Imposta lo stato a <strong>{$state.current_translation.name|wash}</strong>
+                  <p><a title="{'Change state to'|i18n('editorialstuff/mail')} {$state.current_translation.name|wash}" href="{concat( '/editorialstuff/state_assign/', $key, "/", $post.object.id )|ezurl(no,full)}">
+                      {'Change state to'|i18n('editorialstuff/mail')} <strong>{$state.current_translation.name|wash}</strong>
                   </a></p>                              
                 {/if}                              
               {/foreach}                                                    

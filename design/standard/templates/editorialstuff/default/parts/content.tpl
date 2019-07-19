@@ -54,16 +54,16 @@
         <div class="col-md-9">
             <p>{$post.object.published|l10n(shortdatetime)}</p>
             {if $post.object.current_version|gt(1)}
-                <small>Ultima modifica di <a
+                <small>{'Last editor'|i18n('editorialstuff/dashboard')} <a
                             href={$post.object.main_node.creator.main_node.url_alias|ezurl}>{$post.object.main_node.creator.name}</a>
-                    il {$post.object.modified|l10n(shortdatetime)}</small>
+                     {$post.object.modified|l10n(shortdatetime)}</small>
             {/if}
         </div>
     </div>
 
 
     <div class="row edit-row">
-        <div class="col-md-3"><strong><em>{'Collocations'|i18n('editorialstuff/dashboard')}</em></strong></div>
+        <div class="col-md-3"><strong><em>{'Locations'|i18n('editorialstuff/dashboard')}</em></strong></div>
         <div class="col-md-9">
             <ul class="list-unstyled">
                 {foreach $post.object.assigned_nodes as $item}

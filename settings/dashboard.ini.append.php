@@ -1,5 +1,4 @@
-<?php /* #?ini charset="utf-8"?
-
+<?php /*
 
 [DashboardSettings]
 DashboardBlocks[]=editorialstuff
@@ -7,3 +6,5 @@ DashboardBlocks[]=editorialstuff
 [DashboardBlock_editorialstuff]
 Priority=1
 PolicyList[]=editorialstuff/dashboard
+
+*/ ?>

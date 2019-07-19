@@ -6,8 +6,7 @@
                 <form method="post" action="{"content/action"|ezurl(no)}" style="display: inline;">
                     <input type="hidden" name="ContentObjectLanguageCode"
                            value="{ezini( 'RegionalSettings', 'ContentObjectLocale', 'site.ini')}"/>
-                    <button class="btn btn-info btn-lg" type="submit" name="EditButton">Modifica
-                    </button>
+                    <button class="btn btn-info btn-lg" type="submit" name="EditButton">{'Edit'|i18n('editorialstuff/dashboard')}</button>
                     <input type="hidden" name="HasMainAssignment" value="1"/>
                     <input type="hidden" name="ContentObjectID" value="{$post.object.id}"/>
                     <input type="hidden" name="NodeID" value="{$post.node.node_id}"/>
@@ -36,7 +35,7 @@
                data-toggle="modal"
                data-load-remote="{concat( 'layout/set/modal/content/view/full/', $post.object.main_node_id )|ezurl('no')}"
                data-remote-target="#preview .modal-content" href="#{*$post.url*}"
-               data-target="#preview">Anteprima</a>
+               data-target="#preview">{'Preview'|i18n('editorialstuff/dashboard')}</a>
         </div>
     </div>
 
@@ -44,27 +43,27 @@
 
 
     <div class="Grid Grid--withGutter u-padding-all-s">
-        <div class="Grid-cell u-size2of12"><strong><em>Autore</em></strong></div>
+        <div class="Grid-cell u-size2of12"><strong><em>{'Author'|i18n('editorialstuff/dashboard')}</em></strong></div>
         <div class="Grid-cell u-size10of12">
             {if $post.object.owner}{$post.object.owner.name|wash()}{else}?{/if}
         </div>
     </div>
 
     <div class="Grid Grid--withGutter u-padding-all-s">
-        <div class="Grid-cell u-size2of12"><strong><em>Data di pubblicazione</em></strong></div>
+        <div class="Grid-cell u-size2of12"><strong><em>{'Publication date'|i18n('editorialstuff/dashboard')}</em></strong></div>
         <div class="Grid-cell u-size10of12">
             <p>{$post.object.published|l10n(shortdatetime)}</p>
             {if $post.object.current_version|gt(1)}
-                <small>Ultima modifica di <a
+                <small>{'Last editor'|i18n('editorialstuff/dashboard')} <a
                             href={$post.object.main_node.creator.main_node.url_alias|ezurl}>{$post.object.main_node.creator.name}</a>
-                    il {$post.object.modified|l10n(shortdatetime)}</small>
+                     {$post.object.modified|l10n(shortdatetime)}</small>
             {/if}
         </div>
     </div>
 
 
     <div class="Grid Grid--withGutter u-padding-all-s">
-        <div class="Grid-cell u-size2of12"><strong><em>Collocazioni</em></strong></div>
+        <div class="Grid-cell u-size2of12"><strong><em>{'Locations'|i18n('editorialstuff/dashboard')}</em></strong></div>
         <div class="Grid-cell u-size10of12">
             <ul class="list-unstyled">
                 {foreach $post.object.assigned_nodes as $item}

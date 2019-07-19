@@ -1,1 +1,1 @@
-Rimossa immagine {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
+{'Remove image'|i18n('editorialstuff/mail')}  {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
