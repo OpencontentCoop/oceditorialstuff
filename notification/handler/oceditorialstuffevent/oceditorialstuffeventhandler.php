@@ -4,7 +4,7 @@ class OCEditorialStuffEventHandler extends eZNotificationEventHandler
 {
     const NOTIFICATION_HANDLER_ID = 'editorialstuff';
 
-    public function __construct( $idString, $name )
+    public function __construct()
     {
         parent::__construct(self::NOTIFICATION_HANDLER_ID, self::NOTIFICATION_HANDLER_ID);
     }
