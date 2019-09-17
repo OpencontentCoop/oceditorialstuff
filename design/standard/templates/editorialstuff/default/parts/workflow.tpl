@@ -7,12 +7,12 @@
   {/if*}
   {set $index = $index|inc()}
   {if $state.id|eq( $post.current_state.id )}
-    <span title="Lo stato corrente è {$state.current_translation.name|wash}" data-toggle="tooltip" data-placement="top" class="btn btn-success btn-block btn-lg has-tooltip" style="overflow: hidden; text-overflow: ellipsis;">
+    <span title="{'Current state is'|i18n('editorialstuff/dashboard')} {$state.current_translation.name|wash}" data-toggle="tooltip" data-placement="top" class="btn btn-success btn-block btn-lg has-tooltip" style="overflow: hidden; text-overflow: ellipsis;">
       {$state.current_translation.name|wash}
     </span>
   {else}
     {if $post.object.allowed_assign_state_id_list|contains($state.id)}
-    <a title="Clicca per impostare lo stato a {$state.current_translation.name|wash}" data-toggle="tooltip" data-placement="top" class="btn btn-info btn-block  btn-lg has-tooltip" href="{concat('editorialstuff/state_assign/', $factory_identifier, '/', $key, "/", $post.object.id )|ezurl(no)}" style="overflow: hidden; text-overflow: ellipsis;">
+    <a title="{'Change state to'|i18n('editorialstuff/dashboard')} {$state.current_translation.name|wash}" data-toggle="tooltip" data-placement="top" class="btn btn-info btn-block  btn-lg has-tooltip" href="{concat('editorialstuff/state_assign/', $factory_identifier, '/', $key, "/", $post.object.id )|ezurl(no)}" style="overflow: hidden; text-overflow: ellipsis;">
       {$state.current_translation.name|wash}
     </a>
     {else}

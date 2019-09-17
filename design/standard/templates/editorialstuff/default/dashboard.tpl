@@ -24,10 +24,10 @@
             {/if}
 
             {def $intervals = array(
-                hash( 'value', '-P1D', 'name', 'Ultimo giorno' ),
-                hash( 'value', '-P1W', 'name', 'Ultimi 7 giorni' ),
-                hash( 'value', '-P1M', 'name', 'Ultimi 30 giorni' ),
-                hash( 'value', '-P2M', 'name', 'Ultimi 2 mesi' )
+                hash( 'value', '-P1D', 'name', 'Last day'|i18n('editorialstuff/dashboard') ),
+                hash( 'value', '-P1W', 'name', 'Last 7 days'|i18n('editorialstuff/dashboard') ),
+                hash( 'value', '-P1M', 'name', 'Last 30 days'|i18n('editorialstuff/dashboard') ),
+                hash( 'value', '-P2M', 'name', 'Last two months'|i18n('editorialstuff/dashboard') )
             )}
 
             <div class="form-group">
@@ -120,7 +120,7 @@
 </div>
 
 {else}
-<div class="alert alert-warning">Nessun contenuto</div>
+<div class="alert alert-warning">{"No content"|i18n( "extension/eztags/tags/view" )}</div>
 {/if}
 
 <div id="preview" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="previewlLabel" aria-hidden="true">

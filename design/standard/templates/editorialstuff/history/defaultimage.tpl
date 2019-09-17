@@ -1,1 +1,1 @@
-Impostata immagine default {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}
+{'Set default image'|i18n('editorialstuff/mail')} {cond( and( is_set( $item.parameters.name ), $item.parameters.name|null|not() ), $item.parameters.name, $item.parameters.object_id )}

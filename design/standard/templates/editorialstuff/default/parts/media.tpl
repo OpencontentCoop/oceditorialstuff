@@ -4,7 +4,7 @@
         <div class="col-xs-6 col-md-2">
             <form action="" enctype="multipart/form-data" method="post" id="upload-form">
               <span class="btn btn-info btn-lg fileinput-button">
-                <span>Nuovo</span>
+                <span>{'Add new'|i18n('editorialstuff/dashboard')}</span>
                 <input id="upload-media" type="file" name="MediaFile[]"
                        data-url="{concat('editorialstuff/media/', $factory_identifier, '/upload/', $post.object.id )|ezurl(no)}">
               </span>
@@ -16,7 +16,7 @@
         <div class="col-xs-6 col-md-2">
             <a class="btn btn-info btn-lg"
                href="{concat('editorialstuff/media/', $factory_identifier, '/browse/', $post.object.id )|ezurl(no)}">
-                Libreria
+                {'From library'|i18n('editorialstuff/dashboard')}
             </a>
         </div>
     </div>
