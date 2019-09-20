@@ -1,0 +1,153 @@
+<?php
+// This array contains the database schema
+$schema = array (
+  'oceditorialstuffhistory' => 
+  array (
+    'name' => 'oceditorialstuffhistory',
+    'fields' => 
+    array (
+      'created_time' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'handler' => 
+      array (
+        'length' => 50,
+        'type' => 'varchar',
+        'default' => NULL,
+      ),
+      'id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'object_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'params_serialized' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+      'type' => 
+      array (
+        'length' => 50,
+        'type' => 'varchar',
+        'default' => NULL,
+      ),
+      'user_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'default' => 0,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+      'oceditorialstuffhistory_handler' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'handler',
+        ),
+      ),
+      'oceditorialstuffhistory_object_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'object_id',
+        ),
+      ),
+      'oceditorialstuffhistory_user_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'user_id',
+        ),
+      ),
+    ),
+  ),
+  'oceditorialstuffnotificationrule' => 
+  array (
+    'name' => 'oceditorialstuffnotificationrule',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'post_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'type' => 
+      array (
+        'length' => 50,
+        'type' => 'varchar',
+        'default' => NULL,
+      ),
+      'use_digest' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'user_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+      'oceditorialstuffnotificationrule_user_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'user_id',
+        ),
+      ),
+    ),
+  ),
+  '_info' => 
+  array (
+    'format' => 'generic',
+  ),
+);
+
+?>
