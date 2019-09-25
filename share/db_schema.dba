@@ -20,10 +20,8 @@ $schema = array (
       ),
       'id' => 
       array (
-        'length' => 11,
-        'type' => 'int',
-        'not_null' => '1',
-        'default' => 0,
+        'type' => 'auto_increment',
+        'default' => false,
       ),
       'object_id' => 
       array (
@@ -92,10 +90,8 @@ $schema = array (
     array (
       'id' => 
       array (
-        'length' => 11,
-        'type' => 'int',
-        'not_null' => '1',
-        'default' => 0,
+        'type' => 'auto_increment',
+        'default' => false,
       ),
       'post_id' => 
       array (
