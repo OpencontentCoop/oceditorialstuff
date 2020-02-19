@@ -5,7 +5,7 @@
     <name>editorialstuff/dashboard</name>
     <message>
       <source>Search</source>
-      <translation>Ψάξιμο</translation>
+      <translation>Αναζήτηση</translation>
     </message>
     <message>
       <source>All</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
       <source>Author</source>
-      <translation>Συγγραφέας</translation>
+      <translation>Συντάκτης</translation>
     </message>
     <message>
       <source>Date</source>
@@ -41,11 +41,11 @@
     </message>
     <message>
       <source>Media</source>
-      <translation>Μεσο ΜΑΖΙΚΗΣ ΕΝΗΜΕΡΩΣΗΣ</translation>
+      <translation>ΜΜΕ</translation>
     </message>
     <message>
       <source>Mail</source>
-      <translation>Ταχυδρομείο</translation>
+      <translation>e-mail</translation>
     </message>
     <message>
       <source>Social Network</source>
@@ -65,11 +65,11 @@
     </message>
     <message>
       <source>Publication date</source>
-      <translation>Ημερομηνία έκδοσης</translation>
+      <translation>Ημερομηνία δημοσίευσης</translation>
     </message>
     <message>
       <source>Collocations</source>
-      <translation>Συνεγκαταστάσεων</translation>
+      <translation>Εγκαταστάσεις</translation>
     </message>
     <message>
       <source>Action</source>
@@ -77,7 +77,7 @@
     </message>
     <message>
       <source>Receivers</source>
-      <translation>δέκτες</translation>
+      <translation>Αποδέκτες</translation>
     </message>
     <message>
       <source>Search user</source>
@@ -93,15 +93,15 @@
     </message>
     <message>
       <source>Optional: appears at the beginning of the message.</source>
-      <translation>Προαιρετικό: Εμφανίζεται στην αρχή του μηνύματος.</translation>
+      <translation>Προαιρετικό: Εμφάνιση στην αρχή του μηνύματος</translation>
     </message>
     <message>
       <source>Include approval features</source>
-      <translation>Περιλαμβάνουν χαρακτηριστικά έγκριση</translation>
+      <translation>Χαρακτιριστικά έγκρισης</translation>
     </message>
     <message>
       <source>Send email</source>
-      <translation>Να στείλετε e-mail</translation>
+      <translation>Αποστολή e-mail</translation>
     </message>
     <message>
       <source>Sender</source>
@@ -109,7 +109,7 @@
     </message>
     <message>
       <source>Errors</source>
-      <translation>Λάθη</translation>
+      <translation>Σφάλματα</translation>
     </message>
     <message>
       <source>Last day</source>
@@ -129,7 +129,7 @@
     </message>
     <message>
       <source>Last editor</source>
-      <translation>τελευταία editor</translation>
+      <translation>τελευταία τροποίηση</translation>
     </message>
     <message>
       <source>Locations</source>
@@ -141,7 +141,7 @@
     </message>
     <message>
       <source>Change state to</source>
-      <translation>Αλλαγή κράτος να</translation>
+      <translation>Αλλαγή τροποποίησης</translation>
     </message>
     <message>
       <source>View on website</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
       <source>Close</source>
-      <translation>Κοντά</translation>
+      <translation>Κλείσε</translation>
     </message>
     <message>
       <source>Add new</source>
@@ -175,27 +175,27 @@
     <name>editorialstuff/mail</name>
     <message>
       <source>Do you want to change the content state?</source>
-      <translation>Θέλετε να αλλάξετε την κατάσταση περιεχόμενο;</translation>
+      <translation>Θέλετε να αλλάξετε το περιεχόμενο της κατάστασης;</translation>
     </message>
     <message>
       <source>The current state is</source>
-      <translation>Η σημερινή κατάσταση είναι</translation>
+      <translation>Η τρέχουσα κατάσταση είναι</translation>
     </message>
     <message>
       <source>Change state to</source>
-      <translation>Αλλαγή κράτος να</translation>
+      <translation>Αλλαγή κατάστασης σε</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Ταμπλό</translation>
+      <translation>Πίνακας</translation>
     </message>
     <message>
       <source>Author</source>
-      <translation>Συγγραφέας</translation>
+      <translation>Συντάκτης</translation>
     </message>
     <message>
       <source>Publication date</source>
-      <translation>Ημερομηνία έκδοσης</translation>
+      <translation>Ημερομηνία δημοσίευσης</translation>
     </message>
     <message>
       <source>Add audio</source>
@@ -203,7 +203,7 @@
     </message>
     <message>
       <source>Add image</source>
-      <translation>Προσθέστε εικόνα</translation>
+      <translation>Προσθήκη εικόνας</translation>
     </message>
     <message>
       <source>Add video</source>
@@ -215,7 +215,7 @@
     </message>
     <message>
       <source>Set default image audio</source>
-      <translation>Ορισμός προεπιλεγμένης ήχου εικόνας</translation>
+      <translation>Προεπιλεγμένη εικόνα, ήχος</translation>
     </message>
     <message>
       <source>Remove audio</source>
@@ -223,7 +223,7 @@
     </message>
     <message>
       <source>Remove image</source>
-      <translation>αφαίρεση της εικόνας</translation>
+      <translation>Κατάργηση εικόνας</translation>
     </message>
     <message>
       <source>Remove video</source>
@@ -231,15 +231,15 @@
     </message>
     <message>
       <source>Change state from</source>
-      <translation>Αλλαγή κράτος από</translation>
+      <translation>Αλλαγή κατάστασης από</translation>
     </message>
     <message>
       <source>to</source>
-      <translation>προς το</translation>
+      <translation>πρός</translation>
     </message>
     <message>
       <source>Notification about</source>
-      <translation>Γνωστοποίηση</translation>
+      <translation>Ειδοποίηση γιά</translation>
     </message>
     <message>
       <source>The content</source>
@@ -247,7 +247,7 @@
     </message>
     <message>
       <source>has been changed status</source>
-      <translation>έχει αλλάξει το καθεστώς</translation>
+      <translation>έχει αλλάξει η κατάσταση</translation>
     </message>
   </context>
 </TS>
