@@ -33,7 +33,7 @@
     </message>
     <message>
       <source>Detail</source>
-      <translation>Λεπτομέρεια</translation>
+      <translation>Λεπτομέρειες</translation>
     </message>
     <message>
       <source>Content</source>
@@ -141,11 +141,11 @@
     </message>
     <message>
       <source>Change state to</source>
-      <translation>Αλλαγή τροποποίησης</translation>
+      <translation>Αλλαγή κατάστασης</translation>
     </message>
     <message>
       <source>View on website</source>
-      <translation>Δείτε στην ιστοσελίδα</translation>
+      <translation>Εμφάνιση στην Ιστοσελίδα</translation>
     </message>
     <message>
       <source>Close</source>
