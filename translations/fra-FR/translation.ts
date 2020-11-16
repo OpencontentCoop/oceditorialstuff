@@ -5,159 +5,159 @@
     <name>editorialstuff/dashboard</name>
     <message>
       <source>Search</source>
-      <translation>Αναζήτηση</translation>
+      <translation>Chercher</translation>
     </message>
     <message>
       <source>All</source>
-      <translation>Ολα</translation>
+      <translation>Tout</translation>
     </message>
     <message>
       <source>Period</source>
-      <translation>Περίοδος</translation>
+      <translation>Période</translation>
     </message>
     <message>
       <source>Author</source>
-      <translation>Συντάκτης</translation>
+      <translation>Auteur</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Date</translation>
     </message>
     <message>
       <source>State</source>
-      <translation>κατάσταση</translation>
+      <translation>Etat</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Titre</translation>
     </message>
     <message>
       <source>Detail</source>
-      <translation>Λεπτομέρειες</translation>
+      <translation>Détail</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Περιεχόμενο</translation>
+      <translation>Contenu</translation>
     </message>
     <message>
       <source>Media</source>
-      <translation>ΜΜΕ</translation>
+      <translation>Médias</translation>
     </message>
     <message>
       <source>Mail</source>
-      <translation>e-mail</translation>
+      <translation>Courrier</translation>
     </message>
     <message>
       <source>Social Network</source>
-      <translation>Κοινωνικό δίκτυο</translation>
+      <translation>Réseau social</translation>
     </message>
     <message>
       <source>History</source>
-      <translation>Ιστορία</translation>
+      <translation>Histoire</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Éditer</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation>Προεπισκόπηση</translation>
+      <translation>Aperçu</translation>
     </message>
     <message>
       <source>Publication date</source>
-      <translation>Ημερομηνία δημοσίευσης</translation>
+      <translation>Date de publication</translation>
     </message>
     <message>
       <source>Collocations</source>
-      <translation>Εγκαταστάσεις</translation>
+      <translation>collocations</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation>Δράση</translation>
+      <translation>action</translation>
     </message>
     <message>
       <source>Receivers</source>
-      <translation>Αποδέκτες</translation>
+      <translation>récepteurs</translation>
     </message>
     <message>
       <source>Search user</source>
-      <translation>Αναζήτηση χρήστη</translation>
+      <translation>Recherche utilisateur</translation>
     </message>
     <message>
       <source>Enter an email address per line</source>
-      <translation>Πληκτρολογήστε μια διεύθυνση ηλεκτρονικού ταχυδρομείου ανά γραμμή</translation>
+      <translation>Entrez une adresse e-mail par ligne</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Μήνυμα</translation>
+      <translation>Message</translation>
     </message>
     <message>
       <source>Optional: appears at the beginning of the message.</source>
-      <translation>Προαιρετικό: Εμφάνιση στην αρχή του μηνύματος</translation>
+      <translation>Facultatif: apparaît au début du message.</translation>
     </message>
     <message>
       <source>Include approval features</source>
-      <translation>Χαρακτιριστικά έγκρισης</translation>
+      <translation>Inclure caractéristiques d'approbation</translation>
     </message>
     <message>
       <source>Send email</source>
-      <translation>Αποστολή e-mail</translation>
+      <translation>Envoyer email</translation>
     </message>
     <message>
       <source>Sender</source>
-      <translation>Αποστολέας</translation>
+      <translation>Expéditeur</translation>
     </message>
     <message>
       <source>Errors</source>
-      <translation>Σφάλματα</translation>
+      <translation>les erreurs</translation>
     </message>
     <message>
       <source>Last day</source>
-      <translation>Τελευταία μέρα</translation>
+      <translation>Dernier jour</translation>
     </message>
     <message>
       <source>Last 7 days</source>
-      <translation>Τελευταίες 7 ημέρες</translation>
+      <translation>Les 7 derniers jours</translation>
     </message>
     <message>
       <source>Last 30 days</source>
-      <translation>Τελευταίες 30 ημέρες</translation>
+      <translation>Les 30 derniers jours</translation>
     </message>
     <message>
       <source>Last two months</source>
-      <translation>Τελευταίων δύο μηνών</translation>
+      <translation>Les deux derniers mois</translation>
     </message>
     <message>
       <source>Last editor</source>
-      <translation>τελευταία τροποίηση</translation>
+      <translation>dernier éditeur</translation>
     </message>
     <message>
       <source>Locations</source>
-      <translation>τοποθεσίες</translation>
+      <translation>Emplacements</translation>
     </message>
     <message>
       <source>Current state is</source>
-      <translation>Η τρέχουσα κατάσταση είναι</translation>
+      <translation>L'état actuel est</translation>
     </message>
     <message>
       <source>Change state to</source>
-      <translation>Αλλαγή κατάστασης</translation>
+      <translation>Changement d'état de</translation>
     </message>
     <message>
       <source>View on website</source>
-      <translation>Εμφάνιση στην Ιστοσελίδα</translation>
+      <translation>Voir sur le site</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Κλείσε</translation>
+      <translation>proche</translation>
     </message>
     <message>
       <source>Add new</source>
-      <translation>Προσθεσε νεο</translation>
+      <translation>Ajouter un</translation>
     </message>
     <message>
       <source>From library</source>
-      <translation>από τη βιβλιοθήκη</translation>
+      <translation>bibliothèque</translation>
     </message>
     <message>
       <source>Current post title:</source>
@@ -212,90 +212,90 @@
     <name>agenda/dashboard</name>
     <message>
       <source>Add new</source>
-      <translation>Προσθεσε νεο</translation>
+      <translation>Ajouter un</translation>
     </message>
     <message>
       <source>From library</source>
-      <translation>από τη βιβλιοθήκη</translation>
+      <translation>bibliothèque</translation>
     </message>
   </context>
   <context>
     <name>editorialstuff/mail</name>
     <message>
       <source>Do you want to change the content state?</source>
-      <translation>Θέλετε να αλλάξετε το περιεχόμενο της κατάστασης;</translation>
+      <translation>Voulez-vous changer l'état contenu?</translation>
     </message>
     <message>
       <source>The current state is</source>
-      <translation>Η τρέχουσα κατάσταση είναι</translation>
+      <translation>L'état actuel est</translation>
     </message>
     <message>
       <source>Change state to</source>
-      <translation>Αλλαγή κατάστασης σε</translation>
+      <translation>Changement d'état de</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Πίνακας</translation>
+      <translation>Tableau de bord</translation>
     </message>
     <message>
       <source>Author</source>
-      <translation>Συντάκτης</translation>
+      <translation>Auteur</translation>
     </message>
     <message>
       <source>Publication date</source>
-      <translation>Ημερομηνία δημοσίευσης</translation>
+      <translation>Date de publication</translation>
     </message>
     <message>
       <source>Add audio</source>
-      <translation>Προσθήκη ήχου</translation>
+      <translation>audio Ajouter</translation>
     </message>
     <message>
       <source>Add image</source>
-      <translation>Προσθήκη εικόνας</translation>
+      <translation>Ajouter une image</translation>
     </message>
     <message>
       <source>Add video</source>
-      <translation>Προσθήκη βίντεο</translation>
+      <translation>Ajouter une vidéo</translation>
     </message>
     <message>
       <source>New version</source>
-      <translation>Νέα έκδοση</translation>
+      <translation>Nouvelle version</translation>
     </message>
     <message>
       <source>Set default image audio</source>
-      <translation>Προεπιλεγμένη εικόνα, ήχος</translation>
+      <translation>Set audio d'image par défaut</translation>
     </message>
     <message>
       <source>Remove audio</source>
-      <translation>Κατάργηση ήχου</translation>
+      <translation>Supprimer l'audio</translation>
     </message>
     <message>
       <source>Remove image</source>
-      <translation>Κατάργηση εικόνας</translation>
+      <translation>Supprimer l'image</translation>
     </message>
     <message>
       <source>Remove video</source>
-      <translation>Κατάργηση βίντεο</translation>
+      <translation>Supprimer la vidéo</translation>
     </message>
     <message>
       <source>Change state from</source>
-      <translation>Αλλαγή κατάστασης από</translation>
+      <translation>Changement d'état de</translation>
     </message>
     <message>
       <source>to</source>
-      <translation>πρός</translation>
+      <translation>à</translation>
     </message>
     <message>
       <source>Notification about</source>
-      <translation>Ειδοποίηση γιά</translation>
+      <translation>notification à propos de</translation>
     </message>
     <message>
       <source>The content</source>
-      <translation>Το περιεχόμενο</translation>
+      <translation>Le contenu</translation>
     </message>
     <message>
       <source>has been changed status</source>
-      <translation>έχει αλλάξει η κατάσταση</translation>
+      <translation>a été changé de statut</translation>
     </message>
   </context>
 </TS>

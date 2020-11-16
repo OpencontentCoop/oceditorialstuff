@@ -159,6 +159,54 @@
       <source>From library</source>
       <translation>Dalla libreria</translation>
     </message>
+    <message>
+      <source>Current post title:</source>
+      <translation>Titolo del contenuto:</translation>
+    </message>
+    <message>
+      <source>Current post url:</source>
+      <translation>Url del contenuto:</translation>
+    </message>
+    <message>
+      <source>Current post status:</source>
+      <translation>Stato corrente del contenuto:</translation>
+    </message>
+    <message>
+      <source>Dashboard url:</source>
+      <translation>Url della dashboard:</translation>
+    </message>
+    <message>
+      <source>Site url:</source>
+      <translation>Url del sito</translation>
+    </message>
+    <message>
+      <source>Mail customizations</source>
+      <translation>Personalizzazione dei messaggi email</translation>
+    </message>
+    <message>
+      <source>If the field is empty, the default text will be sent</source>
+      <translation>Se il valore non è popolato, verrà inviato il messggio standard</translation>
+    </message>
+    <message>
+      <source>Placeholders:</source>
+      <translation>Segnaposto:</translation>
+    </message>
+    <message>
+      <source>Before state</source>
+      <translation>Stato precedente</translation>
+    </message>
+    <message>
+      <source>After state</source>
+      <translation>Stato corrente</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Titolo della mail</translation>
+    </message>
+    <message>
+      <source>Body</source>
+      <translation>Corpo della mail</translation>
+    </message>
   </context>
   <context>
     <name>agenda/dashboard</name>

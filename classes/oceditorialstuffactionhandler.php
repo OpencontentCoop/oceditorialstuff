@@ -85,6 +85,14 @@ class OCEditorialStuffActionHandler
         return self::$_instances[$factoryClassName];
     }
 
+    /**
+     * @return array
+     */
+    public function getFactoryActionConfiguration()
+    {
+        return $this->factoryActionConfiguration;
+    }
+
     public function handleChangeState(
         OCEditorialStuffPost $post,
         eZContentObjectState $beforeState,
@@ -219,7 +227,8 @@ class OCEditorialStuffActionHandler
                         $templatePath,
                         array(
                             'post' => $post,
-                            'change_state_identifier' => self::$currentStateChange
+                            'change_state_identifier' => self::$currentStateChange,
+                            'action_identifier' => self::$currentStateChange . '_OCEditorialStuffActionHandler::notifyOwner'
                         )
                     ) )
                     {
@@ -294,7 +303,8 @@ class OCEditorialStuffActionHandler
                     $templatePath,
                     array(
                         'post' => $post,
-                        'change_state_identifier' => self::$currentStateChange
+                        'change_state_identifier' => self::$currentStateChange,
+                        'action_identifier' => self::$currentStateChange . '_OCEditorialStuffActionHandler::notifyGroup'
                     )
                 ) )
                 {

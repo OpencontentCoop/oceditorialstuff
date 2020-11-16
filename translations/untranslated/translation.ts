@@ -159,6 +159,54 @@
       <source>From library</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Current post title:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current post url:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current post status:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard url:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site url:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail customizations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If the field is empty, the default text will be sent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Placeholders:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Before state</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After state</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>agenda/dashboard</name>

@@ -86,6 +86,12 @@ $ViewList['data'] = array(
     'unordered_params' => array()
 );
 
+$ViewList['config'] = array(
+    'functions' => array( 'config' ),
+    'script' => 'config.php',
+    'params' => array( 'FactoryIdentifier' ),
+    'unordered_params' => array()
+);
 
 $FunctionList = array();
 $FunctionList['dashboard'] = array();
@@ -94,3 +100,4 @@ $FunctionList['media'] = array();
 $FunctionList['mail'] = array();
 $FunctionList['file'] = array();
 $FunctionList['download'] = array();
+$FunctionList['config'] = array();

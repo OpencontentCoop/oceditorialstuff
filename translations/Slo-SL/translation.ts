@@ -5,159 +5,159 @@
     <name>editorialstuff/dashboard</name>
     <message>
       <source>Search</source>
-      <translation>Αναζήτηση</translation>
+      <translation>Iskanje</translation>
     </message>
     <message>
       <source>All</source>
-      <translation>Ολα</translation>
+      <translation>vsi</translation>
     </message>
     <message>
       <source>Period</source>
-      <translation>Περίοδος</translation>
+      <translation>obdobje</translation>
     </message>
     <message>
       <source>Author</source>
-      <translation>Συντάκτης</translation>
+      <translation>Avtor</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Ημερομηνία</translation>
+      <translation>Datum</translation>
     </message>
     <message>
       <source>State</source>
-      <translation>κατάσταση</translation>
+      <translation>Država</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Τίτλος</translation>
+      <translation>Naslov</translation>
     </message>
     <message>
       <source>Detail</source>
-      <translation>Λεπτομέρειες</translation>
+      <translation>Podrobnosti</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Περιεχόμενο</translation>
+      <translation>vsebina</translation>
     </message>
     <message>
       <source>Media</source>
-      <translation>ΜΜΕ</translation>
+      <translation>mediji</translation>
     </message>
     <message>
       <source>Mail</source>
-      <translation>e-mail</translation>
+      <translation>mail</translation>
     </message>
     <message>
       <source>Social Network</source>
-      <translation>Κοινωνικό δίκτυο</translation>
+      <translation>Socialno omrežje</translation>
     </message>
     <message>
       <source>History</source>
-      <translation>Ιστορία</translation>
+      <translation>Zgodovina</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Επεξεργασία</translation>
+      <translation>Uredi</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation>Προεπισκόπηση</translation>
+      <translation>predogled</translation>
     </message>
     <message>
       <source>Publication date</source>
-      <translation>Ημερομηνία δημοσίευσης</translation>
+      <translation>datum objave</translation>
     </message>
     <message>
       <source>Collocations</source>
-      <translation>Εγκαταστάσεις</translation>
+      <translation>kolokacije</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation>Δράση</translation>
+      <translation>Ukrep</translation>
     </message>
     <message>
       <source>Receivers</source>
-      <translation>Αποδέκτες</translation>
+      <translation>sprejemniki</translation>
     </message>
     <message>
       <source>Search user</source>
-      <translation>Αναζήτηση χρήστη</translation>
+      <translation>uporabnik iskanje</translation>
     </message>
     <message>
       <source>Enter an email address per line</source>
-      <translation>Πληκτρολογήστε μια διεύθυνση ηλεκτρονικού ταχυδρομείου ανά γραμμή</translation>
+      <translation>Vnesite e-poštni naslov na vrstico</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Μήνυμα</translation>
+      <translation>sporočilo</translation>
     </message>
     <message>
       <source>Optional: appears at the beginning of the message.</source>
-      <translation>Προαιρετικό: Εμφάνιση στην αρχή του μηνύματος</translation>
+      <translation>Neobvezno: se pojavi na začetku sporočila.</translation>
     </message>
     <message>
       <source>Include approval features</source>
-      <translation>Χαρακτιριστικά έγκρισης</translation>
+      <translation>Vključi funkcije odobritev</translation>
     </message>
     <message>
       <source>Send email</source>
-      <translation>Αποστολή e-mail</translation>
+      <translation>Pošlji sporočilo</translation>
     </message>
     <message>
       <source>Sender</source>
-      <translation>Αποστολέας</translation>
+      <translation>pošiljatelj</translation>
     </message>
     <message>
       <source>Errors</source>
-      <translation>Σφάλματα</translation>
+      <translation>napake</translation>
     </message>
     <message>
       <source>Last day</source>
-      <translation>Τελευταία μέρα</translation>
+      <translation>Zadnjič</translation>
     </message>
     <message>
       <source>Last 7 days</source>
-      <translation>Τελευταίες 7 ημέρες</translation>
+      <translation>Zadnjih 7 dni</translation>
     </message>
     <message>
       <source>Last 30 days</source>
-      <translation>Τελευταίες 30 ημέρες</translation>
+      <translation>Zadnjih 30 dni</translation>
     </message>
     <message>
       <source>Last two months</source>
-      <translation>Τελευταίων δύο μηνών</translation>
+      <translation>Zadnja dva meseca</translation>
     </message>
     <message>
       <source>Last editor</source>
-      <translation>τελευταία τροποίηση</translation>
+      <translation>Zadnja urednik</translation>
     </message>
     <message>
       <source>Locations</source>
-      <translation>τοποθεσίες</translation>
+      <translation>lokacije</translation>
     </message>
     <message>
       <source>Current state is</source>
-      <translation>Η τρέχουσα κατάσταση είναι</translation>
+      <translation>Trenutno stanje je</translation>
     </message>
     <message>
       <source>Change state to</source>
-      <translation>Αλλαγή κατάστασης</translation>
+      <translation>Sprememba država</translation>
     </message>
     <message>
       <source>View on website</source>
-      <translation>Εμφάνιση στην Ιστοσελίδα</translation>
+      <translation>Pogled na spletno stran</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation>Κλείσε</translation>
+      <translation>Zapri</translation>
     </message>
     <message>
       <source>Add new</source>
-      <translation>Προσθεσε νεο</translation>
+      <translation>Dodaj novo</translation>
     </message>
     <message>
       <source>From library</source>
-      <translation>από τη βιβλιοθήκη</translation>
+      <translation>iz knjižnice</translation>
     </message>
     <message>
       <source>Current post title:</source>
@@ -212,90 +212,90 @@
     <name>agenda/dashboard</name>
     <message>
       <source>Add new</source>
-      <translation>Προσθεσε νεο</translation>
+      <translation>Dodaj novo</translation>
     </message>
     <message>
       <source>From library</source>
-      <translation>από τη βιβλιοθήκη</translation>
+      <translation>iz knjižnice</translation>
     </message>
   </context>
   <context>
     <name>editorialstuff/mail</name>
     <message>
       <source>Do you want to change the content state?</source>
-      <translation>Θέλετε να αλλάξετε το περιεχόμενο της κατάστασης;</translation>
+      <translation>Ali želite spremeniti stanje vsebine?</translation>
     </message>
     <message>
       <source>The current state is</source>
-      <translation>Η τρέχουσα κατάσταση είναι</translation>
+      <translation>Trenutno stanje je</translation>
     </message>
     <message>
       <source>Change state to</source>
-      <translation>Αλλαγή κατάστασης σε</translation>
+      <translation>Sprememba država</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Πίνακας</translation>
+      <translation>Nadzorna plošča</translation>
     </message>
     <message>
       <source>Author</source>
-      <translation>Συντάκτης</translation>
+      <translation>Avtor</translation>
     </message>
     <message>
       <source>Publication date</source>
-      <translation>Ημερομηνία δημοσίευσης</translation>
+      <translation>datum objave</translation>
     </message>
     <message>
       <source>Add audio</source>
-      <translation>Προσθήκη ήχου</translation>
+      <translation>Dodaj avdio</translation>
     </message>
     <message>
       <source>Add image</source>
-      <translation>Προσθήκη εικόνας</translation>
+      <translation>Dodaj sliko</translation>
     </message>
     <message>
       <source>Add video</source>
-      <translation>Προσθήκη βίντεο</translation>
+      <translation>Dodaj video</translation>
     </message>
     <message>
       <source>New version</source>
-      <translation>Νέα έκδοση</translation>
+      <translation>Nova različica</translation>
     </message>
     <message>
       <source>Set default image audio</source>
-      <translation>Προεπιλεγμένη εικόνα, ήχος</translation>
+      <translation>Nastavi privzeto sliko avdio</translation>
     </message>
     <message>
       <source>Remove audio</source>
-      <translation>Κατάργηση ήχου</translation>
+      <translation>Odstranite avdio</translation>
     </message>
     <message>
       <source>Remove image</source>
-      <translation>Κατάργηση εικόνας</translation>
+      <translation>Odstrani sliko</translation>
     </message>
     <message>
       <source>Remove video</source>
-      <translation>Κατάργηση βίντεο</translation>
+      <translation>Odstrani video</translation>
     </message>
     <message>
       <source>Change state from</source>
-      <translation>Αλλαγή κατάστασης από</translation>
+      <translation>Spremeni stanje iz</translation>
     </message>
     <message>
       <source>to</source>
-      <translation>πρός</translation>
+      <translation>za</translation>
     </message>
     <message>
       <source>Notification about</source>
-      <translation>Ειδοποίηση γιά</translation>
+      <translation>obvestilo o</translation>
     </message>
     <message>
       <source>The content</source>
-      <translation>Το περιεχόμενο</translation>
+      <translation>Vsebina</translation>
     </message>
     <message>
       <source>has been changed status</source>
-      <translation>έχει αλλάξει η κατάσταση</translation>
+      <translation>se je spremenila stanje</translation>
     </message>
   </context>
 </TS>
