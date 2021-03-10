@@ -234,7 +234,10 @@ class OCEditorialStuffHistory extends eZPersistentObject
             $history[$time][] = array(
                 'action' => 'createversion',
                 'user' => $version['creator_id'],
-                'parameters' => array( 'version' => $version['version'] )
+                'parameters' => array(
+                    'version' => $version['version'],
+                    'language' => eZContentLanguage::fetch($version['initial_language_id']),
+                )
             );
         }
         ksort( $history );

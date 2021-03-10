@@ -1,1 +1,2 @@
-{'New version'|i18n('editorialstuff/mail')} <a href={concat( '/content/versionview/', $post.object.id, '/', $item.parameters.version )|ezurl}">{$item.parameters.version}</a>
+{if $item.parameters.language}<img style="vertical-align: middle" src="{$item.parameters.language.locale|flag_icon}" width="18" height="12" alt="{$item.parameters.language.locale}" /> {/if}
+{'New version'|i18n('editorialstuff/mail')} <a href="{concat( '/content/versionview/', $post.object.id, '/', $item.parameters.version )|ezurl(no)}">{$item.parameters.version}</a>
