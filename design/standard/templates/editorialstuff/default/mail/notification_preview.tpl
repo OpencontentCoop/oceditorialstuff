@@ -21,7 +21,7 @@
     </td>
 </tr>
 
-{if is_set($factory_configuration.NotificationAttributeIdentifiers)
+{if is_set($factory_configuration.NotificationAttributeIdentifiers)}
 
     {foreach $post.object.data_map as $identifier => $attribute}
         {if $factory_configuration.NotificationAttributeIdentifiers|contains( $identifier )}
