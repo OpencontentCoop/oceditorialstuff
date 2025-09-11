@@ -9,8 +9,21 @@ try
 {
     /** @var OCEditorialStuffPostInputActionInterface $post */
     $post = OCEditorialStuffHandler::instance( $factoryIdentifier, $_GET )->fetchByObjectId( $id );
-    if ( $post instanceof OCEditorialStuffPostInputActionInterface && $post->getObject()->attribute( 'can_edit' ) )
+    if ( $post instanceof OCEditorialStuffPostInputActionInterface )
     {
+        $canExecuteAction = $post->getObject()->attribute( 'can_edit' );
+        if ( $post instanceof OCEditorialStuffPostInputActionPermissionInterface )
+        {
+            $canExecuteAction = $post->canExecuteAction(
+                $http->postVariable('ActionIdentifier'),
+                $http->postVariable('ActionParameters', []),
+                $module
+            );
+        }
+        if ( !$canExecuteAction )
+        {
+            throw new Exception( 'Permission denied' );
+        }
         if ( $http->hasPostVariable( 'ActionIdentifier' ) && $http->hasPostVariable( $http->postVariable( 'ActionIdentifier' ) ) )
         {
             $post->executeAction(
