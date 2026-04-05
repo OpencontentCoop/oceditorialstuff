@@ -69,6 +69,7 @@ abstract class OCEditorialStuffPostNotifiable extends OCEditorialStuffPost
             }
             else
             {
+                // @phpstan-ignore arguments.count
                 eZDebug::writeError( "handler_method not found for type $type in " . get_called_class( $factory ) . "::notificationEventTypesConfiguration", __METHOD__  );
             }
         }

@@ -1,5 +1,6 @@
 <?php
 
+// @phpstan-ignore class.notFound
 class OCEditorialStuffPush extends ezjscoreNGPush
 {
     private static $noAccessResponse = array(
@@ -37,6 +38,7 @@ class OCEditorialStuffPush extends ezjscoreNGPush
 
                     case 'twitter':
                         $TwitterStatus = $http->postVariable( 'tw_status' );
+                        // @phpstan-ignore class.notFound
                         $response = ngPushTwitterStatus::push( $NGPushAccount, $TwitterStatus );
                         try
                         {
@@ -65,6 +67,7 @@ class OCEditorialStuffPush extends ezjscoreNGPush
                             'link' => $http->postVariable( 'fb_link' ),
                             'picture' => $http->postVariable( 'fb_picture' )
                         );
+                        // @phpstan-ignore class.notFound
                         $response = ngPushFacebookFeed::push( $NGPushAccount, $Arguments );
                         try
                         {

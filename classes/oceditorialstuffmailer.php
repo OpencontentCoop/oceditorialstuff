@@ -48,6 +48,7 @@ class OCEditorialStuffMailer
                 $tpl->resetVariables();
 
                 $tpl->setVariable( 'post', $post );
+                // @phpstan-ignore empty.variable
                 $tpl->setVariable( 'message', empty( $message ) ? false : $message );
                 $tpl->setVariable( 'factory_configuration', $post->getFactory()->getConfiguration() );
                 $tpl->setVariable( 'template_directory', $post->getFactory()->getTemplateDirectory() );
