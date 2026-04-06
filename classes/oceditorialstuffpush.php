@@ -1,6 +1,7 @@
 <?php
 
 // @phpstan-ignore class.notFound
+// @phpstan-ignore class.notFound
 class OCEditorialStuffPush extends ezjscoreNGPush
 {
     private static $noAccessResponse = array(
